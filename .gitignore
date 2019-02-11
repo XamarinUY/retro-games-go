@@ -3,3 +3,10 @@
 ################################################################################
 
 /.vs
+/packages
+/RetroGamesGo.Core/bin/Debug/netstandard2.0
+/RetroGamesGo.Core/obj
+/RetroGamesGo.Droid/bin/Debug
+/RetroGamesGo.Droid/obj
+/RetroGamesGo.iOS/bin/iPhoneSimulator/Debug
+/RetroGamesGo.iOS/obj
