@@ -48,7 +48,5 @@
 		<string>PressStart2P.ttf</string>
 		<string>SpaceMono-Bold.ttf</string>
 	</array>
-	<key>CFBundleIdentifier</key>
-	<string>com.glucosee.topsulin</string>
 </dict>
 </plist>

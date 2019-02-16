@@ -37,8 +37,6 @@
 
         public override Task Initialize()
         {
-            //return base.Initialize();
-
             return Task.Run(async () => 
             {
                 this.Characters = await this.characterRepository.GetAll();
