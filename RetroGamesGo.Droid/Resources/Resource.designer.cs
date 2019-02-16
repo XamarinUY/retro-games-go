@@ -4687,13 +4687,7 @@ namespace RetroGamesGo.Droid
 			global::PanCardView.Droid.Resource.Drawable.abc_textfield_search_material = global::RetroGamesGo.Droid.Resource.Drawable.abc_textfield_search_material;
 			global::PanCardView.Droid.Resource.Drawable.abc_vector_test = global::RetroGamesGo.Droid.Resource.Drawable.abc_vector_test;
 			global::PanCardView.Droid.Resource.Drawable.avd_hide_password = global::RetroGamesGo.Droid.Resource.Drawable.avd_hide_password;
-			global::PanCardView.Droid.Resource.Drawable.avd_hide_password_1 = global::RetroGamesGo.Droid.Resource.Drawable.avd_hide_password_1;
-			global::PanCardView.Droid.Resource.Drawable.avd_hide_password_2 = global::RetroGamesGo.Droid.Resource.Drawable.avd_hide_password_2;
-			global::PanCardView.Droid.Resource.Drawable.avd_hide_password_3 = global::RetroGamesGo.Droid.Resource.Drawable.avd_hide_password_3;
 			global::PanCardView.Droid.Resource.Drawable.avd_show_password = global::RetroGamesGo.Droid.Resource.Drawable.avd_show_password;
-			global::PanCardView.Droid.Resource.Drawable.avd_show_password_1 = global::RetroGamesGo.Droid.Resource.Drawable.avd_show_password_1;
-			global::PanCardView.Droid.Resource.Drawable.avd_show_password_2 = global::RetroGamesGo.Droid.Resource.Drawable.avd_show_password_2;
-			global::PanCardView.Droid.Resource.Drawable.avd_show_password_3 = global::RetroGamesGo.Droid.Resource.Drawable.avd_show_password_3;
 			global::PanCardView.Droid.Resource.Drawable.design_bottom_navigation_item_background = global::RetroGamesGo.Droid.Resource.Drawable.design_bottom_navigation_item_background;
 			global::PanCardView.Droid.Resource.Drawable.design_fab_background = global::RetroGamesGo.Droid.Resource.Drawable.design_fab_background;
 			global::PanCardView.Droid.Resource.Drawable.design_ic_visibility = global::RetroGamesGo.Droid.Resource.Drawable.design_ic_visibility;

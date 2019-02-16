@@ -107,6 +107,9 @@
     <PackageReference Include="Xamarin.Forms">
       <Version>3.5.0.129452</Version>
     </PackageReference>
+    <PackageReference Include="CardsView">
+      <Version>2.0.3</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RetroGamesGo.Core\RetroGamesGo.Core.csproj">
