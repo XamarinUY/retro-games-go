@@ -60,12 +60,15 @@ namespace RetroGamesGo.Service.Functions
             try
             {
                 var storageHelper = new StorageHelper(ConfigurationHelper.Configuration);
+                var localUser = await storageHelper.GetItemAsync<UserEntity>("Users", "Users", user.Email);
+                winner = localUser != null ? localUser.Winner : winner;
+
                 var userEntity = new UserEntity(user.Email)
                 {
                     Name = user.Name,
                     Document = user.Document,
                     CellPhone = user.CellPhone,
-                    Country = user.Country,  
+                    Country = user.Country,
                     Winner = winner
                 };
                 await storageHelper.AddUpdateAsync("Users", userEntity);
@@ -109,12 +112,11 @@ namespace RetroGamesGo.Service.Functions
                         Document = userEntity.Document,
                         Name = userEntity.Name,
                         CellPhone = userEntity.CellPhone,
-                        Country = userEntity.Country, 
+                        Country = userEntity.Country,
                     };
 
                     await SaveUser(user, true);
                 }
-                
 
                 return new OkObjectResult(new ServiceResponse<User>
                 {
