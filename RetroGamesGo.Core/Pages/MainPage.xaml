@@ -7,10 +7,11 @@
                       x:Class="RetroGamesGo.Core.Pages.MainPage"
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
                       Title="Main">
-
+          
     <StackLayout BackgroundColor="White" 
                  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="0">
 
+        <Button Command="{Binding ShowArCameraCommand}" Text="AR" VerticalOptions="Center" HorizontalOptions="Center"/>
     </StackLayout>
 
 </views:MvxContentPage>

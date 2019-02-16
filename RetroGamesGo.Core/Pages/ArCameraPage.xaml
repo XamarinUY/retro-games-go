@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:ArCameraViewModel"
+                      xmlns="http://xamarin.com/schemas/2014/forms" 
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+                      x:Class="RetroGamesGo.Core.Pages.ArCameraPage"
+                      xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
+                      xmlns:controls="clr-namespace:RetroGamesGo.Core.Controls;assembly=RetroGamesGo.Core"
+                      Title="Capture!">
+
+    <views:MvxContentPage.Content>
+        <controls:ArView  VerticalOptions="FillAndExpand"/>
+    </views:MvxContentPage.Content>
+
+</views:MvxContentPage>
