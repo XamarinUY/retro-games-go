@@ -13,6 +13,15 @@ namespace RetroGamesGo.Core.Repositories
         public CharacterRepository(IDatabase<Character> db = null)
         {
             database = db ?? Mvx.IoCProvider.Resolve<IDatabase<Character>>();
+
+            Task.Run(async () => 
+            {
+                var character = await database.Select();
+                if (character.Count == 0)
+                {
+                    await this.CreateCharacters();
+                }
+            });
         }
 
         public async Task<int> AddCharacter(Character character)
@@ -75,7 +84,6 @@ namespace RetroGamesGo.Core.Repositories
             }
         }
 
-
         public Task<int> DeleteCharacter(Character character)
         {
             throw new NotImplementedException();
@@ -91,6 +99,43 @@ namespace RetroGamesGo.Core.Repositories
             {
                 throw new RepositoryException("The characters registers could not be deleted");
             }
+        }
+
+        private async Task CreateCharacters()
+        {
+            await this.AddCharacter(new Models.Character()
+            {
+                Id = Guid.NewGuid(),
+                Number = 1,
+                Name = "Super Mario Bros.",
+                Description = "Description 1",
+                FunFact = "fun",
+                Picture = "marioBros.png",
+                Silhouette = "marioBrosSilhouette.png",
+                Url = "http:lala.mario.com"
+            });
+            await this.AddCharacter(new Models.Character()
+            {
+                Id = Guid.NewGuid(),
+                Number = 2,
+                Name = "Super Mario Bros.",
+                Description = "Description 1",
+                FunFact = "fun",
+                Picture = "marioBros.png",
+                Silhouette = "marioBrosSilhouette.png",
+                Url = "http:lala.mario.com"
+            });
+            await this.AddCharacter(new Models.Character()
+            {
+                Id = Guid.NewGuid(),
+                Number = 3,
+                Name = "Super Mario Bros.",
+                Description = "Description 1",
+                FunFact = "fun",
+                Picture = "marioBros.png",
+                Silhouette = "marioBrosSilhouette.png",
+                Url = "http:lala.mario.com"
+            });
         }
     }
 }

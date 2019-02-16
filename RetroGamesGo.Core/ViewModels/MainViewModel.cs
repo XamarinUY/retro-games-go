@@ -3,98 +3,59 @@
     using System;
     using System.Threading.Tasks;
     using MvvmCross;
+    using System.Collections.Generic;
+    using MvvmCross.Commands;
     using MvvmCross.Logging;
     using MvvmCross.Navigation;
     using Xamarin.Forms;
     using RetroGamesGo.Core.Repositories;
+    using RetroGamesGo.Core.Models;
 
     /// <summary>
     /// Main view
     /// </summary>
     public class MainViewModel : BaseViewModel
     {
+        public IList<Character> Characters { get; set; }
+
+        private IMvxAsyncCommand captureCommand;
+
+        public IMvxAsyncCommand CaptureCommand => captureCommand ?? (captureCommand = new MvxAsyncCommand(OnCaptureCommand, () => this.IsEnabled));
+
         // Properties
         public Command GoToChallengeCompletedPageCommand => new Command(GoToChallengeCompletedPage);
 
-        // Attributes
-        private readonly IMvxNavigationService navigationService;
+        private readonly ICharacterRepository characterRepository;
 
         /// <summary>
         /// Gets by DI the required services
         /// </summary>
         public MainViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
         {
-            this.navigationService = navigationService;
+            this.characterRepository = Mvx.IoCProvider.Resolve<ICharacterRepository>();
+        }
 
-            // DATABASE - Testing
-            //TestCharacterRepository();
+        public override Task Initialize()
+        {
+            //return base.Initialize();
+
+            return Task.Run(async () => 
+            {
+                this.Characters = await this.characterRepository.GetAll();
+                await this.RaisePropertyChanged(() => this.Characters);
+            });
         }
 
         private void GoToChallengeCompletedPage()
         {
-            navigationService.Navigate<ChallengeCompletedViewModel>();
+            this.NavigationService.Navigate<ChallengeCompletedViewModel>();
         }
 
-        private void TestCharacterRepository()
+        private async Task OnCaptureCommand()
         {
-            Task.Run(async () =>
-            {
-                ICharacterRepository characterRepo = Mvx.IoCProvider.Resolve<ICharacterRepository>();
-
-                // Reset characters table
-                await characterRepo.DeleteAll();
-
-                //Adding characters
-                await characterRepo.AddCharacter(new Models.Character()
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Super Mario Bros.",
-                    Description = "Description 1",
-                    FunFact = "fun",
-                    Picture = "mario.png",
-                    Silhouette = "mario_silhouette.png",
-                    Url = "http:lala.mario.com"
-                });
-
-                var donkeyGuid = Guid.NewGuid();
-                await characterRepo.AddCharacter(new Models.Character()
-                {
-                    Id = donkeyGuid,
-                    Name = "Donkey Kong",
-                    Description = "Description 2",
-                    FunFact = "fun",
-                    Picture = "donkey.png",
-                    Silhouette = "donkey_silhouette.png",
-                    Url = "http:lala.donkey.com"
-                });
-
-                await characterRepo.AddCharacter(new Models.Character()
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Sonic",
-                    Description = "Description 3",
-                    FunFact = "fun",
-                    Picture = "Sonic.png",
-                    Silhouette = "Sonic_silhouette.png",
-                    Url = "http:lala.Sonic.com"
-                });
-
-                // Get All Test
-                var all = await characterRepo.GetAll();
-
-                // Get Donkey Kong character
-                var donkeyCharacter = await characterRepo.GetCharacter(donkeyGuid);
-
-                // Get Donkey Kong character
-                donkeyCharacter.Captured = true;
-                donkeyCharacter.Description = "Description updated";
-
-                // Update Donkey Kong character
-                await characterRepo.UpdateCharacter(donkeyCharacter);
-
-                // Get update Donkey Kong character
-                var updateDonkeyCharacter = await characterRepo.GetCharacter(donkeyGuid);
-            });
+            this.IsBusy = true;
+            //await this.NavigationService.Navigate<CaptureViewModel>();
+            this.IsBusy = false;
         }
     }
 }

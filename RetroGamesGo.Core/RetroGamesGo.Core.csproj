@@ -10,6 +10,11 @@
     <PackageReference Include="MvvmCross.Plugin.JsonLocalization" Version="6.2.2" />
     <PackageReference Include="MvvmCross.Plugin.Messenger" Version="6.2.2" />
     <PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.4.859" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.4.859" />
+    <PackageReference Include="CardsView" Version="2.0.3" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="2.7.0" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.13.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.13.0" />
     <PackageReference Include="PropertyChanged.Fody" Version="2.6.0" />
@@ -33,8 +38,11 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Pages\MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <None Update="Pages\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <EmbeddedResource Update="Pages\MenuPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -43,6 +51,14 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Controls\AnimatedLabel.cs" />
+  </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Validations\" />

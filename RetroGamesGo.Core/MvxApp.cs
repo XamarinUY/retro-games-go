@@ -8,6 +8,7 @@
     using MvvmCross.Plugin.JsonLocalization;
     using RetroGamesGo.Core.Repositories;
     using RetroGamesGo.Core.Models;
+    using RetroGamesGo.Core.Helpers;
 
 
     /// <summary>
@@ -23,9 +24,13 @@
             CreatableTypes()
                 .EndingWith("Service")
                 .AsInterfaces()
-                .RegisterAsLazySingleton();        
+                .RegisterAsLazySingleton();   
+                     
+            if(!Settings.OnboardingShown)
+                RegisterAppStart<OnboardingViewModel>();
+            else
+                RegisterAppStart<MainViewModel>();
 
-            RegisterAppStart<MainViewModel>();
             InitializeTextProvider();
         }
 

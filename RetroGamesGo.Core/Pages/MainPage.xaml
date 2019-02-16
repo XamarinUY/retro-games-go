@@ -6,17 +6,60 @@
                       xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
                       x:Class="RetroGamesGo.Core.Pages.MainPage"
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
-                      Title="Main">
-
-    <StackLayout BackgroundColor="White" 
-                 VerticalOptions="FillAndExpand" 
-                 HorizontalOptions="FillAndExpand" 
-                 Spacing="0">
-        <Button Text="Go to challenge completed" Command="{Binding GoToChallengeCompletedPageCommand}" />
-                 
-        <Button Text="?" Clicked="ButtonClicked" BindingContext="coin"/>
-        <Button Text="?" Clicked="ButtonClicked" BindingContext="wakawaka"/>
-        <Button Text="?" Clicked="ButtonClicked" BindingContext="yogafire"/>
-    </StackLayout>
-
+                      xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+                      xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
+                      xmlns:customControls="clr-namespace:RetroGamesGo.Core.Controls;assembly=RetroGamesGo.Core"
+                      xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                      Title="Retro Games GO"
+                      BackgroundColor="{StaticResource BackgroundColor}">
+    <views:MvxContentPage.ToolbarItems>
+        <ToolbarItem Name="Capture" Order="Primary" Icon="ic_capture.png" Priority="0" Command="{Binding CaptureCommand}" />
+    </views:MvxContentPage.ToolbarItems>
+    <views:MvxContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ActiveIndicator" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource GoldColor}" />
+            </Style>
+            <Style x:Key="InactiveIndicator" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="OutlineColor" Value="{StaticResource GrayColor}" />
+            </Style>
+        </ResourceDictionary>
+    </views:MvxContentPage.Resources>
+    <views:MvxContentPage.Content>
+        <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true"
+                             SelectedIndex="{Binding CurrentIndex}"
+                             ItemsSource="{Binding Characters}">
+            <cards:CoverFlowView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView Padding="36">
+                        <Frame HasShadow="false" CornerRadius="10" Padding="16" BackgroundColor="{StaticResource CardBackgroundColor}">
+                            <Grid VerticalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="2*" />
+                                    <RowDefinition Height="2*" />
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0" Spacing="4" VerticalOptions="Center">
+                                    <Label Text="{Binding Name}" IsVisible="{Binding Captured}" TextColor="White" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                                    <Label Text="{Binding Number, StringFormat='#{0:0}'}" TextColor="{StaticResource GoldColor}" FontSize="Large" HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                                <AbsoluteLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
+                                    <ffimage:CachedImage Source="{Binding Silhouette}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                                    <customControls:AnimatedCachedImage Source="{Binding Picture}" Captured="{Binding Captured}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                                </AbsoluteLayout>
+                                <StackLayout Grid.Row="2" IsVisible="{Binding Captured}" Spacing="4" VerticalOptions="Center">
+                                    <Label Text="{Binding Year}" TextColor="White" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                                    <Label Text="{Binding Description}" TextColor="White" FontSize="Small" HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </ContentView>
+                </DataTemplate>
+            </cards:CoverFlowView.ItemTemplate>
+            <controls:IndicatorsControl
+                      SelectedIndicatorStyle="{StaticResource ActiveIndicator}"
+                      UnselectedIndicatorStyle="{StaticResource InactiveIndicator}" />
+        </cards:CoverFlowView>
+    </views:MvxContentPage.Content>
 </views:MvxContentPage>
