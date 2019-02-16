@@ -61,7 +61,7 @@ namespace RetroGamesGo.Service.Functions
             {
                 var storageHelper = new StorageHelper(ConfigurationHelper.Configuration);
                 var localUser = await storageHelper.GetItemAsync<UserEntity>("Users", "Users", user.Email);
-                winner = localUser != null ? localUser.Winner : winner;
+                winner = localUser != null && localUser.Winner ? localUser.Winner : winner;
 
                 var userEntity = new UserEntity(user.Email)
                 {
