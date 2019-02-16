@@ -1,14 +1,14 @@
 ﻿namespace RetroGamesGo.Core.Pages
 {
-
     using Xamarin.Forms.Xaml;
     using MvvmCross.Forms.Presenters.Attributes;
+    using Xamarin.Forms;
 
     /// <summary>
     /// Main UI
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    //[MvxMasterDetailPagePresentation]
+    [MvxNavigationPagePresentation(WrapInNavigationPage = true)]
     public partial class MainPage
     {
         /// <summary>

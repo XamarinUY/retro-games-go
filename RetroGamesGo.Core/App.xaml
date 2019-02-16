@@ -4,11 +4,16 @@
              x:Class="RetroGamesGo.Core.App">
     <Application.Resources>
         <ResourceDictionary>
-            
+
             <Color x:Key="BackgroundColor">#191e22</Color>
             <Color x:Key="GoldColor">#f8b830</Color>
             <Color x:Key="GrayColor">#999999</Color>
-
+            
+             <Style TargetType="NavigationPage">
+               <Setter Property="BarTextColor" Value="White" />
+               <Setter Property="BarBackgroundColor" Value="{StaticResource BackgroundColor}"/>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

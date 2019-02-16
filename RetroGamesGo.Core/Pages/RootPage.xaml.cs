@@ -7,7 +7,7 @@
     /// Master detail root page
     /// </summary>
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-    [MvxMasterDetailPagePresentation(MasterDetailPosition.Root, WrapInNavigationPage = false)]
+    [MvxMasterDetailPagePresentation(MasterDetailPosition.Root)]
     public partial class RootPage
     {
         public RootPage()

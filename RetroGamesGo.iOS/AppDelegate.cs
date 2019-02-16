@@ -20,19 +20,12 @@
             set;
         }
 
-
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(12, 16, 19);
-            UINavigationBar.Appearance.TintColor = UIColor.White;
-            UINavigationBar.Appearance.TitleTextAttributes = new UIStringAttributes
-            {
-                ForegroundColor = UIColor.White
-            };
-            UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
-
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
             Window.MakeKeyAndVisible();
+
+            // Todo: adjust values to match the selected color scheme
 
             // Init plugins
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
@@ -46,7 +39,6 @@
             base.LoadFormsApplication();
             global::Xamarin.Forms.Forms.Init();
         }
-
     }
 }
 

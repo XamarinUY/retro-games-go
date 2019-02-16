@@ -4,15 +4,16 @@
                       xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                       x:Class="RetroGamesGo.Core.Pages.OnboardingPage" 
+                      NavigationPage.HasNavigationBar="false"
                       xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView" 
-                      NavigationPage.HasNavigationBar="false" 
                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+                      BackgroundColor="{StaticResource BackgroundColor}"
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core" 
                       xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                       xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms">
     
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <StackLayout BackgroundColor="{StaticResource BackgroundColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
             <StackLayout IsVisible="{Binding ShowLottie}" VerticalOptions="FillAndExpand" BackgroundColor="Black" HorizontalOptions="FillAndExpand">
                 <Label Text="Are you ready?" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,20" TextColor="White" FontSize="Large"/>
@@ -24,8 +25,8 @@
                     HorizontalOptions="FillAndExpand" />
             </StackLayout>
             
-            <StackLayout IsVisible="{Binding ShowOnboard}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true" ItemsSource="{Binding InfoImages}" BackgroundColor="Gray">
+            <StackLayout BackgroundColor="{StaticResource BackgroundColor}" IsVisible="{Binding ShowOnboard}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true" ItemsSource="{Binding InfoImages}" BackgroundColor="{StaticResource BackgroundColor}">
                     <cards:CoverFlowView.ItemTemplate>
                         <DataTemplate>
                             <FlexLayout Padding="40">
@@ -36,7 +37,7 @@
                         </DataTemplate>
                     </cards:CoverFlowView.ItemTemplate>
                 </cards:CoverFlowView>
-                 <Button Text="PLAY" HorizontalOptions="FillAndExpand" BackgroundColor="White" TextColor="Fuchsia" FontAttributes="Bold" Command="{Binding Play}" Margin="50,20"/>
+                 <Button Text="PLAY" HorizontalOptions="FillAndExpand" BackgroundColor="White" TextColor="Fuchsia" FontAttributes="Bold" Command="{Binding Play}" Margin="50,0,50,20"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
