@@ -10,6 +10,7 @@ namespace RetroGamesGo.Core.Repositories
         Task<int> AddCharacter(Character character);
         Task<int> UpdateCharacter(Character character);
         Task<int> DeleteCharacter(Character character);
+        Task<bool> DeleteAll();
         Task<Character> GetCharacter(Guid id);
         Task<List<Character>> GetAll();
     }

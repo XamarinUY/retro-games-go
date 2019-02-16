@@ -81,6 +81,16 @@ namespace RetroGamesGo.Core.Repositories
             throw new NotImplementedException();
         }
 
-
+        public async Task<bool> DeleteAll()
+        {
+            try
+            {
+                return await database.DeleteAll();
+            }
+            catch (Exception ex)
+            {
+                throw new RepositoryException("The characters registers could not be deleted");
+            }
+        }
     }
 }

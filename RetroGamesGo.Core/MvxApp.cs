@@ -6,6 +6,8 @@
     using Services;
     using MvvmCross;
     using MvvmCross.Plugin.JsonLocalization;
+    using RetroGamesGo.Core.Repositories;
+    using RetroGamesGo.Core.Models;
 
 
     /// <summary>
@@ -36,6 +38,7 @@
             var builder = new TextProviderBuilder();
             Mvx.IoCProvider.RegisterSingleton<IMvxTextProviderBuilder>(builder);
             Mvx.IoCProvider.RegisterSingleton(builder.TextProvider);
+            Mvx.IoCProvider.RegisterSingleton<IDatabase<Character>>(new Database<Character>(Mvx.IoCProvider.Resolve<IDatabaseConnection>()));
         }
 
     }

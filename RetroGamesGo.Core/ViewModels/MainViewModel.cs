@@ -1,5 +1,7 @@
 ﻿namespace RetroGamesGo.Core.ViewModels
 {
+    using System;
+    using System.Threading.Tasks;
     using MvvmCross.Logging;
     using MvvmCross.Navigation;
 
@@ -13,6 +15,9 @@
         /// </summary>
         public MainViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
         {
+          
         }
+
+
     }
 }

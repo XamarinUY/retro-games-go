@@ -27,7 +27,7 @@
         protected override void InitializeFirstChance()
         {
             Mvx.IoCProvider.RegisterSingleton<IMvxJsonConverter>(new MvxJsonConverter());
-            Mvx.IoCProvider.RegisterSingleton<IDatabaseConnection>(new SQLiteClient());              
+            Mvx.IoCProvider.RegisterSingleton<IDatabaseConnection>(new SQLiteClient());
             base.InitializeFirstChance();
         }
     }
