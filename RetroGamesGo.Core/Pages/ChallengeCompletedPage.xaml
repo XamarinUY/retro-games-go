@@ -24,9 +24,9 @@
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding Name.Value}" IsEnabled="{Binding IsNotBusy}">
+                        <Entry Text="{Binding Name.Value}" IsEnabled="{Binding IsNotLoading}">
                             <Entry.Behaviors>
-                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidateNameCommand}" />
+                                <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateNameCommand}" />
                             </Entry.Behaviors>
                         </Entry>
                         <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
@@ -45,9 +45,9 @@
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding LastName.Value}" IsEnabled="{Binding IsNotBusy}">
+                        <Entry Text="{Binding LastName.Value}" IsEnabled="{Binding IsNotLoading}">
                             <Entry.Behaviors>
-                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidateLastNameCommand}" />
+                                <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateLastNameCommand}" />
                             </Entry.Behaviors>
                         </Entry>
                         <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
@@ -66,9 +66,9 @@
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding Email.Value}" IsEnabled="{Binding IsNotBusy}">
+                        <Entry Text="{Binding Email.Value}" IsEnabled="{Binding IsNotLoading}" Keyboard="Email">
                             <Entry.Behaviors>
-                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidateEmailCommand}" />
+                                <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateEmailCommand}" />
                             </Entry.Behaviors>
                         </Entry>
                         <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
@@ -87,9 +87,9 @@
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding PhoneNumber.Value}" IsEnabled="{Binding IsNotBusy}">
+                        <Entry Text="{Binding PhoneNumber.Value}" IsEnabled="{Binding IsNotLoading}" Keyboard="Telephone">
                             <Entry.Behaviors>
-                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidatePhoneNumberCommand}" />
+                                <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePhoneNumberCommand}" />
                             </Entry.Behaviors>
                         </Entry>
                         <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
@@ -108,9 +108,9 @@
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding Document.Value}" IsEnabled="{Binding IsNotBusy}">
+                        <Entry Text="{Binding Document.Value}" IsEnabled="{Binding IsNotLoading}">
                             <Entry.Behaviors>
-                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidateDocumentCommand}" />
+                                <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateDocumentCommand}" />
                             </Entry.Behaviors>
                         </Entry>
                         <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
@@ -129,9 +129,9 @@
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding Country.Value}" IsEnabled="{Binding IsNotBusy}">
+                        <Entry Text="{Binding Country.Value}" IsEnabled="{Binding IsNotLoading}">
                             <Entry.Behaviors>
-                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidateCountryCommand}" />
+                                <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateCountryCommand}" />
                             </Entry.Behaviors>
                         </Entry>
                         <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
@@ -144,8 +144,13 @@
                         
                     </StackLayout>
                     
-                    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" HeightRequest="30" VerticalOptions="CenterAndExpand" />
-                    <Button Text="Participar" TextColor="White" Command="{Binding RegisterUserCommand}" BackgroundColor="Black" Padding="10" Margin="15,10"/>
+                    <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" 
+                                       HorizontalOptions="CenterAndExpand" HeightRequest="30" 
+                                       VerticalOptions="CenterAndExpand" />
+                    <Button Text="Participar" TextColor="White" 
+                            Command="{Binding RegisterUserCommand}" BackgroundColor="Black" 
+                            Padding="10" Margin="15,10"
+                            IsEnabled="{Binding IsNotLoading}"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
