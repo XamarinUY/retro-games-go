@@ -12,7 +12,13 @@
                  VerticalOptions="FillAndExpand" 
                  HorizontalOptions="FillAndExpand" 
                  Spacing="0">
-
+                 
+        <Button Text="?" Clicked="ButtonClicked" BindingContext="coin"/>
+        <Button Text="?" Clicked="ButtonClicked" BindingContext="wakawaka"/>
+        <Button Text="?" Clicked="ButtonClicked" BindingContext="yogafire"/>
+        
+        
+        
     </StackLayout>
 
 </views:MvxContentPage>
