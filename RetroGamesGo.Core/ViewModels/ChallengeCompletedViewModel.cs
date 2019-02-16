@@ -13,12 +13,12 @@ using Xamarin.Forms;
 
 namespace RetroGamesGo.Core.ViewModels
 {
-    public class ChallengeCompletedViewModel : BaseViewModel, INotifyPropertyChanged
+    public class ChallengeCompletedViewModel : BaseViewModel
     {
         // Attributes
         private User User { get; set; }
-        private IRequestProvider requestProvider { get; set; }
-        public new event PropertyChangedEventHandler PropertyChanged;
+        private IRequestProvider RequestProvider { get; set; }
+        private bool isLoading;
 
         // Properties
         public ValidatableObject<string> Name { get; set; } = new ValidatableObject<string>();
@@ -27,6 +27,20 @@ namespace RetroGamesGo.Core.ViewModels
         public ValidatableObject<string> PhoneNumber { get; set; } = new ValidatableObject<string>();
         public ValidatableObject<string> Document { get; set; } = new ValidatableObject<string>();
         public ValidatableObject<string> Country { get; set; } = new ValidatableObject<string>();
+
+        // IsBusy not working
+        public bool IsLoading 
+        {
+            get => isLoading;
+            set 
+            { 
+                isLoading = value;
+                RaisePropertyChanged(() => IsLoading);
+                RaisePropertyChanged(() => IsNotLoading); 
+            } 
+        }
+
+        public bool IsNotLoading { get { return !IsLoading; }}
 
         // Fields validation commands
         public ICommand ValidateNameCommand => new Command(() => Name.Validate());
@@ -51,7 +65,7 @@ namespace RetroGamesGo.Core.ViewModels
             Document.Validations.Add(new RequiredFieldValidationRule());
             Country.Validations.Add(new RequiredFieldValidationRule());
 
-            this.requestProvider = requestProvider;
+            RequestProvider = requestProvider;
         }
 
         private async Task RegisterUser()
@@ -59,7 +73,7 @@ namespace RetroGamesGo.Core.ViewModels
             if (!Validate())
                 return;
 
-            IsBusy = true;
+            IsLoading = true;
 
             User = new User
             {
@@ -71,9 +85,9 @@ namespace RetroGamesGo.Core.ViewModels
             };
 
             // Save the user
-            var result = await requestProvider.PostAsync<User>(Constants.RequestProvider.PostUserEndpoint, User);
+            var result = await RequestProvider.PostAsync<User>(Constants.RequestProvider.PostUserEndpoint, User);
 
-            IsBusy = false;
+            IsLoading = false;
         }
 
         public bool Validate()
