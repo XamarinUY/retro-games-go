@@ -13,6 +13,8 @@
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.13.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.13.0" />
     <PackageReference Include="PropertyChanged.Fody" Version="2.6.0" />
+ <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
+ <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.3.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,5 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Controls\BorderLessEntry.cs" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Repositories\Database\" />
+    <Folder Include="Models\" />
+    <Folder Include="Repositories\Character\" />
+    <Folder Include="Utils\" />
+    <Compile Remove="Models\User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RetroGamesGo.Models\RetroGamesGo.Models.csproj" />
   </ItemGroup>
 </Project>

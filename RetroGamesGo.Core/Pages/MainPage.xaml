@@ -12,9 +12,11 @@
                  VerticalOptions="FillAndExpand" 
                  HorizontalOptions="FillAndExpand" 
                  Spacing="0">
-        
         <Button Text="Go to challenge completed" Command="{Binding GoToChallengeCompletedPageCommand}" />
-
+                 
+        <Button Text="?" Clicked="ButtonClicked" BindingContext="coin"/>
+        <Button Text="?" Clicked="ButtonClicked" BindingContext="wakawaka"/>
+        <Button Text="?" Clicked="ButtonClicked" BindingContext="yogafire"/>
     </StackLayout>
 
 </views:MvxContentPage>

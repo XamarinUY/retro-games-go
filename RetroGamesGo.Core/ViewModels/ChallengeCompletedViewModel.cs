@@ -5,7 +5,10 @@ using System.Windows.Input;
 using MvvmCross.Logging;
 using MvvmCross.Navigation;
 using RetroGamesGo.Core.Models;
+using RetroGamesGo.Core.Services;
+using RetroGamesGo.Core.Utils;
 using RetroGamesGo.Core.Validations;
+using RetroGamesGo.Models;
 using Xamarin.Forms;
 
 namespace RetroGamesGo.Core.ViewModels
@@ -14,6 +17,7 @@ namespace RetroGamesGo.Core.ViewModels
     {
         // Attributes
         private User User { get; set; }
+        private IRequestProvider requestProvider { get; set; }
         public new event PropertyChangedEventHandler PropertyChanged;
 
         // Properties
@@ -37,7 +41,7 @@ namespace RetroGamesGo.Core.ViewModels
         /// <summary>
         /// Gets by DI the required services
         /// </summary>
-        public ChallengeCompletedViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
+        public ChallengeCompletedViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService, IRequestProvider requestProvider) : base(logProvider, navigationService)
         {
             Name.Validations.Add(new RequiredFieldValidationRule());
             LastName.Validations.Add(new RequiredFieldValidationRule());
@@ -46,6 +50,8 @@ namespace RetroGamesGo.Core.ViewModels
             PhoneNumber.Validations.Add(new RequiredFieldValidationRule());
             Document.Validations.Add(new RequiredFieldValidationRule());
             Country.Validations.Add(new RequiredFieldValidationRule());
+
+            this.requestProvider = requestProvider;
         }
 
         private async Task RegisterUser()
@@ -53,17 +59,21 @@ namespace RetroGamesGo.Core.ViewModels
             if (!Validate())
                 return;
 
+            IsBusy = true;
+
             User = new User
             {
-                Name = Name.Value,
-                LastName = LastName.Value,
+                Name = Name.Value + " " + LastName.Value,
                 Email = Email.Value,
-                PhoneNumber = PhoneNumber.Value,
+                CellPhone = PhoneNumber.Value,
                 Document = Document.Value,
                 Country = Country.Value
             };
 
-            // TODO: Call api
+            // Save the user
+            var result = await requestProvider.PostAsync<User>(Constants.RequestProvider.PostUserEndpoint, User);
+
+            IsBusy = false;
         }
 
         public bool Validate()
