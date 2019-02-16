@@ -109,10 +109,12 @@ namespace RetroGamesGo.Core.Repositories
                 Number = 1,
                 Name = "Super Mario Bros.",
                 Description = "Description 1",
+                Year = 1897,
                 FunFact = "fun",
                 Picture = "marioBros.png",
                 Silhouette = "marioBrosSilhouette.png",
-                Url = "http:lala.mario.com"
+                Url = "http:lala.mario.com",
+                Captured = false
             });
             await this.AddCharacter(new Models.Character()
             {
@@ -120,10 +122,12 @@ namespace RetroGamesGo.Core.Repositories
                 Number = 2,
                 Name = "Super Mario Bros.",
                 Description = "Description 1",
+                Year = 1897,
                 FunFact = "fun",
                 Picture = "marioBros.png",
                 Silhouette = "marioBrosSilhouette.png",
-                Url = "http:lala.mario.com"
+                Url = "http:lala.mario.com",
+                Captured = true
             });
             await this.AddCharacter(new Models.Character()
             {
@@ -131,10 +135,12 @@ namespace RetroGamesGo.Core.Repositories
                 Number = 3,
                 Name = "Super Mario Bros.",
                 Description = "Description 1",
+                Year = 1897,
                 FunFact = "fun",
                 Picture = "marioBros.png",
                 Silhouette = "marioBrosSilhouette.png",
-                Url = "http:lala.mario.com"
+                Url = "http:lala.mario.com",
+                Captured = true
             });
         }
     }

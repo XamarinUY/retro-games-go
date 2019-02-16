@@ -41,16 +41,16 @@
                                     <RowDefinition Height="2*" />
                                 </Grid.RowDefinitions>
                                 <StackLayout Grid.Row="0" Spacing="4" VerticalOptions="Center">
-                                    <Label Text="{Binding Name}" IsVisible="{Binding Captured}" TextColor="White" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" />
-                                    <Label Text="{Binding Number, StringFormat='#{0:0}'}" TextColor="{StaticResource GoldColor}" FontSize="Large" HorizontalTextAlignment="Center" />
+                                    <Label Text="{Binding Name}" IsVisible="{Binding Captured}" TextColor="White" FontSize="Large" FontAttributes="Bold" FontFamily="{StaticResource Ka1Font}" HorizontalTextAlignment="Center" />
+                                    <Label Text="{Binding Number, StringFormat='#{0:0}'}" TextColor="{StaticResource GoldColor}" FontSize="Medium" FontFamily="{StaticResource PressStart2PFont}" HorizontalTextAlignment="Center" />
                                 </StackLayout>
                                 <AbsoluteLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
                                     <ffimage:CachedImage Source="{Binding Silhouette}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
                                     <customControls:AnimatedCachedImage Source="{Binding Picture}" Captured="{Binding Captured}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
                                 </AbsoluteLayout>
                                 <StackLayout Grid.Row="2" IsVisible="{Binding Captured}" Spacing="4" VerticalOptions="Center">
-                                    <Label Text="{Binding Year}" TextColor="White" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" />
-                                    <Label Text="{Binding Description}" TextColor="White" FontSize="Small" HorizontalTextAlignment="Center" />
+                                    <Label Text="{Binding Year}" TextColor="White" FontSize="Medium" FontAttributes="Bold" FontFamily="{StaticResource PressStart2PFont}" HorizontalTextAlignment="Center" />
+                                    <Label Text="{Binding Description}" TextColor="White" FontSize="Small" FontFamily="{StaticResource SpaceMonoFont}" HorizontalTextAlignment="Center" />
                                 </StackLayout>
                             </Grid>
                         </Frame>

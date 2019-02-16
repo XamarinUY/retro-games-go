@@ -9,6 +9,20 @@
             <Color x:Key="CardBackgroundColor">#4c5b67</Color>
             <Color x:Key="GoldColor">#f8b830</Color>
             <Color x:Key="GrayColor">#999999</Color>
+            
+            <!--Fonts-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="Ka1Font">
+                <On Platform="Android" Value="ka1.ttf#ka1" />
+                <On Platform="iOS" Value="ka1" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="PressStart2PFont">
+                <On Platform="Android" Value="PressStart2P.ttf#PressStart2P" />
+                <On Platform="iOS" Value="PressStart2P" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="SpaceMonoFont">
+                <On Platform="Android" Value="SpaceMono-Bold.ttf#SpaceMono" />
+                <On Platform="iOS" Value="SpaceMono-Bold" />
+            </OnPlatform>
 
         </ResourceDictionary>
     </Application.Resources>

@@ -89,6 +89,9 @@
     <BundleResource Include="breakoutgame.json" />
     <Compile Include="Helpers\Settings.cs" />
     <Content Include="FodyWeavers.xml" />
+    <BundleResource Include="Resources\PressStart2P.ttf" />
+    <BundleResource Include="Resources\SpaceMono-Bold.ttf" />
+    <BundleResource Include="Resources\ka1.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross, Version=6.2.2.0, Culture=neutral, processorArchitecture=MSIL">
