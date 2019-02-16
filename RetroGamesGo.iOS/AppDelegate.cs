@@ -28,7 +28,6 @@
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
             Window.MakeKeyAndVisible();
             return base.FinishedLaunching(application, launchOptions);
-
         }
 
 

@@ -8,7 +8,7 @@
     /// Main UI
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    [MvxMasterDetailPagePresentation]
+    //[MvxMasterDetailPagePresentation]
     public partial class MainPage
     {
         /// <summary>
