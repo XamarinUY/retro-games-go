@@ -23,7 +23,7 @@ namespace RetroGamesGo.Core.Repositories
                 {
                     return await database.Insert(character);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     throw new RepositoryException("The character could not be added to the database");
                 }
@@ -39,7 +39,7 @@ namespace RetroGamesGo.Core.Repositories
                 {
                     return await database.Update(character);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     throw new RepositoryException("The character could not be updated to the database");
                 }
@@ -55,7 +55,7 @@ namespace RetroGamesGo.Core.Repositories
                 {
                     return await database.Select(id);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     throw new RepositoryException("The character could not be selected");
                 }
@@ -69,14 +69,14 @@ namespace RetroGamesGo.Core.Repositories
             {
                 return await database.Select();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new RepositoryException("The characters list could not be got");
             }
         }
 
 
-        public async Task<int> DeleteCharacter(Character character)
+        public Task<int> DeleteCharacter(Character character)
         {
             throw new NotImplementedException();
         }
@@ -87,7 +87,7 @@ namespace RetroGamesGo.Core.Repositories
             {
                 return await database.DeleteAll();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new RepositoryException("The characters registers could not be deleted");
             }

@@ -39,6 +39,7 @@
             Mvx.IoCProvider.RegisterSingleton<IMvxTextProviderBuilder>(builder);
             Mvx.IoCProvider.RegisterSingleton(builder.TextProvider);
             Mvx.IoCProvider.RegisterSingleton<IDatabase<Character>>(new Database<Character>(Mvx.IoCProvider.Resolve<IDatabaseConnection>()));
+            Mvx.IoCProvider.RegisterSingleton<ICharacterRepository>(new CharacterRepository(Mvx.IoCProvider.Resolve<IDatabase<Character>>()));
         }
 
     }
