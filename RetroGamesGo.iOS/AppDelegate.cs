@@ -4,8 +4,9 @@
     using MvvmCross.Forms.Platforms.Ios.Core;
     using Core;
     using UIKit;
+    using Lottie.Forms.iOS.Renderers;
 
-  
+
     /// <summary>
     /// The UIApplicationDelegate for the application. This class is responsible for launching the
     /// User Interface of the application, as well as listening (and optionally responding) to application events from iOS. 
@@ -35,7 +36,7 @@
 
             // Init plugins
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
-
+            AnimationViewRenderer.Init();
             return base.FinishedLaunching(application, launchOptions);
         }
 
