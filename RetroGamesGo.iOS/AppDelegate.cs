@@ -20,7 +20,6 @@
             set;
         }
 
-
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(12, 16, 19);
@@ -40,13 +39,11 @@
             return base.FinishedLaunching(application, launchOptions);
         }
 
-
         protected override void LoadFormsApplication()
         {
             base.LoadFormsApplication();
             global::Xamarin.Forms.Forms.Init();
         }
-
     }
 }
 

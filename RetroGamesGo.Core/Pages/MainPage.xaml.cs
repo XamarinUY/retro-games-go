@@ -3,6 +3,8 @@
 
     using Xamarin.Forms.Xaml;
     using MvvmCross.Forms.Presenters.Attributes;
+    using Xamarin.Forms;
+    using RetroGamesGo.Core.Utils;
 
     /// <summary>
     /// Main UI
@@ -17,6 +19,25 @@
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        void ButtonClicked(object sender, System.EventArgs e)
+        {
+            string sound = ((Button)sender).BindingContext as string;
+            switch (sound)
+            {
+                case "coin":
+                    Sounds.Mario_Coin();
+                    break;
+                case "wakawaka":
+                    Sounds.Pacman_WakaWaka();
+                    break;
+                case "yogafire":
+                    Sounds.StreetFighter_YogaFire();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
