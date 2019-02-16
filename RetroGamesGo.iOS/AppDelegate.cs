@@ -32,7 +32,6 @@
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 
             return base.FinishedLaunching(application, launchOptions);
-
         }
 
 
