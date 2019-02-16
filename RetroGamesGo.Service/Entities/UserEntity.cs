@@ -31,6 +31,11 @@ namespace RetroGamesGo.Service.Entities
         public string Country { get; set; }
 
         /// <summary>
+        /// False if the user never won a lottery draw
+        /// </summary>
+        public bool Winner { get; set; }
+
+        /// <summary>
         /// Contructor
         /// </summary>
         public UserEntity() { }
