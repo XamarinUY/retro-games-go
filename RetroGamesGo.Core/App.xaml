@@ -6,6 +6,7 @@
         <ResourceDictionary>
 
             <Color x:Key="BackgroundColor">#191e22</Color>
+            <Color x:Key="CardBackgroundColor">#4c5b67</Color>
             <Color x:Key="GoldColor">#f8b830</Color>
             <Color x:Key="GrayColor">#999999</Color>
             

@@ -33,7 +33,6 @@
             return base.FinishedLaunching(application, launchOptions);
         }
 
-
         protected override void LoadFormsApplication()
         {
             base.LoadFormsApplication();
