@@ -40,5 +40,7 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleName</key>
+	<string>RetroGamesGo.iOS</string>
 </dict>
 </plist>

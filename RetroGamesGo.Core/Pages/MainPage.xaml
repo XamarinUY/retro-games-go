@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <views:MvxContentPage x:TypeArguments="viewModels:MainViewModel"
                       xmlns="http://xamarin.com/schemas/2014/forms" 
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
@@ -6,11 +6,39 @@
                       xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
                       x:Class="RetroGamesGo.Core.Pages.MainPage"
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
+                      xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+                      xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                      BackgroundColor="Black"
                       Title="Main">
 
-    <StackLayout BackgroundColor="White" 
-                 VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="0">
-
-    </StackLayout>
+    <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true"
+                         SelectedIndex="{Binding CurrentIndex}"
+                         ItemsSource="{Binding Characters}" BackgroundColor="Gray">
+        <cards:CoverFlowView.ItemTemplate>
+            <DataTemplate>
+                <FlexLayout Padding="40">
+                    <Frame 
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                        Padding="0"
+                        HasShadow="false"
+                        IsClippedToBounds="true"
+                        CornerRadius="10"
+                        BackgroundColor="White">
+                         <Frame.Triggers>
+                             <DataTrigger TargetType="Frame"
+                                         Binding="{Binding Unlocked}"
+                                         Value="False">
+                                <Setter Property="Opacity" Value="0.3" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        
+                        <ffimage:CachedImage Source="{Binding Image}" Aspect="AspectFit"/> 
+                       
+                    </Frame>
+                </FlexLayout>
+            </DataTemplate>
+        </cards:CoverFlowView.ItemTemplate>
+    </cards:CoverFlowView>
 
 </views:MvxContentPage>

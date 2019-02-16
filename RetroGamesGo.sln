@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetroGamesGo.Core", "RetroGamesGo.Core\RetroGamesGo.Core.csproj", "{C4448C65-7C27-4172-987F-AF602A203BD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGamesGo.Core", "RetroGamesGo.Core\RetroGamesGo.Core.csproj", "{C4448C65-7C27-4172-987F-AF602A203BD2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGamesGo.iOS", "RetroGamesGo.iOS\RetroGamesGo.iOS.csproj", "{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}"
 EndProject

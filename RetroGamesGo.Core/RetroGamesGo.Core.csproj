@@ -14,6 +14,9 @@
     <PackageReference Include="MvvmCross.Plugin.JsonLocalization" Version="6.2.2" />
     <PackageReference Include="MvvmCross.Plugin.Messenger" Version="6.2.2" />
     <PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.4.859" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.4.859" />
+    <PackageReference Include="CardsView" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,4 +31,7 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
 </Project>

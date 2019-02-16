@@ -27,6 +27,10 @@
             UINavigationBar.Appearance.TintColor = UIColor.FromRGB(255, 255, 255);
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
             Window.MakeKeyAndVisible();
+
+            // Init plugins
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+
             return base.FinishedLaunching(application, launchOptions);
 
         }
