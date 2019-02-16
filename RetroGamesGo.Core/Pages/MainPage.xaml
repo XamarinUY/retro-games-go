@@ -12,6 +12,8 @@
                  VerticalOptions="FillAndExpand" 
                  HorizontalOptions="FillAndExpand" 
                  Spacing="0">
+        
+        <Button Text="Go to challenge completed" Command="{Binding GoToChallengeCompletedPageCommand}" />
 
     </StackLayout>
 

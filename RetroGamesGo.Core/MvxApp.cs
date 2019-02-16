@@ -23,7 +23,7 @@
                 .AsInterfaces()
                 .RegisterAsLazySingleton();        
 
-            RegisterAppStart<MainViewModel>();
+            RegisterAppStart<ChallengeCompletedViewModel>();
             InitializeTextProvider();
         }
 

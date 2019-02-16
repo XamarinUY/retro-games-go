@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:MvxContentPage x:TypeArguments="viewModels:ChallengeCompletedViewModel"
+                      xmlns="http://xamarin.com/schemas/2014/forms" 
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+                      x:Class="RetroGamesGo.Core.Pages.ChallengeCompletedPage"
+                      xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
+                      xmlns:behaviors="clr-namespace:RetroGamesGo.Core.Behaviors;">
+         <ScrollView>
+            <StackLayout Spacing="0" VerticalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                    <StackLayout BackgroundColor="Black" Padding="45,15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label Text="Complete sus datos así podrá participar del sorteo global" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Label Text="Mucha suerte" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                    <StackLayout Padding="15,8">
+                        
+                        <!-- Name -->
+                        <Label Text="Nombre">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Name.IsValid}" Value="False">
+                                    <Setter Property="TextColor" Value="Red" />
+                                </DataTrigger>
+                             </Label.Triggers>   
+                        </Label>
+                        <Entry Text="{Binding Name.Value}" IsEnabled="{Binding IsNotBusy}">
+                            <Entry.Behaviors>
+                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidateNameCommand}" />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
+                            <BoxView.Triggers>
+                                <DataTrigger TargetType="BoxView" Binding="{Binding Name.IsValid}" Value="False">
+                                    <Setter Property="Color" Value="Red" />
+                                </DataTrigger>
+                            </BoxView.Triggers>
+                        </BoxView>
+                    
+                         <!-- Lastname -->
+                        <Label Text="Apellido">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding LastName.IsValid}" Value="False">
+                                    <Setter Property="TextColor" Value="Red" />
+                                </DataTrigger>
+                             </Label.Triggers>   
+                        </Label>
+                        <Entry Text="{Binding LastName.Value}" IsEnabled="{Binding IsNotBusy}">
+                            <Entry.Behaviors>
+                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidateLastNameCommand}" />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
+                            <BoxView.Triggers>
+                                <DataTrigger TargetType="BoxView" Binding="{Binding LastName.IsValid}" Value="False">
+                                    <Setter Property="Color" Value="Red" />
+                                </DataTrigger>
+                            </BoxView.Triggers>
+                        </BoxView>
+                    
+                        <!-- Email -->
+                        <Label Text="Email">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Email.IsValid}" Value="False">
+                                    <Setter Property="TextColor" Value="Red" />
+                                </DataTrigger>
+                             </Label.Triggers>   
+                        </Label>
+                        <Entry Text="{Binding Email.Value}" IsEnabled="{Binding IsNotBusy}">
+                            <Entry.Behaviors>
+                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidateEmailCommand}" />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
+                            <BoxView.Triggers>
+                                <DataTrigger TargetType="BoxView" Binding="{Binding Email.IsValid}" Value="False">
+                                    <Setter Property="Color" Value="Red" />
+                                </DataTrigger>
+                            </BoxView.Triggers>
+                        </BoxView>  
+                    
+                        <!-- PhoneNumber -->
+                        <Label Text="Teléfono">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding PhoneNumber.IsValid}" Value="False">
+                                    <Setter Property="TextColor" Value="Red" />
+                                </DataTrigger>
+                             </Label.Triggers>   
+                        </Label>
+                        <Entry Text="{Binding PhoneNumber.Value}" IsEnabled="{Binding IsNotBusy}">
+                            <Entry.Behaviors>
+                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidatePhoneNumberCommand}" />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
+                            <BoxView.Triggers>
+                                <DataTrigger TargetType="BoxView" Binding="{Binding PhoneNumber.IsValid}" Value="False">
+                                    <Setter Property="Color" Value="Red" />
+                                </DataTrigger>
+                            </BoxView.Triggers>
+                        </BoxView>  
+                    
+                        <!-- Document -->
+                        <Label Text="Documento">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Document.IsValid}" Value="False">
+                                    <Setter Property="TextColor" Value="Red" />
+                                </DataTrigger>
+                             </Label.Triggers>   
+                        </Label>
+                        <Entry Text="{Binding Document.Value}" IsEnabled="{Binding IsNotBusy}">
+                            <Entry.Behaviors>
+                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidateDocumentCommand}" />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
+                            <BoxView.Triggers>
+                                <DataTrigger TargetType="BoxView" Binding="{Binding Document.IsValid}" Value="False">
+                                    <Setter Property="Color" Value="Red" />
+                                </DataTrigger>
+                            </BoxView.Triggers>
+                        </BoxView> 
+                    
+                        <!-- Country -->
+                        <Label Text="País">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Country.IsValid}" Value="False">
+                                    <Setter Property="TextColor" Value="Red" />
+                                </DataTrigger>
+                             </Label.Triggers>   
+                        </Label>
+                        <Entry Text="{Binding Country.Value}" IsEnabled="{Binding IsNotBusy}">
+                            <Entry.Behaviors>
+                                <behaviors:EventToCommandBehavior EventName="Unfocused" Command="{Binding ValidateCountryCommand}" />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
+                            <BoxView.Triggers>
+                                <DataTrigger TargetType="BoxView" Binding="{Binding Country.IsValid}" Value="False">
+                                    <Setter Property="Color" Value="Red" />
+                                </DataTrigger>
+                            </BoxView.Triggers>
+                        </BoxView> 
+                        
+                    </StackLayout>
+                    
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" HeightRequest="30" VerticalOptions="CenterAndExpand" />
+                    <Button Text="Participar" TextColor="White" Command="{Binding RegisterUserCommand}" BackgroundColor="Black" Padding="10" Margin="15,10"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+   
+</views:MvxContentPage>
