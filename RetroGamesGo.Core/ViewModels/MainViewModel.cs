@@ -25,16 +25,25 @@
         // Properties
         public Command GoToChallengeCompletedPageCommand => new Command(GoToChallengeCompletedPage);
 
+        private readonly ICharacterRepository characterRepository;
+
         /// <summary>
         /// Gets by DI the required services
         /// </summary>
         public MainViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
         {
+            this.characterRepository = Mvx.IoCProvider.Resolve<ICharacterRepository>();
         }
 
         public override Task Initialize()
         {
-            return base.Initialize();
+            //return base.Initialize();
+
+            return Task.Run(async () => 
+            {
+                this.Characters = await this.characterRepository.GetAll();
+                await this.RaisePropertyChanged(() => this.Characters);
+            });
         }
 
         private void GoToChallengeCompletedPage()

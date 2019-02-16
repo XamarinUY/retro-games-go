@@ -106,6 +106,29 @@ namespace RetroGamesGo.Core.Repositories
             await this.AddCharacter(new Models.Character()
             {
                 Id = Guid.NewGuid(),
+                Number = 1,
+                Name = "Super Mario Bros.",
+                Description = "Description 1",
+                FunFact = "fun",
+                Picture = "marioBros.png",
+                Silhouette = "marioBrosSilhouette.png",
+                Url = "http:lala.mario.com"
+            });
+            await this.AddCharacter(new Models.Character()
+            {
+                Id = Guid.NewGuid(),
+                Number = 2,
+                Name = "Super Mario Bros.",
+                Description = "Description 1",
+                FunFact = "fun",
+                Picture = "marioBros.png",
+                Silhouette = "marioBrosSilhouette.png",
+                Url = "http:lala.mario.com"
+            });
+            await this.AddCharacter(new Models.Character()
+            {
+                Id = Guid.NewGuid(),
+                Number = 3,
                 Name = "Super Mario Bros.",
                 Description = "Description 1",
                 FunFact = "fun",
