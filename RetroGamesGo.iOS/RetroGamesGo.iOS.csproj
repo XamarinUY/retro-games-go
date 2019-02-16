@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Xamarin.Forms.3.5.0.129452\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.5.0.129452\build\Xamarin.Forms.props')" />
   <PropertyGroup>
@@ -77,6 +77,9 @@
     <Content Include="Entitlements.plist" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <None Include="packages.config" />
+    <BundleResource Include="Resources\marioBrosSilhouette.png" />
+    <BundleResource Include="Resources\marioBros.png" />
+    <BundleResource Include="Resources\ic_capture.png" />
     <BundleResource Include="breakoutgame.json" />
     <Compile Include="Helpers\Settings.cs" />
   </ItemGroup>

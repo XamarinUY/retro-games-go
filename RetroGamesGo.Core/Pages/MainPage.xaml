@@ -7,38 +7,52 @@
                       x:Class="RetroGamesGo.Core.Pages.MainPage"
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
                       xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+                      xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
                       xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                      BackgroundColor="Black"
-                      Title="Main">
-
-    <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true"
-                         SelectedIndex="{Binding CurrentIndex}"
-                         ItemsSource="{Binding Characters}" BackgroundColor="Gray">
-        <cards:CoverFlowView.ItemTemplate>
-            <DataTemplate>
-                <FlexLayout Padding="40">
-                    <Frame 
-                        VerticalOptions="Center"
-                        HorizontalOptions="Fill"
-                        Padding="0"
-                        HasShadow="false"
-                        IsClippedToBounds="true"
-                        CornerRadius="10"
-                        BackgroundColor="White">
-                         <Frame.Triggers>
-                             <DataTrigger TargetType="Frame"
-                                         Binding="{Binding Unlocked}"
-                                         Value="False">
-                                <Setter Property="Opacity" Value="0.3" />
-                            </DataTrigger>
-                        </Frame.Triggers>
+                      Title="Retro Games GO"
+                      BackgroundColor="White">
+    <views:MvxContentPage.ToolbarItems>
+        <ToolbarItem Name="Capture" Order="Primary" Icon="ic_capture.png" Priority="0" Command="{Binding CaptureCommand}" />
+    </views:MvxContentPage.ToolbarItems>
+    <views:MvxContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ActiveIndicator" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Black" />
+            </Style>
+            <Style x:Key="InactiveIndicator" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="OutlineColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </views:MvxContentPage.Resources>
+    <views:MvxContentPage.Content>
+        <cards:CarouselView IsCyclical="true"
+                             SelectedIndex="{Binding CurrentIndex}"
+                             ItemsSource="{Binding Characters}">
+            <cards:CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="16" VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="2*" />
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="0" Spacing="4" VerticalOptions="Center">
+                            <Label Text="{Binding Name}" IsVisible="{Binding Captured}" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                            <Label Text="{Binding Number, StringFormat='#{0:0}'}" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <AbsoluteLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
+                            <ffimage:CachedImage Source="{Binding Silhouette}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                            <ffimage:CachedImage Source="{Binding Picture}" IsVisible="{Binding Captured}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                        </AbsoluteLayout>
                         
-                        <ffimage:CachedImage Source="{Binding Image}" Aspect="AspectFit"/> 
-                       
-                    </Frame>
-                </FlexLayout>
-            </DataTemplate>
-        </cards:CoverFlowView.ItemTemplate>
-    </cards:CoverFlowView>
-
+                        <Label Grid.Row="2" Text="{Binding Description}" IsVisible="{Binding Captured}" FontSize="Small" HorizontalTextAlignment="Center" VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </cards:CarouselView.ItemTemplate>
+            <controls:IndicatorsControl
+                      SelectedIndicatorStyle="{StaticResource ActiveIndicator}"
+                      UnselectedIndicatorStyle="{StaticResource InactiveIndicator}" />
+        </cards:CarouselView>
+    </views:MvxContentPage.Content>
 </views:MvxContentPage>
