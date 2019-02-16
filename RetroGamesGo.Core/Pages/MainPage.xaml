@@ -8,20 +8,21 @@
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
                       xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
                       xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
+                      xmlns:customControls="clr-namespace:RetroGamesGo.Core.Controls;assembly=RetroGamesGo.Core"
                       xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                       Title="Retro Games GO"
-                      BackgroundColor="White">
+                      BackgroundColor="{StaticResource BackgroundColor}">
     <views:MvxContentPage.ToolbarItems>
         <ToolbarItem Name="Capture" Order="Primary" Icon="ic_capture.png" Priority="0" Command="{Binding CaptureCommand}" />
     </views:MvxContentPage.ToolbarItems>
     <views:MvxContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="ActiveIndicator" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="{StaticResource GoldColor}" />
             </Style>
             <Style x:Key="InactiveIndicator" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="OutlineColor" Value="Black" />
+                <Setter Property="OutlineColor" Value="{StaticResource GrayColor}" />
             </Style>
         </ResourceDictionary>
     </views:MvxContentPage.Resources>
@@ -38,15 +39,17 @@
                             <RowDefinition Height="2*" />
                         </Grid.RowDefinitions>
                         <StackLayout Grid.Row="0" Spacing="4" VerticalOptions="Center">
-                            <Label Text="{Binding Name}" IsVisible="{Binding Captured}" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" />
-                            <Label Text="{Binding Number, StringFormat='#{0:0}'}" FontSize="Large" HorizontalTextAlignment="Center" />
+                            <Label Text="{Binding Name}" IsVisible="{Binding Captured}" TextColor="White" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                            <Label Text="{Binding Number, StringFormat='#{0:0}'}" TextColor="{StaticResource GoldColor}" FontSize="Large" HorizontalTextAlignment="Center" />
                         </StackLayout>
                         <AbsoluteLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
                             <ffimage:CachedImage Source="{Binding Silhouette}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
-                            <ffimage:CachedImage Source="{Binding Picture}" IsVisible="{Binding Captured}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                            <customControls:AnimatedCachedImage Source="{Binding Picture}" Captured="{Binding Captured}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
                         </AbsoluteLayout>
-                        
-                        <Label Grid.Row="2" Text="{Binding Description}" IsVisible="{Binding Captured}" FontSize="Small" HorizontalTextAlignment="Center" VerticalOptions="Center" />
+                        <StackLayout Grid.Row="2" IsVisible="{Binding Captured}" Spacing="4" VerticalOptions="Center">
+                            <Label Text="{Binding Year}" TextColor="White" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                            <customControls:AnimatedLabel Text="{Binding Description}" TextColor="White" IsVisible="{Binding Captured}" FontSize="Small" HorizontalTextAlignment="Center" />
+                        </StackLayout>
                     </Grid>
                 </DataTemplate>
             </cards:CarouselView.ItemTemplate>
