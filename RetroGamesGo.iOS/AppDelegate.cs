@@ -5,7 +5,6 @@
     using Core;
     using UIKit;
 
-  
     /// <summary>
     /// The UIApplicationDelegate for the application. This class is responsible for launching the
     /// User Interface of the application, as well as listening (and optionally responding) to application events from iOS. 
@@ -19,7 +18,6 @@
             set;
         }
 
-
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // Todo: adjust values to match the selected color scheme
@@ -31,13 +29,11 @@
 
         }
 
-
         protected override void LoadFormsApplication()
         {
             base.LoadFormsApplication();
             global::Xamarin.Forms.Forms.Init();
         }
-
     }
 }
 
