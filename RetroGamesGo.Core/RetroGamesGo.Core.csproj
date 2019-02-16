@@ -28,8 +28,11 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Pages\MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <None Update="Pages\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <EmbeddedResource Update="Pages\MenuPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

@@ -93,6 +93,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\drawable\marioBrosSilhouette.png" />
+    <AndroidResource Include="Resources\drawable\marioBros.png" />
+    <AndroidResource Include="Resources\drawable\ic_capture.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MvvmCross">

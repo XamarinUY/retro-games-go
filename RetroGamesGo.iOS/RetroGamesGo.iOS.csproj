@@ -76,6 +76,9 @@
     <Content Include="Entitlements.plist" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <None Include="packages.config" />
+    <BundleResource Include="Resources\marioBrosSilhouette.png" />
+    <BundleResource Include="Resources\marioBros.png" />
+    <BundleResource Include="Resources\ic_capture.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross, Version=6.2.2.0, Culture=neutral, processorArchitecture=MSIL">
