@@ -54,6 +54,19 @@
                     Silhouette = "marioBrosSilhouette.png",
                     Captured = true
                 },
+                new Character
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Mario Bros",
+                    Number = 3,
+                    Year = 1983,
+                    Description = "Es un videojuego de arcade desarrollado por Nintendo en el año 1983. Fue creado por Shigeru Miyamoto. Ha sido presentado como un minijuego en la serie de Super Mario Advance y otros juegos. Mario Bros. ha sido relanzado para Wii, Nintendo 3DS y Wii U en los servicios de Consola Virtual en Japón, Norteamérica, Europa y Australia.",
+                    Url = "https://es.wikipedia.org/wiki/Mario_Bros.",
+                    FunFact = string.Empty,
+                    Picture = "marioBros.png",
+                    Silhouette = "marioBrosSilhouette.png",
+                    Captured = true
+                },
             };
         }
 
@@ -64,7 +77,6 @@
             this.IsBusy = false;
 
             this.Characters[0].Captured = !this.Characters[0].Captured;
-            await this.RaisePropertyChanged(() => this.Characters);
         }
     }
 }

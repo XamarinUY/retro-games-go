@@ -48,4 +48,7 @@
     <Folder Include="Controls\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Controls\AnimatedLabel.cs" />
+  </ItemGroup>
 </Project>
