@@ -82,6 +82,7 @@
     <BundleResource Include="Resources\mario_coin.mp3" />
     <BundleResource Include="Resources\street_yogafire.wav" />
     <BundleResource Include="Resources\pacman_waka_waka.mp3" />
+    <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross, Version=6.2.2.0, Culture=neutral, processorArchitecture=MSIL">
