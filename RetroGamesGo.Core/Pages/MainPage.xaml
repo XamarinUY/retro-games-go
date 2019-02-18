@@ -6,10 +6,12 @@
                       xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
                       x:Class="RetroGamesGo.Core.Pages.MainPage"
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
+                      xmlns:converters="clr-namespace:RetroGamesGo.Core.Converters;assembly=RetroGamesGo.Core"
                       xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
                       xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
                       xmlns:customControls="clr-namespace:RetroGamesGo.Core.Controls;assembly=RetroGamesGo.Core"
                       xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                      xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
                       Title="Retro Games GO"
                       BackgroundColor="{StaticResource BackgroundColor}">
     <views:MvxContentPage.ToolbarItems>
@@ -17,6 +19,7 @@
     </views:MvxContentPage.ToolbarItems>
     <views:MvxContentPage.Resources>
         <ResourceDictionary>
+            <converters:BooleanNegationConverter x:Key="BooleanNegationConverter"/>
             <Style x:Key="ActiveIndicator" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{StaticResource GoldColor}" />
             </Style>
@@ -41,16 +44,19 @@
                                     <RowDefinition Height="2*" />
                                 </Grid.RowDefinitions>
                                 <StackLayout Grid.Row="0" Spacing="4" VerticalOptions="Center">
-                                    <Label Text="{Binding Name}" IsVisible="{Binding Captured}" TextColor="White" FontSize="Large" FontAttributes="Bold" FontFamily="{StaticResource Ka1Font}" HorizontalTextAlignment="Center" />
+                                    <Label Text="{Binding Name}" IsVisible="{Binding Captured}" TextColor="White" FontSize="Large" FontAttributes="Bold" FontFamily="{StaticResource PressStart2PFont}" HorizontalTextAlignment="Center" />
                                     <Label Text="{Binding Number, StringFormat='#{0:0}'}" TextColor="{StaticResource GoldColor}" FontSize="Medium" FontFamily="{StaticResource PressStart2PFont}" HorizontalTextAlignment="Center" />
                                 </StackLayout>
                                 <AbsoluteLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
-                                    <ffimage:CachedImage Source="{Binding Silhouette}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
-                                    <customControls:AnimatedCachedImage Source="{Binding Picture}" Captured="{Binding Captured}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                                    <ffimage:CachedImage IsVisible="{Binding Captured, Converter={StaticResource BooleanNegationConverter}}" Source="{Binding Silhouette}" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                                    <lottie:AnimationView IsVisible="{Binding Captured}" Animation="{Binding Animation}" AutoPlay="true" Loop="true" 
+                                        AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
                                 </AbsoluteLayout>
                                 <StackLayout Grid.Row="2" IsVisible="{Binding Captured}" Spacing="4" VerticalOptions="Center">
                                     <Label Text="{Binding Year}" TextColor="White" FontSize="Medium" FontAttributes="Bold" FontFamily="{StaticResource PressStart2PFont}" HorizontalTextAlignment="Center" />
-                                    <Label Text="{Binding Description}" TextColor="White" FontSize="Small" FontFamily="{StaticResource SpaceMonoFont}" HorizontalTextAlignment="Center" />
+                                    <ScrollView>
+                                        <Label Text="{Binding Description}" TextColor="White" FontSize="Small" FontFamily="{StaticResource SpaceMonoFont}" HorizontalTextAlignment="Center" />
+                                    </ScrollView>
                                 </StackLayout>
                             </Grid>
                         </Frame>

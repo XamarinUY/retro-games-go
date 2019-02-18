@@ -78,6 +78,9 @@
     <AndroidAsset Include="Assets\PressStart2P.ttf" />
     <AndroidAsset Include="Assets\SpaceMono-Bold.ttf" />
     <AndroidAsset Include="Assets\ka1.ttf" />
+    <AndroidAsset Include="Assets\Circus_F.json" />
+    <AndroidAsset Include="Assets\Mario_F.json" />
+    <AndroidAsset Include="Assets\Pacman_F.json" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml" />

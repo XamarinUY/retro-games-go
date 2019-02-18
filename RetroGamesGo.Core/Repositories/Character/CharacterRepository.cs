@@ -107,39 +107,39 @@ namespace RetroGamesGo.Core.Repositories
             {
                 Id = Guid.NewGuid(),
                 Number = 1,
-                Name = "Super Mario Bros.",
-                Description = "Description 1",
-                Year = 1897,
+                Name = "Mario Bros",
+                Description = "Es un videojuego de arcade desarrollado por Nintendo en el año 1983. Fue creado por Shigeru Miyamoto. En el juego, Mario es retratado como un fontanero italo-estadounidense que, junto con su hermano menor Luigi, tiene que derrotar a las criaturas que han venido de las alcantarillas debajo de Nueva York.",
+                Year = 1983,
                 FunFact = "fun",
-                Picture = "marioBros.png",
+                Animation = "Mario_F.json",
                 Silhouette = "marioBrosSilhouette.png",
-                Url = "http:lala.mario.com",
+                Url = "https://es.wikipedia.org/wiki/Mario_Bros.",
                 Captured = false
             });
             await this.AddCharacter(new Models.Character()
             {
                 Id = Guid.NewGuid(),
                 Number = 2,
-                Name = "Super Mario Bros.",
-                Description = "Description 1",
-                Year = 1897,
+                Name = "Pac-Man",
+                Description = "Desde que Pac-Man fue lanzado el 21 de mayo de 1980, fue un éxito. Se convirtió en un fenómeno mundial en la industria de los videojuegos, llegó a tener el récord Guiness del videojuego de arcade más exitoso de todos los tiempos con un total de 293 822 máquinas vendidas desde 1981 hasta 1987.",
+                Year = 1980,
                 FunFact = "fun",
-                Picture = "marioBros.png",
+                Animation = "Pacman_F.json",
                 Silhouette = "marioBrosSilhouette.png",
-                Url = "http:lala.mario.com",
+                Url = "https://es.wikipedia.org/wiki/Pac-Man",
                 Captured = true
             });
             await this.AddCharacter(new Models.Character()
             {
                 Id = Guid.NewGuid(),
                 Number = 3,
-                Name = "Super Mario Bros.",
-                Description = "Description 1",
-                Year = 1897,
+                Name = "Circus Charlie",
+                Description = "es un videojuego arcade publicado por Konami en 1984. Apareció en Nintendo DS dentro del compilado Konami Classics Series: Arcade Hits.",
+                Year = 1984,
                 FunFact = "fun",
-                Picture = "marioBros.png",
+                Animation = "Circus_F.json",
                 Silhouette = "marioBrosSilhouette.png",
-                Url = "http:lala.mario.com",
+                Url = "https://es.wikipedia.org/wiki/Circus_Charlie",
                 Captured = true
             });
         }

@@ -53,6 +53,9 @@
         {
             this.IsBusy = true;
             //await this.NavigationService.Navigate<CaptureViewModel>();
+
+            this.Characters[0].Captured = true;
+
             this.IsBusy = false;
         }
     }

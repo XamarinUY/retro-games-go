@@ -22,7 +22,7 @@
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(12, 16, 19);
+            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(18, 22, 25);
             UINavigationBar.Appearance.TintColor = UIColor.White;
             UINavigationBar.Appearance.TitleTextAttributes = new UIStringAttributes
             {

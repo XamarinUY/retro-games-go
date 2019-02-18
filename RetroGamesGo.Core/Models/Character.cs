@@ -10,7 +10,7 @@ namespace RetroGamesGo.Core.Models
         public int Year { get; set; }
         public string Url { get; set; }
         public string FunFact { get; set; }
-        public string Picture { get; set; }
+        public string Animation { get; set; }
         public string Silhouette { get; set; }
         private bool captured;
 

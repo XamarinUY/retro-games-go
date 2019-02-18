@@ -53,11 +53,12 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Controls\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Controls\AnimatedLabel.cs" />
+    <Compile Remove="Controls\AnimatedCachedImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
