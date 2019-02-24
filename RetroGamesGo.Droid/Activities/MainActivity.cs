@@ -9,9 +9,7 @@ namespace RetroGamesGo.Droid.Activities
     using MvvmCross.Forms.Platforms.Android.Views;
     using Android.OS;
     using Core.ViewModels;
-
-    using UrhoAdroid = Urho;
-
+    
     /// <summary>
     /// Main activity 
     /// </summary>

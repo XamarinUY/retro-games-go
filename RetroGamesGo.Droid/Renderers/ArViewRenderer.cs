@@ -1,51 +1,65 @@
 ﻿using Android.Content;
+using Android.Opengl;
 using RetroGamesGo.Core.Controls;
-using RetroGamesGo.Droid.Activities;
-using RetroGamesGo.Droid.Game;
+using RetroGamesGo.Droid.ArCore.Renderers;
 using RetroGamesGo.Droid.Renderers;
-using Urho.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 [assembly: ExportRenderer(typeof(ArView), typeof(ArViewRenderer))]
 namespace RetroGamesGo.Droid.Renderers
 {
-    public class ArViewRenderer : ViewRenderer<ArView, Android.Widget.RelativeLayout>
+    /// <summary>
+    /// View renderer for creating an OpenGL Surface on Android
+    /// for the AR Render
+    /// </summary>
+    public class ArViewRenderer : ViewRenderer<ArView, GLSurfaceView>
     {
-        private DroidArGame game;
-        private UrhoSurfacePlaceholder surface;
+        private bool disposed;
+        private readonly Context context;
 
 
         public ArViewRenderer(Context context) : base(context)
         {
-            
+            AutoPackage = false;
+            this.context = context;
         }
 
-      
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!disposed && disposing)
+            {
+                disposed = true;
+            }
+            base.Dispose(disposing);
+        }
+
+        protected override GLSurfaceView CreateNativeControl()
+        {
+            return new GLSurfaceView(Context);
+        }
+
+
         protected override async void OnElementChanged(ElementChangedEventArgs<ArView> e)
         {
             base.OnElementChanged(e);
 
-            if (Control == null)
-            {                
-                SetNativeControl(new Android.Widget.RelativeLayout(this.Context));
-            }
-
-
-            if (surface == null)
+            if (e.NewElement != null)
             {
-                this.surface = UrhoSurface.CreateSurface(MainActivity.Instance);
+                var surfaceView = Control;
+                if (surfaceView == null)
+                {
+                    surfaceView = CreateNativeControl();
+                    surfaceView.SetEGLContextClientVersion(2);
+                    SetNativeControl(surfaceView);
+                }
 
-                this.Control.AddView(surface);
-
-                game = await surface.Show<DroidArGame>(
-                    new Urho.ApplicationOptions
-                    {
-                       // ResourcePaths = new[] { "MutantData" }
-                    });
+                surfaceView.SetRenderer(new ArRenderer(this.context, surfaceView));
+                surfaceView.RenderMode = Rendermode.Continuously;
             }
         }
 
-        
+
     }
 }

@@ -7,9 +7,7 @@
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]    
     public partial class ArCameraPage
-    {
-        //private ArGame arGame;  
-
+    {    
         public ArCameraPage()
         {
             InitializeComponent();
