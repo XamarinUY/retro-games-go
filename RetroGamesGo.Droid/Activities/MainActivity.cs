@@ -1,11 +1,11 @@
-﻿using Lottie.Forms.Droid;
-namespace RetroGamesGo.Droid.Activities
+﻿namespace RetroGamesGo.Droid.Activities
 {   
     using Android.App;
     using Android.Content.PM;
     using MvvmCross.Forms.Platforms.Android.Views;
     using Android.OS;
     using Core.ViewModels;
+    //using Lottie.Forms.Droid;
 
     /// <summary>
     /// Main activity 
@@ -27,7 +27,7 @@ namespace RetroGamesGo.Droid.Activities
             ToolbarResource = Droid.Resource.Layout.Toolbar;
             TabLayoutResource = Droid.Resource.Layout.Tabbar;
             base.OnCreate(bundle);
-            AnimationViewRenderer.Init();
+            //AnimationViewRenderer.Init();-
         }
 
 
