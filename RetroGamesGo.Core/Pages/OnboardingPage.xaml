@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:MvxContentPage x:TypeArguments="viewModels:OnboardingViewModel" 
+                      xmlns="http://xamarin.com/schemas/2014/forms" 
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                      x:Class="RetroGamesGo.Core.Pages.OnboardingPage" 
+                      xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView" 
+                      NavigationPage.HasNavigationBar="false" 
+                      xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+                      xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core" 
+                      xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                      xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms">
+    
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+            <StackLayout IsVisible="{Binding ShowLottie}" VerticalOptions="FillAndExpand" BackgroundColor="Black" HorizontalOptions="FillAndExpand">
+                <Label Text="Are you ready?" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,20" TextColor="White" FontSize="Large"/>
+                  <lottie:AnimationView 
+                    x:Name="AnimationView" 
+                    Animation="breakoutgame.json" 
+                    AutoPlay="{Binding ShowLottie}"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            
+            <StackLayout IsVisible="{Binding ShowOnboard}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true" ItemsSource="{Binding InfoImages}" BackgroundColor="Gray">
+                    <cards:CoverFlowView.ItemTemplate>
+                        <DataTemplate>
+                            <FlexLayout Padding="40">
+                                <Frame VerticalOptions="Center" HorizontalOptions="Fill" Padding="0" HasShadow="false" IsClippedToBounds="true" CornerRadius="0" BackgroundColor="Black">
+                                    <ffimage:CachedImage Source="{Binding .}" Aspect="AspectFit" />
+                                </Frame>
+                            </FlexLayout>
+                        </DataTemplate>
+                    </cards:CoverFlowView.ItemTemplate>
+                </cards:CoverFlowView>
+                 <Button Text="PLAY" HorizontalOptions="FillAndExpand" BackgroundColor="White" TextColor="Fuchsia" FontAttributes="Bold" Command="{Binding Play}" Margin="50,20"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</views:MvxContentPage>

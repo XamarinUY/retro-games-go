@@ -1,9 +1,12 @@
 ﻿namespace RetroGamesGo.Droid
 {
     using Core;
+    using MvvmCross;
+    using MvvmCross.Base;
     using MvvmCross.Forms.Platforms.Android.Core;
     using MvvmCross.Logging;
-    
+    using MvvmCross.Plugin.Json;
+    using RetroGamesGo.Core.Repositories;
 
     /// <summary>
     /// Android setup class
@@ -17,12 +20,11 @@
         public override MvxLogProviderType GetDefaultLogProviderType()
             => MvxLogProviderType.Console;
 
-        /// <summary>
-        /// Initializes the platform services
-        /// </summary>
         protected override void InitializeFirstChance()
         {
-            base.InitializeFirstChance();            
+            Mvx.IoCProvider.RegisterSingleton<IMvxJsonConverter>(new MvxJsonConverter());
+            Mvx.IoCProvider.RegisterSingleton<IDatabaseConnection>(new SQLiteClient());
+            base.InitializeFirstChance();
         }
     }
 }

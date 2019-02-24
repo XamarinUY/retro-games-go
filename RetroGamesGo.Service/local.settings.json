@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+  },
+  "ConnectionStrings": {
+    "StorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=retrogamego9eac;AccountKey=YToOZ3bizknBVkVMNpdMsM8UBp9J4ERGdFiRhHg/1erA7iba83yfNshxLeB3EPO+BopDzL9yiY1nOcAhnujBew=="
+  }
+}

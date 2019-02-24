@@ -9,7 +9,8 @@ namespace RetroGamesGo.Droid.Activities
     using MvvmCross.Forms.Platforms.Android.Views;
     using Android.OS;
     using Core.ViewModels;
-    
+    //using Lottie.Forms.Droid;
+
     /// <summary>
     /// Main activity 
     /// </summary>
@@ -36,6 +37,7 @@ namespace RetroGamesGo.Droid.Activities
 
             Instance = this;
             RequestCameraPermission();
+            //AnimationViewRenderer.Init();-
         }
 
 

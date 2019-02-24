@@ -4,8 +4,9 @@
     using MvvmCross.Forms.Platforms.Ios.Core;
     using Core;
     using UIKit;
+    using Lottie.Forms.iOS.Renderers;
 
-  
+
     /// <summary>
     /// The UIApplicationDelegate for the application. This class is responsible for launching the
     /// User Interface of the application, as well as listening (and optionally responding) to application events from iOS. 
@@ -19,25 +20,30 @@
             set;
         }
 
-
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            // Todo: adjust values to match the selected color scheme
-            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(34, 51, 68);
-            UINavigationBar.Appearance.TintColor = UIColor.FromRGB(255, 255, 255);
+            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(18, 22, 25);
+            UINavigationBar.Appearance.TintColor = UIColor.White;
+            UINavigationBar.Appearance.TitleTextAttributes = new UIStringAttributes
+            {
+                ForegroundColor = UIColor.White
+            };
+            UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
+
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
             Window.MakeKeyAndVisible();
+
+            // Init plugins
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            AnimationViewRenderer.Init();
             return base.FinishedLaunching(application, launchOptions);
-
         }
-
 
         protected override void LoadFormsApplication()
         {
             base.LoadFormsApplication();
             global::Xamarin.Forms.Forms.Init();
         }
-
     }
 }
 
