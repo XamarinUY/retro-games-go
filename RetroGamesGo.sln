@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGamesGo.Core", "RetroGamesGo.Core\RetroGamesGo.Core.csproj", "{C4448C65-7C27-4172-987F-AF602A203BD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetroGamesGo.Core", "RetroGamesGo.Core\RetroGamesGo.Core.csproj", "{C4448C65-7C27-4172-987F-AF602A203BD2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Languages", "Languages", "{5BDB3103-2BEC-4FC0-A17E-9C654E4F27FA}"
 EndProject
@@ -19,11 +19,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LIbs", "LIbs", "{5D40B056-5
 		Libs\JavaGL.dll = Libs\JavaGL.dll
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGamesGo.Models", "RetroGamesGo.Models\RetroGamesGo.Models.csproj", "{7EFD4972-76D6-490A-B603-8738F0A4A5AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetroGamesGo.Models", "RetroGamesGo.Models\RetroGamesGo.Models.csproj", "{7EFD4972-76D6-490A-B603-8738F0A4A5AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGamesGo.Service", "RetroGamesGo.Service\RetroGamesGo.Service.csproj", "{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetroGamesGo.Service", "RetroGamesGo.Service\RetroGamesGo.Service.csproj", "{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGamesGo.iOS", "RetroGamesGo.iOS\RetroGamesGo.iOS.csproj", "{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{2F0F4A69-6E19-44BB-8A47-F5124FCC0797}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mario", "Mario", "{E130CFED-CB15-410F-90BA-05B919312410}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\Mario\MarioSticker.png = Assets\Mario\MarioSticker.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CircusCharlie", "CircusCharlie", "{201D99ED-986F-477A-B6BB-44DB299C3DCC}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\CircusCharlie\CircusCharlieSticker.jpg = Assets\CircusCharlie\CircusCharlieSticker.jpg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PacMan", "PacMan", "{BCCF97C3-A838-4DD1-BA39-409817155D96}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\PacMan\PacmanSticker.png = Assets\PacMan\PacmanSticker.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -106,6 +123,9 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2F47FA2B-CC6D-409C-931C-537F145C235C} = {5BDB3103-2BEC-4FC0-A17E-9C654E4F27FA}
+		{E130CFED-CB15-410F-90BA-05B919312410} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
+		{201D99ED-986F-477A-B6BB-44DB299C3DCC} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
+		{BCCF97C3-A838-4DD1-BA39-409817155D96} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {14F4397D-31D6-4C83-80EC-1C065F8D602E}

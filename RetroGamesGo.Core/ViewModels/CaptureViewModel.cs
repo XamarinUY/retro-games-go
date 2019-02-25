@@ -6,12 +6,12 @@
     /// <summary>
     /// AR Camera capture logic
     /// </summary>
-    public class ArCameraViewModel : BaseViewModel
+    public class CaptureViewModel : BaseViewModel
     {
         /// <summary>
         /// Gets by DI the required services
         /// </summary>
-        public ArCameraViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
+        public CaptureViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
         {
         }
     }

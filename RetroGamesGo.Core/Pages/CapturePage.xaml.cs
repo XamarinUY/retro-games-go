@@ -3,12 +3,12 @@
     using Xamarin.Forms.Xaml;
 
     /// <summary>
-    /// AR UI
+    /// Capture UI
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]    
-    public partial class ArCameraPage
+    public partial class CapturePage
     {    
-        public ArCameraPage()
+        public CapturePage()
         {
             InitializeComponent();
         }      

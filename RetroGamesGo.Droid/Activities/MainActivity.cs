@@ -1,16 +1,14 @@
-﻿using Android;
-using Android.Support.V4.App;
-using Android.Support.V4.Content;
-
-namespace RetroGamesGo.Droid.Activities
-{   
+﻿namespace RetroGamesGo.Droid.Activities
+{
+    using Android;
+    using Android.Support.V4.App;
+    using Android.Support.V4.Content;
     using Android.App;
     using Android.Content.PM;
     using MvvmCross.Forms.Platforms.Android.Views;
     using Android.OS;
     using Core.ViewModels;
-    //using Lottie.Forms.Droid;
-
+    
     /// <summary>
     /// Main activity 
     /// </summary>
@@ -36,8 +34,8 @@ namespace RetroGamesGo.Droid.Activities
             base.OnCreate(bundle);
 
             Instance = this;
-            RequestCameraPermission();
-            //AnimationViewRenderer.Init();-
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
+            RequestCameraPermission();            
         }
 
 
@@ -48,8 +46,6 @@ namespace RetroGamesGo.Droid.Activities
         {
             base.InitializeForms(bundle);
             Xamarin.Forms.Forms.Init(this, bundle);
-
-            //UrhoAdroid.Scene a;
         }
 
 
@@ -64,38 +60,6 @@ namespace RetroGamesGo.Droid.Activities
                 return;
             }
         }
-
-        //protected override void OnResume()
-        //{
-        //    base.OnResume();
-        //    UrhoSurface.OnResume();
-
-        //    LaunchUrho();
-        //}
-        //protected override void OnPause()
-        //{
-        //    UrhoSurface.OnPause();
-        //    base.OnPause();
-        //}
-
-        //protected override void OnDestroy()
-        //{
-        //    UrhoSurface.OnDestroy();
-        //    base.OnDestroy();
-        //}
-
-        //public override void OnBackPressed()
-        //{
-        //    UrhoSurface.OnDestroy();
-        //    Finish();
-        //}
-
-        //public override void OnLowMemory()
-        //{
-        //    UrhoSurface.OnLowMemory();
-        //    base.OnLowMemory();
-        //}
-
     }
 }
 

@@ -103,7 +103,7 @@ namespace RetroGamesGo.Core.Repositories
 
         private async Task CreateCharacters()
         {
-            await this.AddCharacter(new Models.Character()
+            await this.AddCharacter(new Character()
             {
                 Id = Guid.NewGuid(),
                 Number = 1,
@@ -114,9 +114,13 @@ namespace RetroGamesGo.Core.Repositories
                 Animation = "Mario_F.json",
                 Silhouette = "marioBrosSilhouette.png",
                 Url = "https://es.wikipedia.org/wiki/Mario_Bros.",
-                Captured = false
+                Captured = false,
+                AssetSticker = "Mario/MarioSticker.png",
+                AssetModel = "Mario/Mario.obj",
+                AssetTexture = "Mario/Mario.png",
+
             });
-            await this.AddCharacter(new Models.Character()
+            await this.AddCharacter(new Character()
             {
                 Id = Guid.NewGuid(),
                 Number = 2,
@@ -127,9 +131,12 @@ namespace RetroGamesGo.Core.Repositories
                 Animation = "Pacman_F.json",
                 Silhouette = "marioBrosSilhouette.png",
                 Url = "https://es.wikipedia.org/wiki/Pac-Man",
-                Captured = true
+                Captured = true,
+                AssetSticker = "PacMan/PacmanSticker.png",
+                AssetModel = "PacMan/Mario.obj",
+                AssetTexture = "PacMan/Mario.png",
             });
-            await this.AddCharacter(new Models.Character()
+            await this.AddCharacter(new Character()
             {
                 Id = Guid.NewGuid(),
                 Number = 3,
@@ -140,7 +147,10 @@ namespace RetroGamesGo.Core.Repositories
                 Animation = "Circus_F.json",
                 Silhouette = "marioBrosSilhouette.png",
                 Url = "https://es.wikipedia.org/wiki/Circus_Charlie",
-                Captured = true
+                Captured = true,
+                AssetSticker = "CircusCharlie/CircusCharlieSticker.jpg",
+                AssetModel = "CircusCharlie/Mario.obj",
+                AssetTexture = "CircusCharlie/Mario.png",
             });
         }
     }

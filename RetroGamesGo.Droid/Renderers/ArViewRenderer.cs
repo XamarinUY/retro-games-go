@@ -55,7 +55,7 @@ namespace RetroGamesGo.Droid.Renderers
                     SetNativeControl(surfaceView);
                 }
 
-                surfaceView.SetRenderer(new ArRenderer(this.context, surfaceView));
+                surfaceView.SetRenderer(new ImageRecognitionRenderer(this.context, surfaceView));
                 surfaceView.RenderMode = Rendermode.Continuously;
             }
         }

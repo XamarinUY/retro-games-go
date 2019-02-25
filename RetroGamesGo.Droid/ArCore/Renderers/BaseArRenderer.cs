@@ -1,7 +1,4 @@
-﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Android.Content;
+﻿using Android.Content;
 using Android.Opengl;
 using Android.Util;
 using Android.Views;
@@ -10,68 +7,40 @@ using Javax.Microedition.Khronos.Opengles;
 using RetroGamesGo.Droid.ArCore.Helpers;
 using Xamarin.Forms;
 using EGLConfig = Javax.Microedition.Khronos.Egl.EGLConfig;
+using Frame = Xamarin.Forms.Frame;
 
 namespace RetroGamesGo.Droid.ArCore.Renderers
 {
-    public class ArRenderer : Java.Lang.Object, GLSurfaceView.IRenderer, Android.Views.View.IOnTouchListener
+    /// <summary>
+    /// Base ARCore rendering class
+    /// </summary>
+    public class BaseArRenderer : Java.Lang.Object, GLSurfaceView.IRenderer
     {
-        private readonly Session session;
-        private readonly Context context;
-        private readonly GestureDetector gestureDetector;
-        private readonly GLSurfaceView surfaceView;
+        protected readonly Session session;
+        protected readonly Context context;
+        protected readonly GLSurfaceView surfaceView;
         private readonly DisplayRotationHelper displayRotationHelper;
-        private readonly BackgroundRenderer backgroundRenderer = new BackgroundRenderer();
-        private PointCloudRenderer pointCloudRenderer = new PointCloudRenderer();
-        private List<ObjModelRenderer> models = new List<ObjModelRenderer>();
-        private List<Anchor> anchors = new List<Anchor>();
-        private ConcurrentQueue<MotionEvent> queuedSingleTaps = new ConcurrentQueue<MotionEvent>();
-        private List<PlaneAttachmentHelper> touches = new List<PlaneAttachmentHelper>();
-        private static float[] mAnchorMatrix = new float[16];
+        protected readonly BackgroundRenderer backgroundRenderer = new BackgroundRenderer();
+        protected Google.AR.Core.Config config;
 
         /// <summary>
         /// Creates the AR Renderer
         /// </summary>        
-        public ArRenderer(Context context, GLSurfaceView surfaceView)
-        {            
+        public BaseArRenderer(Context context, GLSurfaceView surfaceView)
+        {
             this.context = context;
             this.surfaceView = surfaceView;
-
-            try
+            this.session = new Session(this.context);
+            this.displayRotationHelper = new DisplayRotationHelper(this.context);
+            config = new Google.AR.Core.Config(this.session);
+            if (!session.IsSupported(config))
             {
-                this.session = new Session(this.context);
-                this.displayRotationHelper = new DisplayRotationHelper(this.context);
-
-                var config = new Google.AR.Core.Config(this.session);
-                if (!session.IsSupported(config))
-                {
-                    return;
-                }
-
-                
-                this.gestureDetector = new GestureDetector(this.context, new TapGestureDetectorHelper
-                {
-                    SingleTapUpHandler = (arg) =>
-                    {
-                        OnSingleTap(arg);
-                        return true;
-                    },
-                    DownHandler = (arg) => true
-                });
-
-                //Set ups renderer.
-                this.surfaceView.SetOnTouchListener(this);
-                this.surfaceView.PreserveEGLContextOnPause = true;
-                this.surfaceView.SetEGLContextClientVersion(2);
-                this.surfaceView.SetEGLConfigChooser(8, 8, 8, 8, 16, 0);
+                return;
             }
-            catch (Java.Lang.Exception ex)
-            {
-                // Log somewhere
-            }
-            catch (System.Exception ex)
-            {
-                // Log somewhere
-            }
+
+            this.surfaceView.PreserveEGLContextOnPause = true;
+            this.surfaceView.SetEGLContextClientVersion(2);
+            this.surfaceView.SetEGLConfigChooser(8, 8, 8, 8, 16, 0);
         }
 
 
@@ -79,38 +48,31 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
         /// Draw a frame
         /// </summary>        
         public void OnDrawFrame(IGL10 gl)
-        {                   
-            // Clear screen to notify driver it should not load any pixels from previous frame.
+        {            
             GLES20.GlClear(GLES20.GlColorBufferBit | GLES20.GlDepthBufferBit);
             if (this.session == null) return;
 
-            // Notify ARCore session that the view size changed so that the perspective matrix and the video background
-            // can be properly adjusted
+            // Notify ARCore session that the view size changed so that the perspective matrix
+            // and the video background can be properly adjusted
             this.displayRotationHelper.UpdateSessionIfNeeded(this.session);
 
             try
-            {
-                // Obtain the current frame from ARSession. When the configuration is set to
-                // UpdateMode.BLOCKING (it is by default), this will throttle the rendering to the
-                // camera framerate.
-
+            {              
                 var frame = this.session.Update();
                 var camera = frame.Camera;
-
+                CheckDetectedImages(frame);
                 // Handle taps. Handling only one tap per frame, as taps are usually low frequency
                 // compared to frame rate.
-                MotionEvent tap = null;
-                queuedSingleTaps.TryDequeue(out tap);
 
-                
-                if (tap != null && camera.TrackingState == TrackingState.Tracking)
+
+                /* if (tap != null && camera.TrackingState == TrackingState.Tracking)
                 {
                     foreach (var hit in frame.HitTest(tap))
                     {
                         var trackable = hit.Trackable;
 
                         // Check if any plane was hit, and if it was hit inside the plane polygon.
-                        if (trackable is Plane && ((Plane)trackable).IsPoseInPolygon(hit.HitPose))
+                        if (trackable is Plane && ((Plane) trackable).IsPoseInPolygon(hit.HitPose))
                         {
                             // Cap the number of objects created. This avoids overloading both the
                             // rendering system and ARCore.
@@ -119,6 +81,7 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
                                 this.anchors[0].Detach();
                                 this.anchors.RemoveAt(0);
                             }
+
                             // Adding an Anchor tells ARCore that it should track this position in
                             // space. This anchor will be used in PlaneAttachment to place the 3d model
                             // in the correct position relative both to the world and to the plane.
@@ -131,13 +94,13 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
                             break;
                         }
                     }
-                }
+                }*/
 
                 // Draw background.
                 this.backgroundRenderer.Draw(frame);
                 if (camera.TrackingState == TrackingState.Paused) return;
 
-                var projectionMatrix = new float[16];
+              /*  var projectionMatrix = new float[16];
                 camera.GetProjectionMatrix(projectionMatrix, 0, 0.1f, 100.0f);
                 var viewMatrix = new float[16];
                 camera.GetViewMatrix(viewMatrix, 0);
@@ -153,9 +116,9 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
                 var planes = new List<Plane>();
                 foreach (var p in session.GetAllTrackables(Java.Lang.Class.FromType(typeof(Plane))))
                 {
-                    var plane = (Plane)p;
+                    var plane = (Plane) p;
                     planes.Add(plane);
-                }                
+                }
 
                 foreach (var plane in planes)
                 {
@@ -166,14 +129,14 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
                         break;
                     }
                 }
-                
 
 
-               // Visualize planes.
-               // mPlaneRenderer.DrawPlanes(planes, camera.DisplayOrientedPose, projectionMatrix);
 
-               // Visualize anchors created by touch.
-               var scaleFactor = 0.1f;
+                // Visualize planes.
+                // mPlaneRenderer.DrawPlanes(planes, camera.DisplayOrientedPose, projectionMatrix);
+
+                // Visualize anchors created by touch.
+                var scaleFactor = 0.1f;
                 foreach (var anchor in this.anchors)
                 {
 
@@ -198,8 +161,7 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
                     //mVirtualObjectShadow.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
                     //mVirtualObject.Draw(viewMatrix, projectionMatrix, lightIntensity);
                     //mVirtualObjectShadow.Draw(viewMatrix, projectionMatrix, lightIntensity);
-
-                }
+                }*/
             }
             catch (System.Exception ex)
             {
@@ -207,7 +169,6 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
                 //Log.Error("ArCore", "Exception on the OpenGL thread", ex);
             }
         }
-
 
 
         /// <summary>
@@ -226,75 +187,28 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
         public void OnSurfaceCreated(IGL10 gl, EGLConfig config)
         {
             GLES20.GlClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-
-            // Create the texture and pass it to ARCore session to be filled during update().
             this.backgroundRenderer.CreateOnGlThread(this.context);
             this.session.SetCameraTextureName(this.backgroundRenderer.TextureId);
-         
-            //try
-            //{
-            //    mPlaneRenderer.CreateOnGlThread(_context, "trigrid.png");
-            //}
-            //catch (Java.IO.IOException ex)
-            //{
-            //    Log.Error(TAG, "Failed to read plane texture");
-            //}
-            this.pointCloudRenderer.CreateOnGlThread(this.context);
-
-            this.session.Resume(); ;
-        }
-
-        /// <summary>
-        /// Handles tha tab event.
-        /// Add it to a queue to user as anchor point later
-        /// </summary>        
-        private void OnSingleTap(MotionEvent e)
-        {
-            if (queuedSingleTaps.Count < 5)
-            {
-                queuedSingleTaps.Enqueue(e);
-            }
+            LoadArAssets();
+            this.session.Resume();
         }
 
 
         /// <summary>
-        /// Handles the touch event
-        /// </summary>        
-        public bool OnTouch(Android.Views.View v, MotionEvent e)
+        /// Load any assets related to thi AR session
+        /// </summary>
+        protected virtual void LoadArAssets()
         {
-            return this.gestureDetector.OnTouchEvent(e);
+
         }
 
 
-        private void LoadModels()
+        /// <summary>
+        /// Checks if some augmented images were detected
+        /// </summary>
+        protected virtual void CheckDetectedImages(Google.AR.Core.Frame frame)
         {
-            //var model = LoadModel("Luigi/luigi.obj", "Luigi/luigiD.jpg");
-            //var model = LoadModel("Andy/andy.obj", "Andy/andy.png");
-            var model = LoadModel("Mario/Mario2.obj", "Mario/Mario.png");
-            this.models.Add(model);
-        }
 
-
-        private ObjModelRenderer LoadModel(string modelName, string textureName, string modelShadowName = "", string textureShadowName = "")
-        {
-            
-            try
-            {
-                var model = new ObjModelRenderer();
-                model.CreateOnGlThread(this.context, modelName, textureName);
-                model.SetMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
-
-                //mVirtualObjectShadow.CreateOnGlThread(_context,
-                //    "andy_shadow.obj", "andy_shadow.png");
-                //mVirtualObjectShadow.SetBlendMode(ObjectRenderer.BlendMode.Shadow);
-                //mVirtualObjectShadow.SetMaterialProperties(1.0f, 0.0f, 0.0f, 1.0f);
-                return model;
-            }
-            catch (Java.IO.IOException ex)
-            {
-               //Log.Error(TAG, "Failed to read obj file");
-            }
-            return null;
         }
     }
 

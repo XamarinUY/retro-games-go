@@ -16,6 +16,9 @@
     /// </summary>
     public class MainViewModel : BaseViewModel
     {
+
+        private readonly ICharacterRepository characterRepository;
+
         public IList<Character> Characters { get; set; }
 
         private IMvxAsyncCommand captureCommand;
@@ -24,8 +27,6 @@
 
         // Properties
         public Command GoToChallengeCompletedPageCommand => new Command(GoToChallengeCompletedPage);
-
-        private readonly ICharacterRepository characterRepository;
 
         /// <summary>
         /// Gets by DI the required services
@@ -44,19 +45,23 @@
             });
         }
 
+
+        /// <summary>
+        /// Go the challenge completed page
+        /// </summary>
         private void GoToChallengeCompletedPage()
         {
             this.NavigationService.Navigate<ChallengeCompletedViewModel>();
         }
 
+
+        /// <summary>
+        /// Open the camera an try to capture models
+        /// </summary>
+        /// <returns></returns>
         private async Task OnCaptureCommand()
         {
-            this.IsBusy = true;
-            //await this.NavigationService.Navigate<CaptureViewModel>();
-
-            this.Characters[0].Captured = true;
-
-            this.IsBusy = false;
+            await this.NavigationService.Navigate<CaptureViewModel>();
         }
     }
 }

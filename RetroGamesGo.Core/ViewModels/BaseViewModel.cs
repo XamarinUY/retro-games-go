@@ -9,7 +9,6 @@
     using MvvmCross.Navigation;
     using MvvmCross.Plugin.JsonLocalization;
     using Services;
-    using System.ComponentModel;
 
     /// <summary>
     /// Base class for all our ViewModels
@@ -20,21 +19,7 @@
         private bool isBusy;
         private readonly IMvxTextProviderBuilder textProviderBuilder;
 
-
-        /// <summary>
-        /// Page title 
-        /// </summary>
-        //public string Title { get; set; }
-
-        //public bool IsBusy { get; set; }
-        //public bool IsEnabled
-        //{
-        //    get
-        //    {
-        //        return !IsBusy;
-        //    }
-        //}
-
+        
         /// <summary>
         /// Get's if the viewModel is busy doing something
         /// </summary>

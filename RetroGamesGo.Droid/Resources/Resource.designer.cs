@@ -12386,8 +12386,6 @@ namespace RetroGamesGo.Droid
 			// aapt resource value: 0x7f0a0025
 			public const int abc_searchview_description_search = 2131361829;
 			
-			// aapt resource value: 0x7f0b003f
-			public const int appName = 2131427391;
 			// aapt resource value: 0x7f0a0026
 			public const int abc_searchview_description_submit = 2131361830;
 			
@@ -12402,14 +12400,9 @@ namespace RetroGamesGo.Droid
 			
 			// aapt resource value: 0x7f0a002a
 			public const int abc_toolbar_collapse_description = 2131361834;
-			// aapt resource value: 0x7f0b003d
-			public const int fab_scroll_shrink_grow_autohide_behavior = 2131427389;
 			
-			// aapt resource value: 0x7f0b003c
-			public const int library_name = 2131427388;
-			
-			// aapt resource value: 0x7f0a0043
-			public const int appName = 2131361859;
+			// aapt resource value: 0x7f0a0044
+			public const int appName = 2131361860;
 			
 			// aapt resource value: 0x7f0a0038
 			public const int appbar_scrolling_view_behavior = 2131361848;
@@ -12420,8 +12413,11 @@ namespace RetroGamesGo.Droid
 			// aapt resource value: 0x7f0a003a
 			public const int character_counter_pattern = 2131361850;
 			
+			// aapt resource value: 0x7f0a0042
+			public const int fab_scroll_shrink_grow_autohide_behavior = 2131361858;
+			
 			// aapt resource value: 0x7f0a0041
-			public const int fab_scroll_shrink_grow_autohide_behavior = 2131361857;
+			public const int library_name = 2131361857;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int mr_button_content_description = 2131361797;
@@ -12494,8 +12490,6 @@ namespace RetroGamesGo.Droid
 			
 			// aapt resource value: 0x7f0a003d
 			public const int path_password_eye_mask_strike_through = 2131361853;
-			// aapt resource value: 0x7f0b003e
-			public const int view_scroll_translation_autohide_behavior = 2131427390;
 			
 			// aapt resource value: 0x7f0a003e
 			public const int path_password_eye_mask_visible = 2131361854;
@@ -12509,8 +12503,8 @@ namespace RetroGamesGo.Droid
 			// aapt resource value: 0x7f0a0040
 			public const int status_bar_notification_info_overflow = 2131361856;
 			
-			// aapt resource value: 0x7f0a0042
-			public const int view_scroll_translation_autohide_behavior = 2131361858;
+			// aapt resource value: 0x7f0a0043
+			public const int view_scroll_translation_autohide_behavior = 2131361859;
 			
 			static String()
 			{
