@@ -41,5 +41,7 @@ namespace RetroGamesGo.iOS.Delegates
             }         
             Console.WriteLine("{0} {1}", state, reason);
         }
+
+        
     }
 }

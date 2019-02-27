@@ -5,7 +5,9 @@
       "filename": "CircusCharlieSticker.jpg"
     }
   ],
-  "properties": {},
+  "properties": {
+    "width": 0.13599999999999998
+  },
   "info": {
     "version": 1,
     "author": "xcode"

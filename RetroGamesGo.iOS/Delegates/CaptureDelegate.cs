@@ -20,31 +20,20 @@ namespace RetroGamesGo.iOS.Delegates
             if (anchor != null && anchor is ARImageAnchor)
             {
                 var imageAnchor = (ARImageAnchor)anchor;
-                var imageSize = imageAnchor.ReferenceImage.PhysicalSize;
+                //var imageSize = imageAnchor.ReferenceImage.PhysicalSize;
+                //var plane = new SCNPlane { Width = imageSize.Width, Height = imageSize.Height };
+                //plane.FirstMaterial.Diffuse.Contents = UIColor.Clear;
 
-                var plane = new SCNPlane { Width = imageSize.Width, Height = imageSize.Height };
-                plane.FirstMaterial.Diffuse.Contents = UIColor.Clear;
-
-
-                //var planeNode = new SCNNode { Geometry = plane };
-                //planeNode.Transform = SCNMatrix4.CreateRotationX((float)(Math.PI / -2.0));
-                ////planeNode.Opacity = 0.25f;
-                //node.AddChildNode(planeNode);
-
+                // Todo: show a message for the captured image
                 var imageName = imageAnchor.ReferenceImage.Name;
-
-                //if (imageName.Equals("ARImage-2"))
-                //{
-                //    //this.AddInfo(imageSize, planeNode, "$ 1244", "$ 995", "cart.png", "20dto.png");
-                //    this.AddInfo(imageSize, planeNode, "$ 60", "$ 48", "cart.png", "20dto.png");
-                //}
-                //else
-                //{
-                //    //this.AddInfo(imageSize, planeNode, "$ 1244", "$ 1058", "cart.png", "15dto.png");
-                //    this.AddInfo(imageSize, planeNode, "$ 60", "$ 51", "cart.png", "15dto.png");
-                //}
+            
             }
         }
-       
+
+        public override void DidFail(ARSession session, NSError error)
+        {
+           // Handle the error
+        }
+
     }
 }

@@ -26,7 +26,8 @@ namespace RetroGamesGo.iOS.Renderers
             base.ViewDidLoad();
             this.sceneView = new ARSCNView
             {
-                Frame = this.View.Frame, UserInteractionEnabled = true,
+                Frame = this.View.Frame,
+                UserInteractionEnabled = true,                                
                 Delegate = new CaptureDelegate(),
                 Session =
                 {
@@ -50,7 +51,7 @@ namespace RetroGamesGo.iOS.Renderers
             this.sceneView.Session.Run(configuration);
         }
 
-
+      
         /// <summary>
         /// Pause the AR scene
         /// </summary>        
