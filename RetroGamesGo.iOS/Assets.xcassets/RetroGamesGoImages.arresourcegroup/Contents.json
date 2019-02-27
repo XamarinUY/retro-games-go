@@ -1,0 +1,18 @@
+{
+  "resources": [
+    {
+      "filename": "PacMan.arreferenceimage"
+    },
+    {
+      "filename": "Mario.arreferenceimage"
+    },
+    {
+      "filename": "CircusCharlie.arreferenceimage"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

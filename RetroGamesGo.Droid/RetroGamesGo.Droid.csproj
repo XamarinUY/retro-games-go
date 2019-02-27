@@ -60,6 +60,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
+    <Reference Include="Xamarin.iOS">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Xamarin.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\MainActivity.cs" />
@@ -75,6 +78,9 @@
     <Compile Include="ArCore\Renderers\ObjModelRenderer.cs" />
     <Compile Include="ArCore\Renderers\PointCloudRenderer.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
+    <Compile Include="Pages\CapturePage.xaml.cs">
+      <DependentUpon>CapturePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Renderers\ArViewRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -239,6 +245,11 @@
     <AndroidAsset Include="..\Assets\PacMan\PacmanSticker.png">
       <Link>Assets\PacMan\PacmanSticker.png</Link>
     </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CapturePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
