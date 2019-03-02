@@ -8,7 +8,7 @@ namespace RetroGamesGo.iOS.Pages
     /// favor of this empty one
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CapturePage : ContentPage
+    public partial class CapturePage
     {
         public CapturePage()
         {
