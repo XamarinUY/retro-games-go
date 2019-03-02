@@ -79,6 +79,8 @@
     <BundleResource Include="..\Languages\Spanish\Texts.json">
       <Link>Languages\Texts.json</Link>
     </BundleResource>
+    <BundleResource Include="Resources\spaceInvader.png" />
+    <BundleResource Include="Resources\donkeyKong.png" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Entitlements.plist" />

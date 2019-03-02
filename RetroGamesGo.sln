@@ -32,14 +32,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mario", "Mario", "{E130CFED
 		Assets\Mario\MarioSticker.png = Assets\Mario\MarioSticker.png
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CircusCharlie", "CircusCharlie", "{201D99ED-986F-477A-B6BB-44DB299C3DCC}"
-	ProjectSection(SolutionItems) = preProject
-		Assets\CircusCharlie\CircusCharlieSticker.jpg = Assets\CircusCharlie\CircusCharlieSticker.jpg
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PacMan", "PacMan", "{BCCF97C3-A838-4DD1-BA39-409817155D96}"
 	ProjectSection(SolutionItems) = preProject
 		Assets\PacMan\PacmanSticker.png = Assets\PacMan\PacmanSticker.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DonkeyKong", "DonkeyKong", "{95B47C06-E1B5-4739-8B1B-820D7B11C4CB}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\DonkeyKong\DonkeyKongSticker.png = Assets\DonkeyKong\DonkeyKongSticker.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpaceInvader", "SpaceInvader", "{634ABFCB-DC2E-4885-88E7-8A3B65B36DF3}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\SpaceInvader\spaceInvaderSticker.png = Assets\SpaceInvader\spaceInvaderSticker.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sonic", "Sonic", "{D6A76CE2-85B5-4AB6-A1B7-D0ED59D8FD3A}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\Sonic\SonicSticker.png = Assets\Sonic\SonicSticker.png
 	EndProjectSection
 EndProject
 Global
@@ -124,8 +134,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2F47FA2B-CC6D-409C-931C-537F145C235C} = {5BDB3103-2BEC-4FC0-A17E-9C654E4F27FA}
 		{E130CFED-CB15-410F-90BA-05B919312410} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
-		{201D99ED-986F-477A-B6BB-44DB299C3DCC} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
 		{BCCF97C3-A838-4DD1-BA39-409817155D96} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
+		{95B47C06-E1B5-4739-8B1B-820D7B11C4CB} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
+		{634ABFCB-DC2E-4885-88E7-8A3B65B36DF3} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
+		{D6A76CE2-85B5-4AB6-A1B7-D0ED59D8FD3A} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {14F4397D-31D6-4C83-80EC-1C065F8D602E}
