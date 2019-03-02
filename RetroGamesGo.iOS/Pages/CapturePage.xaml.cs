@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace RetroGamesGo.iOS.Pages
 {
@@ -7,7 +8,7 @@ namespace RetroGamesGo.iOS.Pages
     /// favor of this empty one
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CapturePage
+    public partial class CapturePage : ContentPage
     {
         public CapturePage()
         {
