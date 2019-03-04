@@ -6,16 +6,16 @@
                       x:Class="RetroGamesGo.Core.Pages.OnboardingPage" 
                       xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView" 
                       NavigationPage.HasNavigationBar="false" 
+                      BackgroundColor="{StaticResource BackgroundColor}"
                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core" 
                       xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                       xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms">
-    
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
-            <StackLayout IsVisible="{Binding ShowLottie}" VerticalOptions="FillAndExpand" BackgroundColor="Black" HorizontalOptions="FillAndExpand">
-                <Label Text="Are you ready?" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,20" TextColor="White" FontSize="Large"/>
+            <StackLayout IsVisible="{Binding ShowLottie}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Label Text="ARE YOU READY?" StyleClass="TitleWhiteLabel" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,20"/>
                   <lottie:AnimationView 
                     x:Name="AnimationView" 
                     Animation="breakoutgame.json" 
@@ -23,20 +23,13 @@
                     VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand" />
             </StackLayout>
-            
-            <StackLayout IsVisible="{Binding ShowOnboard}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true" ItemsSource="{Binding InfoImages}" BackgroundColor="Gray">
-                    <cards:CoverFlowView.ItemTemplate>
-                        <DataTemplate>
-                            <FlexLayout Padding="40">
-                                <Frame VerticalOptions="Center" HorizontalOptions="Fill" Padding="0" HasShadow="false" IsClippedToBounds="true" CornerRadius="0" BackgroundColor="Black">
-                                    <ffimage:CachedImage Source="{Binding .}" Aspect="AspectFit" />
-                                </Frame>
-                            </FlexLayout>
-                        </DataTemplate>
-                    </cards:CoverFlowView.ItemTemplate>
-                </cards:CoverFlowView>
-                 <Button Text="PLAY" HorizontalOptions="FillAndExpand" BackgroundColor="White" TextColor="Fuchsia" FontAttributes="Bold" Command="{Binding Play}" Margin="50,20"/>
+            <StackLayout IsVisible="{Binding ShowOnboard}" Padding="30,60,30,20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="15" Padding="10" VerticalOptions="CenterAndExpand">
+                    <Label Text="COMO JUGAR" StyleClass="TitleWhiteLabel" FontSize="28"/>
+                    <Label Text="CAPTURA TODOS LOS PERSONAJES Y PARTICIPÁ DE SORTEOS" StyleClass="GoldLabel" FontSize="Small"/>
+                    <Label Text="Lorem impsu Lorem impsu Lorem impsu Lorem impsu Lorem impsu Lorem impsu Lorem impsu" StyleClass="WhiteSpaceMonoLabel"/>
+                </StackLayout>
+                <Button Text="PLAY" StyleClass="PrimaryButton" VerticalOptions="EndAndExpand" Command="{Binding Play}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

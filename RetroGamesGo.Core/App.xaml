@@ -23,7 +23,56 @@
                 <On Platform="Android" Value="SpaceMono-Bold.ttf#SpaceMono" />
                 <On Platform="iOS" Value="SpaceMono-Bold" />
             </OnPlatform>
-
+            
+            
+            <!--Labels-->
+            <Style Class="WhiteSimpleLabel" TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            <Style Class="TitleWhiteLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="{StaticResource PressStart2PFont}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style Class="GoldLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="{StaticResource GoldColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontFamily" Value="{StaticResource PressStart2PFont}" />
+            </Style>
+            <Style Class="WhiteSpaceMonoLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontFamily" Value="{StaticResource SpaceMonoFont}" />
+            </Style>
+            
+            <!--Buttons-->
+            <Style Class="PrimaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource GoldColor}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BorderRadius" Value="6" />
+                <Setter Property="FontFamily" Value="{StaticResource PressStart2PFont}"/>
+                <Setter Property="HeightRequest" Value="40" />
+            </Style>
+            <!--Frames-->
+            <Style x:Key="ActiveIndicator" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource GoldColor}" />
+                <Setter Property="CornerRadius" Value="0" />
+            </Style>
+            <Style x:Key="InactiveIndicator" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="OutlineColor" Value="{StaticResource GrayColor}" />
+            </Style>
+            
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

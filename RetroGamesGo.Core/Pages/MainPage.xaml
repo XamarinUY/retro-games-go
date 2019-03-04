@@ -5,6 +5,7 @@
                       xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
                       xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
                       x:Class="RetroGamesGo.Core.Pages.MainPage"
+                      NavigationPage.HasNavigationBar="false" 
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
                       xmlns:converters="clr-namespace:RetroGamesGo.Core.Converters;assembly=RetroGamesGo.Core"
                       xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
@@ -14,62 +15,73 @@
                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
                       Title="Retro Games GO"
                       BackgroundColor="{StaticResource BackgroundColor}">
-    <views:MvxContentPage.ToolbarItems>
+    <!--<views:MvxContentPage.ToolbarItems>
         <ToolbarItem Name="Capture" Order="Primary" Icon="ic_capture.png" Priority="0" Command="{Binding CaptureCommand}" />
-    </views:MvxContentPage.ToolbarItems>
+    </views:MvxContentPage.ToolbarItems>-->
     <views:MvxContentPage.Resources>
         <ResourceDictionary>
             <converters:BooleanNegationConverter x:Key="BooleanNegationConverter"/>
-            <Style x:Key="ActiveIndicator" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="{StaticResource GoldColor}" />
-            </Style>
-            <Style x:Key="InactiveIndicator" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="OutlineColor" Value="{StaticResource GrayColor}" />
-            </Style>
         </ResourceDictionary>
     </views:MvxContentPage.Resources>
     <views:MvxContentPage.Content>
-        <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true"
-                             SelectedIndex="{Binding CurrentIndex}"
-                             ItemsSource="{Binding Characters}">
-            <cards:CoverFlowView.ItemTemplate>
-                <DataTemplate>
-                    <ContentView Padding="36">
-                        <Frame HasShadow="false" CornerRadius="10" Padding="16" BackgroundColor="{StaticResource CardBackgroundColor}">
-                            <Grid VerticalOptions="FillAndExpand">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="1*" />
-                                    <RowDefinition Height="2*" />
-                                    <RowDefinition Height="2*" />
-                                </Grid.RowDefinitions>
-                                <StackLayout Grid.Row="0" Spacing="4" VerticalOptions="Center">
-                                    <Label Text="{Binding Name}" IsVisible="{Binding Captured}" TextColor="White" FontSize="Large" FontAttributes="Bold" FontFamily="{StaticResource PressStart2PFont}" HorizontalTextAlignment="Center" />
-                                    <Label Text="{Binding Number, StringFormat='#{0:0}'}" TextColor="{StaticResource GoldColor}" FontSize="Medium" FontFamily="{StaticResource PressStart2PFont}" HorizontalTextAlignment="Center" />
-                                </StackLayout>
-                                <AbsoluteLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
-                                    <ffimage:CachedImage IsVisible="{Binding Captured, Converter={StaticResource BooleanNegationConverter}}" Source="{Binding Silhouette}" 
-                                                         Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
-                                    <ffimage:CachedImage IsVisible="{Binding Captured}" Source="{Binding MainImage}" 
-                                                         Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
-                                    
-                                    <!--<lottie:AnimationView IsVisible="{Binding Captured}" Animation="{Binding Animation}" AutoPlay="true" Loop="true" 
-                                        AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />-->
-                                </AbsoluteLayout>
-                                <StackLayout Grid.Row="2" IsVisible="{Binding Captured}" Spacing="4" VerticalOptions="Center">
-                                    <Label Text="{Binding Year}" TextColor="White" FontSize="Medium" FontAttributes="Bold" FontFamily="{StaticResource PressStart2PFont}" HorizontalTextAlignment="Center" />
-                                    <ScrollView>
-                                        <Label Text="{Binding Description}" TextColor="White" FontSize="Small" FontFamily="{StaticResource SpaceMonoFont}" HorizontalTextAlignment="Center" />
-                                    </ScrollView>
-                                </StackLayout>
-                            </Grid>
-                        </Frame>
-                    </ContentView>
-                </DataTemplate>
-            </cards:CoverFlowView.ItemTemplate>
-            <controls:IndicatorsControl
-                      SelectedIndicatorStyle="{StaticResource ActiveIndicator}"
-                      UnselectedIndicatorStyle="{StaticResource InactiveIndicator}" />
-        </cards:CoverFlowView>
+        <StackLayout>
+            <FlexLayout Padding="12"  Direction="Row" JustifyContent="SpaceBetween">
+                <Image Source="ic_capture.png" Opacity="0"/>
+                <Label StyleClass="TitleWhiteLabel" FlexLayout.AlignSelf="Center" VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="GO"/>
+                            <Span Text="!" TextColor="{StaticResource GoldColor}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="ic_capture.png" FlexLayout.AlignSelf="End">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CaptureCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </FlexLayout>
+            <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true"
+                                 SelectedIndex="{Binding CurrentIndex}"
+                                 ItemsSource="{Binding Characters}">
+                <cards:CoverFlowView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="36,0,36,36">
+                            <Frame HasShadow="false" CornerRadius="5" Padding="16" BackgroundColor="{StaticResource CardBackgroundColor}">
+                                <Grid VerticalOptions="FillAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*" />
+                                        <RowDefinition Height="2*" />
+                                        <RowDefinition Height="2*" />
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="0" Spacing="4" VerticalOptions="Center">
+                                        <Label Text="{Binding Name}" IsVisible="{Binding Captured}" StyleClass="TitleWhiteLabel" />
+                                        <Label Text="{Binding Number, StringFormat='#{0:0}'}" StyleClass="GoldLabel" />
+                                    </StackLayout>
+                                    <AbsoluteLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
+                                        <ffimage:CachedImage IsVisible="{Binding Captured, Converter={StaticResource BooleanNegationConverter}}" Source="{Binding Silhouette}" 
+                                                             Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                                        <ffimage:CachedImage IsVisible="{Binding Captured}" Source="{Binding MainImage}" 
+                                                             Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                                        
+                                        <!--<lottie:AnimationView IsVisible="{Binding Captured}" Animation="{Binding Animation}" AutoPlay="true" Loop="true" 
+                                            AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />-->
+                                    </AbsoluteLayout>
+                                    <StackLayout Grid.Row="2" IsVisible="{Binding Captured}" Spacing="4" VerticalOptions="Center">
+                                        <Label Text="{Binding Year}" StyleClass="TitleWhiteLabel" FontSize="Medium"/>
+                                        <ScrollView>
+                                            <Label Text="{Binding Description}" StyleClass="WhiteSpaceMonoLabel" />
+                                        </ScrollView>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </cards:CoverFlowView.ItemTemplate>
+                <controls:IndicatorsControl
+                          SelectedIndicatorStyle="{StaticResource ActiveIndicator}"
+                          UnselectedIndicatorStyle="{StaticResource InactiveIndicator}" />
+            </cards:CoverFlowView>
+        </StackLayout>
     </views:MvxContentPage.Content>
 </views:MvxContentPage>

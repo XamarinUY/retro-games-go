@@ -15,7 +15,6 @@
 
     public class OnboardingViewModel : BaseViewModel
     {
-        public IList<string> InfoImages { get; set; }
         private MvxCommand play;
         public bool ShowLottie { get; set; } = true;
         public bool ShowOnboard { get; set; } = false;
@@ -43,13 +42,6 @@
 
         public override void Prepare()
         {
-            InfoImages = new ObservableCollection<string>()
-                {
-                    "https://i.pinimg.com/originals/f6/32/5f/f6325fa86a0a2915d3545dc39d359e2f.png",
-                    "https://i.pinimg.com/originals/f6/32/5f/f6325fa86a0a2915d3545dc39d359e2f.png",
-                    "https://i.pinimg.com/originals/f6/32/5f/f6325fa86a0a2915d3545dc39d359e2f.png"
-                };
-            RaisePropertyChanged(() => InfoImages);
         }
 
         public ICommand Play => this.play ?? (
