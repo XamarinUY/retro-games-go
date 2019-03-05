@@ -26,8 +26,13 @@
     <views:MvxContentPage.Content>
         <StackLayout>
             <FlexLayout Padding="12"  Direction="Row" JustifyContent="SpaceBetween">
-                <Image Source="ic_capture.png" Opacity="0"/>
-                <Label StyleClass="TitleWhiteLabel" FlexLayout.AlignSelf="Center" VerticalTextAlignment="Center">
+                <Button Image="ic_capture.png" Opacity="0"
+                        HeightRequest="48"
+                        WidthRequest="48"/>
+                <Label StyleClass="TitleWhiteLabel"
+                       FlexLayout.AlignSelf="Center" 
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="CenterAndExpand">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="GO"/>
@@ -35,11 +40,11 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Image Source="ic_capture.png" FlexLayout.AlignSelf="End">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding CaptureCommand}"/>
-                    </Image.GestureRecognizers>
-                </Image>
+                <Button Image="ic_capture.png" FlexLayout.AlignSelf="End" 
+                        HeightRequest="48"
+                        WidthRequest="48"
+                        BackgroundColor="Transparent"
+                        Command="{Binding CaptureCommand}"/>
             </FlexLayout>
             <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true"
                                  SelectedIndex="{Binding CurrentIndex}"
@@ -59,10 +64,11 @@
                                         <Label Text="{Binding Number, StringFormat='#{0:0}'}" StyleClass="GoldLabel" />
                                     </StackLayout>
                                     <AbsoluteLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
-                                        <ffimage:CachedImage IsVisible="{Binding Captured, Converter={StaticResource BooleanNegationConverter}}" Source="{Binding Silhouette}" 
-                                                             Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
-                                        <ffimage:CachedImage IsVisible="{Binding Captured}" Source="{Binding MainImage}" 
-                                                             Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                                        <ffimage:CachedImage IsVisible="{Binding Captured, Converter={StaticResource BooleanNegationConverter}}" 
+                                                             Source="{Binding Silhouette}" Aspect="AspectFit" 
+                                                             AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                                        <ffimage:CachedImage IsVisible="{Binding Captured}" Source="{Binding MainImage}" Aspect="AspectFit" 
+                                                             AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
                                         
                                         <!--<lottie:AnimationView IsVisible="{Binding Captured}" Animation="{Binding Animation}" AutoPlay="true" Loop="true" 
                                             AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />-->

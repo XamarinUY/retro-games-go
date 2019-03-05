@@ -80,6 +80,10 @@
       <Link>Languages\Texts.json</Link>
     </BundleResource>
     <BundleResource Include="Resources\donkeyKong.png" />
+    <BundleResource Include="Resources\MarioSticker.png" />
+    <BundleResource Include="Resources\pacMan.png" />
+    <BundleResource Include="Resources\sonic.png" />
+    <BundleResource Include="Resources\DonkeyKongSticker.png" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Entitlements.plist" />

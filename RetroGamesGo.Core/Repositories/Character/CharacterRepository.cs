@@ -131,7 +131,7 @@ namespace RetroGamesGo.Core.Repositories
                 FunFact = "fun",
                 Animation = "Pacman_F.json",
                 MainImage = "pacMan.png",
-                Silhouette = "marioBrosSilhouette.png",
+                Silhouette = "pacManSilhouette.png",
                 Url = "https://es.wikipedia.org/wiki/Pac-Man",
                 Captured = false,
                 AssetSticker = "PacMan/PacmanSticker.png",
@@ -148,7 +148,7 @@ namespace RetroGamesGo.Core.Repositories
                 FunFact = "fun",
                 Animation = "Circus_F.json",
                 MainImage = "donkeyKong.png",
-                Silhouette = "marioBrosSilhouette.png", //TODO: change this
+                Silhouette = "donkeyKongSilhouette.png", //TODO: change this
                 Url = "https://es.wikipedia.org/wiki/Donkey_Kong_(videojuego)",
                 Captured = false,
                 AssetSticker = "DonkeyKong/DonkeyKongSticker.png",
@@ -165,12 +165,12 @@ namespace RetroGamesGo.Core.Repositories
                 FunFact = "fun",
                 Animation = "Circus_F.json",
                 MainImage = "spaceInvader.png",
-                Silhouette = "marioBrosSilhouette.png", //TODO: change this
+                Silhouette = "spaceInvaderSilhouette.png", //TODO: change this
                 Url = "https://es.wikipedia.org/wiki/Space_Invaders",
                 Captured = false,
-                AssetSticker = "SpaceInvader/spaceInvaderSticker.png",
-                AssetModel = "SpaceInvader/Mario.obj", //TODO: change this
-                AssetTexture = "SpaceInvader/Mario.png", //TODO: change this
+                AssetSticker = "SpaceInvader/SpaceInvaderSticker.png",
+                AssetModel = "SpaceInvader/Space_Invader.obj", //TODO: change this
+                AssetTexture = "SpaceInvader/Space_Invader-Render01.jpg", //TODO: change this
             });
             await this.AddCharacter(new Character()
             {
@@ -182,7 +182,7 @@ namespace RetroGamesGo.Core.Repositories
                 FunFact = "fun",
                 Animation = "Circus_F.json",
                 MainImage = "sonic.png",
-                Silhouette = "marioBrosSilhouette.png", //TODO: change this
+                Silhouette = "sonicSilhouette.png", //TODO: change this
                 Url = "https://es.wikipedia.org/wiki/Sonic_the_Hedgehog_(videojuego_de_1991)",
                 Captured = false,
                 AssetSticker = "Sonic/SonicSticker.png",

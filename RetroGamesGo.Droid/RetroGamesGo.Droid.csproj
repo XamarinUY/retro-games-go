@@ -264,7 +264,24 @@
     <AndroidResource Include="Resources\drawable\pacMan.png" />
     <AndroidAsset Include="Assets\SpaceInvader\Space_Invader-Render01.jpg" />
     <AndroidAsset Include="Assets\SpaceInvader\Space_Invader-Render02.jpg" />
-    <Content Include="Resources\drawable\spaceInvader.png" />
+    <AndroidAsset Include="Assets\DonkeyKong\DonkeyKongSticker.png" />
+    <AndroidAsset Include="Assets\SpaceInvader\SpaceInvaderSticker.png" />
+    <AndroidAsset Include="Assets\Sonic\SonicSticker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\spaceInvader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\sonicSilhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\spaceInvaderSilhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\pacManSilhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\donkeyKongSilhouette.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
