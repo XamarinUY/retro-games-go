@@ -11,8 +11,8 @@
             <StackLayout Spacing="0" VerticalOptions="FillAndExpand">
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
                     <StackLayout BackgroundColor="Black" Padding="45,15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                        <Label Text="Complete sus datos así podrá participar del sorteo global" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                        <Label Text="Mucha suerte" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Label Text="Complete sus datos así podrá participar del sorteo global" StyleClass="WhiteSimpleLabel"/>
+                        <Label Text="Mucha suerte" StyleClass="WhiteSimpleLabel"/>
                     </StackLayout>
                     <StackLayout Padding="15,8">
                         

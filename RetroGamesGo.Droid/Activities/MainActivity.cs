@@ -35,6 +35,7 @@
 
             Instance = this;
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
+            //AnimationViewRenderer.Init();
             RequestCameraPermission();            
         }
 

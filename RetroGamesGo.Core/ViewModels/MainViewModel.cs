@@ -38,13 +38,17 @@
 
         public override Task Initialize()
         {
-            return Task.Run(async () => 
+            return LoadCharacters();
+        }
+
+        private Task LoadCharacters()
+        {
+            return Task.Run(async () =>
             {
                 this.Characters = await this.characterRepository.GetAll();
                 await this.RaisePropertyChanged(() => this.Characters);
             });
         }
-
 
         /// <summary>
         /// Go the challenge completed page
@@ -64,6 +68,12 @@
             //await this.NavigationService.Navigate<CaptureViewModel>();
             await this.NavigationService.Navigate<PlaceCharacterViewModel, Character>(this.Characters[0]);
             
+        }
+
+        public override void ViewAppeared()
+        {
+            base.ViewAppeared();
+            LoadCharacters();
         }
     }
 }

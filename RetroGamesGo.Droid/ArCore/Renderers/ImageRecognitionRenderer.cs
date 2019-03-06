@@ -68,6 +68,9 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
                 if (character!=null && !character.Captured)
                 {
                     character.Captured = true;
+                    var characterRepository = Mvx.IoCProvider.Resolve<ICharacterRepository>();
+                    characterRepository.UpdateCharacter(character);
+
                     var view = MainActivity.Instance.FindViewById(Android.Resource.Id.Content);
                     var snackBar = Snackbar.Make(view, $"Capturaste a {((AugmentedImage) image).Name}", Snackbar.LengthIndefinite);
                     snackBar.SetDuration(5000);
