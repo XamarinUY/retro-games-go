@@ -54,7 +54,7 @@
             <!--Buttons-->
             <Style Class="PrimaryButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource GoldColor}" />
-                <Setter Property="TextColor" Value="White" />
+                <Setter Property="TextColor" Value="Black" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="BorderRadius" Value="6" />
