@@ -48,17 +48,18 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
         /// Draw a frame
         /// </summary>        
         public void OnDrawFrame(IGL10 gl)
-        {            
-            GLES20.GlClear(GLES20.GlColorBufferBit | GLES20.GlDepthBufferBit);
-            if (this.session == null) return;
-
-            // Notify ARCore session that the view size changed so that the perspective matrix
-            // and the video background can be properly adjusted
-            this.displayRotationHelper.UpdateSessionIfNeeded(this.session);
-
+        {
+          
             try
-            {              
-                var frame = this.session.Update();
+            {
+                GLES20.GlClear(GLES20.GlColorBufferBit | GLES20.GlDepthBufferBit);
+                if (this.session == null) return;
+
+                // Notify ARCore session that the view size changed so that the perspective matrix
+                // and the video background can be properly adjusted
+                this.displayRotationHelper.UpdateSessionIfNeeded(this.session);
+
+                    var frame = this.session.Update();
                 var camera = frame.Camera;
 
                 CheckDetectedImages(frame);
@@ -139,7 +140,7 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
             catch (System.Exception ex)
             {
                 // Avoid crashing the application due to unhandled exceptions.
-                //Log.Error("ArCore", "Exception on the OpenGL thread", ex);
+                Log.Error("ArCore", "Exception on the OpenGL thread", ex);
             }
         }
 
