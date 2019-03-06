@@ -80,10 +80,8 @@
       <Link>Languages\Texts.json</Link>
     </BundleResource>
     <BundleResource Include="Resources\donkeyKong.png" />
-    <BundleResource Include="Resources\MarioSticker.png" />
     <BundleResource Include="Resources\pacMan.png" />
     <BundleResource Include="Resources\sonic.png" />
-    <BundleResource Include="Resources\DonkeyKongSticker.png" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Entitlements.plist" />
@@ -107,6 +105,13 @@
     <BundleResource Include="Mario_F.json" />
     <BundleResource Include="Pacman_F.json" />
     <BundleResource Include="Resources\spaceInvader.png" />
+    <BundleResource Include="Resources\.DS_Store" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <BundleResource Include="Resources\donkeyKongSilhouette.png" />
+    <BundleResource Include="Resources\pacManSilhouette.png" />
+    <BundleResource Include="Resources\sonicSilhouette.png" />
+    <BundleResource Include="Resources\spaceInvaderSilhouette.png" />
+    <BundleResource Include="Resources\splash.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross, Version=6.2.2.0, Culture=neutral, processorArchitecture=MSIL">
