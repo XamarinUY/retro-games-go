@@ -3,12 +3,12 @@
 namespace RetroGamesGo.Droid.Pages
 {
     /// <summary>
-    /// Image capture UI
+    /// 3D model placement UI
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CapturePage
+    public partial class PlaceCharacterPage
     {
-        public CapturePage()
+        public PlaceCharacterPage()
         {
             InitializeComponent();
         }

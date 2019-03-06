@@ -11,7 +11,7 @@ using UIKit;
 namespace RetroGamesGo.iOS.Delegates
 {
     /// <summary>
-    /// Delete for AR Rendering
+    /// Delegate for AR Rendering
     /// </summary>
     public class CaptureDelegate : ARSCNViewDelegate
     {
@@ -20,11 +20,6 @@ namespace RetroGamesGo.iOS.Delegates
             if (anchor != null && anchor is ARImageAnchor)
             {
                 var imageAnchor = (ARImageAnchor)anchor;
-                //var imageSize = imageAnchor.ReferenceImage.PhysicalSize;
-                //var plane = new SCNPlane { Width = imageSize.Width, Height = imageSize.Height };
-                //plane.FirstMaterial.Diffuse.Contents = UIColor.Clear;
-
-                // Todo: show a message for the captured image
                 var imageName = imageAnchor.ReferenceImage.Name;
             
             }

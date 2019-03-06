@@ -66,21 +66,30 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Delegates\ArSessionDelegate.cs" />
+    <Compile Include="Delegates\PlaceCharacterDelegate.cs" />
     <Compile Include="Delegates\CaptureDelegate.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Pages\PlaceCharacterPage.xaml.cs">
+      <DependentUpon>PlaceCharacterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CapturePage.xaml.cs">
       <DependentUpon>CapturePage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Renderers\PlaceCharacterPageRenderer.cs" />
     <Compile Include="Renderers\CapturePageRenderer.cs" />
     <Compile Include="Setup.cs" />
     <BundleResource Include="..\Languages\Spanish\Texts.json">
       <Link>Languages\Texts.json</Link>
     </BundleResource>
+    <SceneKitAsset Include="art.scnassets\Mario\Mario.obj" />
+    <SceneKitAsset Include="art.scnassets\Mario\Mario2.mtl" />
+    <SceneKitAsset Include="art.scnassets\Mario\Mario2.obj" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <SceneKitAsset Include="art.scnassets\Mario\Mario.png" />
     <Content Include="Entitlements.plist" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <None Include="packages.config" />
@@ -294,7 +303,12 @@
       <Name>RetroGamesGo.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\PlaceCharacterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\CapturePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

@@ -60,108 +60,81 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
             {              
                 var frame = this.session.Update();
                 var camera = frame.Camera;
+
                 CheckDetectedImages(frame);
-                // Handle taps. Handling only one tap per frame, as taps are usually low frequency
-                // compared to frame rate.
 
-
-                /* if (tap != null && camera.TrackingState == TrackingState.Tracking)
-                {
-                    foreach (var hit in frame.HitTest(tap))
-                    {
-                        var trackable = hit.Trackable;
-
-                        // Check if any plane was hit, and if it was hit inside the plane polygon.
-                        if (trackable is Plane && ((Plane) trackable).IsPoseInPolygon(hit.HitPose))
-                        {
-                            // Cap the number of objects created. This avoids overloading both the
-                            // rendering system and ARCore.
-                            if (touches.Count >= 16)
-                            {
-                                this.anchors[0].Detach();
-                                this.anchors.RemoveAt(0);
-                            }
-
-                            // Adding an Anchor tells ARCore that it should track this position in
-                            // space. This anchor will be used in PlaneAttachment to place the 3d model
-                            // in the correct position relative both to the world and to the plane.
-                            //mTouches.Add(new PlaneAttachment(
-                            //    ((PlaneHitResult)hit).Plane,
-                            //    mSession.AddAnchor(hit.HitPose)));
-                            this.anchors.Add(hit.CreateAnchor());
-
-                            // Hits are sorted by depth. Consider only closest hit on a plane.
-                            break;
-                        }
-                    }
-                }*/
-
+                HandleTaps(camera, frame);
+               
                 // Draw background.
                 this.backgroundRenderer.Draw(frame);
                 if (camera.TrackingState == TrackingState.Paused) return;
 
-              /*  var projectionMatrix = new float[16];
-                camera.GetProjectionMatrix(projectionMatrix, 0, 0.1f, 100.0f);
-                var viewMatrix = new float[16];
-                camera.GetViewMatrix(viewMatrix, 0);
-                var lightIntensity = frame.LightEstimate.PixelIntensity;
+                RenderPlanes(camera, frame);
 
-                // Renders the point cloud
-                var pointCloud = frame.AcquirePointCloud();
-                pointCloudRenderer.Update(pointCloud);
-                pointCloudRenderer.Draw(camera.DisplayOrientedPose, viewMatrix, projectionMatrix);
-                pointCloud.Release();
+                RenderAnchors(camera, frame);
 
-                // Check if we detected at least one plane. If so, hide the loading message.              
-                var planes = new List<Plane>();
-                foreach (var p in session.GetAllTrackables(Java.Lang.Class.FromType(typeof(Plane))))
-                {
-                    var plane = (Plane) p;
-                    planes.Add(plane);
-                }
-
-                foreach (var plane in planes)
-                {
-                    if (plane.GetType() == Plane.Type.HorizontalUpwardFacing
-                        && plane.TrackingState == TrackingState.Tracking)
-                    {
-                        // Todo: show a message while its tracking for a plane to put the model into and hide when a plane is found                        
-                        break;
-                    }
-                }
-
-
-
-                // Visualize planes.
-                // mPlaneRenderer.DrawPlanes(planes, camera.DisplayOrientedPose, projectionMatrix);
-
-                // Visualize anchors created by touch.
-                var scaleFactor = 0.1f;
-                foreach (var anchor in this.anchors)
-                {
-
-                    if (anchor.TrackingState != TrackingState.Tracking)
-                    {
-                        continue;
-                    }
-
-
-                    // Get the current combined pose of an Anchor and Plane in world space. The Anchor
-                    // and Plane poses are updated during calls to session.update() as ARCore refines
-                    // its estimate of the world.
-                    anchor.Pose.ToMatrix(mAnchorMatrix, 0);
-
-                    // Update and draw the model and its shadow.
-                    foreach (var model in this.models)
-                    {
-                        model.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
-                        model.Draw(viewMatrix, projectionMatrix, lightIntensity);
-                    }
-                    //mVirtualObject.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
-                    //mVirtualObjectShadow.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
-                    //mVirtualObject.Draw(viewMatrix, projectionMatrix, lightIntensity);
-                    //mVirtualObjectShadow.Draw(viewMatrix, projectionMatrix, lightIntensity);
-                }*/
+                /*  var projectionMatrix = new float[16];
+                  camera.GetProjectionMatrix(projectionMatrix, 0, 0.1f, 100.0f);
+                  var viewMatrix = new float[16];
+                  camera.GetViewMatrix(viewMatrix, 0);
+                  var lightIntensity = frame.LightEstimate.PixelIntensity;
+  
+                  // Renders the point cloud
+                  var pointCloud = frame.AcquirePointCloud();
+                  pointCloudRenderer.Update(pointCloud);
+                  pointCloudRenderer.Draw(camera.DisplayOrientedPose, viewMatrix, projectionMatrix);
+                  pointCloud.Release();
+  
+                  // Check if we detected at least one plane. If so, hide the loading message.              
+                  var planes = new List<Plane>();
+                  foreach (var p in session.GetAllTrackables(Java.Lang.Class.FromType(typeof(Plane))))
+                  {
+                      var plane = (Plane) p;
+                      planes.Add(plane);
+                  }
+  
+                  foreach (var plane in planes)
+                  {
+                      if (plane.GetType() == Plane.Type.HorizontalUpwardFacing
+                          && plane.TrackingState == TrackingState.Tracking)
+                      {
+                          // Todo: show a message while its tracking for a plane to put the model into and hide when a plane is found                        
+                          break;
+                      }
+                  }
+  
+  
+  
+                  // Visualize planes.
+                  // mPlaneRenderer.DrawPlanes(planes, camera.DisplayOrientedPose, projectionMatrix);
+  
+                  // Visualize anchors created by touch.
+                  var scaleFactor = 0.1f;
+                  foreach (var anchor in this.anchors)
+                  {
+  
+                      if (anchor.TrackingState != TrackingState.Tracking)
+                      {
+                          continue;
+                      }
+  
+  
+                      // Get the current combined pose of an Anchor and Plane in world space. The Anchor
+                      // and Plane poses are updated during calls to session.update() as ARCore refines
+                      // its estimate of the world.
+                      anchor.Pose.ToMatrix(mAnchorMatrix, 0);
+  
+                      // Update and draw the model and its shadow.
+                      foreach (var model in this.models)
+                      {
+                          model.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
+                          model.Draw(viewMatrix, projectionMatrix, lightIntensity);
+                      }
+                      //mVirtualObject.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
+                      //mVirtualObjectShadow.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
+                      //mVirtualObject.Draw(viewMatrix, projectionMatrix, lightIntensity);
+                      //mVirtualObjectShadow.Draw(viewMatrix, projectionMatrix, lightIntensity);
+                  }*/
             }
             catch (System.Exception ex)
             {
@@ -207,6 +180,32 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
         /// Checks if some augmented images were detected
         /// </summary>
         protected virtual void CheckDetectedImages(Google.AR.Core.Frame frame)
+        {
+
+        }
+
+
+        /// <summary>
+        /// Handle when the user taps the screen
+        /// </summary>
+        protected virtual void HandleTaps(Google.AR.Core.Camera camera, Google.AR.Core.Frame frame)
+        {
+
+        }
+
+
+        /// <summary>
+        /// Render any plane
+        /// </summary>
+        protected virtual void RenderPlanes(Camera camera, Google.AR.Core.Frame frame)
+        {
+
+        }
+
+        /// <summary>
+        /// Render the anchored models
+        /// </summary>
+        protected virtual void RenderAnchors(Camera camera, Google.AR.Core.Frame frame)
         {
 
         }
