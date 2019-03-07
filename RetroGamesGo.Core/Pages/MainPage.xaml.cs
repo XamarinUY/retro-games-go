@@ -26,15 +26,15 @@
             string sound = ((Button)sender).BindingContext as string;
             switch (sound)
             {
-                case "coin":
-                    Sounds.Mario_Coin();
-                    break;
-                case "wakawaka":
-                    Sounds.Pacman_WakaWaka();
-                    break;
-                case "yogafire":
-                    Sounds.StreetFighter_YogaFire();
-                    break;
+                //case "coin":
+                //    Sounds.Mario_Coin();
+                //    break;
+                //case "wakawaka":
+                //    Sounds.Pacman_WakaWaka();
+                //    break;
+                //case "yogafire":
+                //    Sounds.StreetFighter_YogaFire();
+                //    break;
                 default:
                     break;
             }
