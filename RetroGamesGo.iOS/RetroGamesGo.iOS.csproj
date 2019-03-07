@@ -250,17 +250,17 @@
     </Reference>
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="Lottie.iOS">
-      <HintPath>..\packages\Com.Airbnb.iOS.Lottie.2.5.6\lib\xamarinios10\Lottie.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="Plugin.Settings.Abstractions">
       <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Settings">
       <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
     </Reference>
+    <Reference Include="Lottie.iOS">
+      <HintPath>..\packages\Com.Airbnb.iOS.Lottie.2.5.4\lib\xamarinios10\Lottie.iOS.dll</HintPath>
+    </Reference>
     <Reference Include="Lottie.Forms">
-      <HintPath>..\packages\Com.Airbnb.Xamarin.Forms.Lottie.2.7.0\lib\xamarinios10\Lottie.Forms.dll</HintPath>
+      <HintPath>..\packages\Com.Airbnb.Xamarin.Forms.Lottie.2.6.0\lib\xamarinios10\Lottie.Forms.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -309,16 +309,36 @@
     <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\DonkeyKongSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\PacmanSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\SpaceInvaderSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\SonicSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\ARImage.arreferenceimage\MarioSticker.png" />
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\DonkeyKongSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\PacmanSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\SpaceInvaderSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\SonicSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\ARImage.arreferenceimage\MarioSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RetroGamesGo.Core\RetroGamesGo.Core.csproj">
