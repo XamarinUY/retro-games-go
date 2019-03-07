@@ -8,7 +8,11 @@
     using MvvmCross.Forms.Platforms.Android.Views;
     using Android.OS;
     using Core.ViewModels;
+<<<<<<< HEAD
     using Acr.UserDialogs;
+=======
+    using Lottie.Forms.Droid;
+>>>>>>> 702b5e5067a25a4879f5629366324d75c7cf7b59
 
     /// <summary>
     /// Main activity 
@@ -41,6 +45,7 @@
 
             // Initialize Acr UserDialogs
             UserDialogs.Init(this);
+            RequestCameraPermission();            
         }
 
 
@@ -51,6 +56,8 @@
         {
             base.InitializeForms(bundle);
             Xamarin.Forms.Forms.Init(this, bundle);
+
+            AnimationViewRenderer.Init();
         }
 
 

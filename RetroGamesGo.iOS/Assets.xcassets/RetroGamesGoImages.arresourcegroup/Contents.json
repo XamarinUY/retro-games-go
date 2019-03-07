@@ -1,13 +1,28 @@
 {
   "resources": [
     {
-      "filename": "PacMan.arreferenceimage"
+      "filename": "CircusCharlie.arreferenceimage"
     },
     {
       "filename": "Mario.arreferenceimage"
     },
     {
-      "filename": "CircusCharlie.arreferenceimage"
+      "filename": "PacMan.arreferenceimage"
+    },
+    {
+      "filename": "Sonic.arreferenceimage"
+    },
+    {
+      "filename": "SpaceInvader.arreferenceimage"
+    },
+    {
+      "filename": "DonkeyKong.arreferenceimage"
+    },
+    {
+      "filename": "DonkeyKong.arreferenceimage"
+    },
+    {
+      "filename": "DonkeyKong.arreferenceimage"
     }
   ],
   "properties": {},

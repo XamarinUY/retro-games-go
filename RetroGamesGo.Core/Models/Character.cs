@@ -1,4 +1,7 @@
-﻿namespace RetroGamesGo.Core.Models
+﻿using MvvmCross.Commands;
+using SQLite;
+
+namespace RetroGamesGo.Core.Models
 {
     /// <summary>
     /// Game character to capture
@@ -17,6 +20,7 @@
         public string AssetSticker { get; set; }
         public string AssetModel { get; set; }
         public string AssetTexture { get; set; }
+        public string AssetSound { get; set; }
 
         private bool captured;
         public bool Captured

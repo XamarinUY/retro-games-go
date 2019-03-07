@@ -1,17 +1,13 @@
 {
   "images": [
     {
-      "filename": "MarioSticker.png",
-      "scale": "1x",
-      "idiom": "universal"
+      "idiom": "universal",
+      "filename": "MarioSticker.png"
     }
   ],
+  "properties": {},
   "info": {
     "version": 1,
     "author": "xcode"
-  },
-  "properties": {
-    "width": 15.0,
-    "unit": "centimeters"
   }
 }

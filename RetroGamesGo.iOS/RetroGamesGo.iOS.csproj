@@ -67,24 +67,63 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Delegates\ArSessionDelegate.cs" />
+    <Compile Include="Delegates\PlaceCharacterDelegate.cs" />
     <Compile Include="Delegates\CaptureDelegate.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Pages\PlaceCharacterPage.xaml.cs">
+      <DependentUpon>PlaceCharacterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CapturePage.xaml.cs">
       <DependentUpon>CapturePage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Renderers\PlaceCharacterPageRenderer.cs" />
     <Compile Include="Renderers\CapturePageRenderer.cs" />
     <Compile Include="Setup.cs" />
     <BundleResource Include="..\Languages\Spanish\Texts.json">
       <Link>Languages\Texts.json</Link>
     </BundleResource>
+    <SceneKitAsset Include="art.scnassets\Mario\Mario.obj" />
+    <SceneKitAsset Include="art.scnassets\Mario\Mario2.mtl" />
+    <SceneKitAsset Include="art.scnassets\Mario\Mario2.obj" />
     <BundleResource Include="Resources\donkeyKong.png" />
     <BundleResource Include="Resources\pacMan.png" />
     <BundleResource Include="Resources\sonic.png" />
+    <BundleResource Include="Resources\wcm_splash.png" />
+    <BundleResource Include="Resources\wcm_splash%402x.png" />
+    <BundleResource Include="Resources\wcm_splash%403x.png" />
+    <BundleResource Include="Resources\wcm_splash_large.png" />
+    <BundleResource Include="Resources\wcm_splash_large%402x.png" />
+    <BundleResource Include="Resources\wcm_splash_large%403x.png" />
+    <BundleResource Include="Resources\donkeyKong%402x.png" />
+    <BundleResource Include="Resources\donkeyKong%403x.png" />
+    <BundleResource Include="Resources\donkeyKongSilhouette.png" />
+    <BundleResource Include="Resources\donkeyKongSilhouette%402x.png" />
+    <BundleResource Include="Resources\donkeyKongSilhouette%403x.png" />
+    <BundleResource Include="Resources\marioBros%402x.png" />
+    <BundleResource Include="Resources\marioBros%403x.png" />
+    <BundleResource Include="Resources\marioBrosSilhouette%402x.png" />
+    <BundleResource Include="Resources\marioBrosSilhouette%403x.png" />
+    <BundleResource Include="Resources\pacMan%402x.png" />
+    <BundleResource Include="Resources\pacMan%403x.png" />
+    <BundleResource Include="Resources\pacManSilhouette.png" />
+    <BundleResource Include="Resources\pacManSilhouette%402x.png" />
+    <BundleResource Include="Resources\pacManSilhouette%403x.png" />
+    <BundleResource Include="Resources\sonic%402x.png" />
+    <BundleResource Include="Resources\sonic%403x.png" />
+    <BundleResource Include="Resources\sonicSilhouette.png" />
+    <BundleResource Include="Resources\sonicSilhouette%402x.png" />
+    <BundleResource Include="Resources\sonicSilhouette%403x.png" />
+    <BundleResource Include="Resources\spaceInvader%402x.png" />
+    <BundleResource Include="Resources\spaceInvader%403x.png" />
+    <BundleResource Include="Resources\spaceInvaderSilhouette.png" />
+    <BundleResource Include="Resources\spaceInvaderSilhouette%402x.png" />
+    <BundleResource Include="Resources\spaceInvaderSilhouette%403x.png" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <SceneKitAsset Include="art.scnassets\Mario\Mario.png" />
     <Content Include="Entitlements.plist" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <None Include="packages.config" />
@@ -242,61 +281,96 @@
     <Reference Include="OpenTK-1.0" />
   </ItemGroup>
   <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1201.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\401.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\402.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\581.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\801.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon_152.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon_167.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon_20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon_76.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\DonkeyKongSticker.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\DonkeyKongSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\PacmanSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\SpaceInvaderSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\SonicSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\ARImage.arreferenceimage\MarioSticker.png" />
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\MarioSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\PacmanSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\SonicSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\SpaceInvaderSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RetroGamesGo.Core\RetroGamesGo.Core.csproj">
@@ -304,21 +378,19 @@
       <Name>RetroGamesGo.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\PlaceCharacterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\CapturePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\" />
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\" />
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\" />
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\" />
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\" />
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

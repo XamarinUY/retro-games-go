@@ -7,6 +7,8 @@
                       xmlns:controls="clr-namespace:RetroGamesGo.Core.Controls;assembly=RetroGamesGo.Core"
                       x:Class="RetroGamesGo.Droid.Pages.CapturePage">
     <views:MvxContentPage.Content>
-        <controls:ArView  VerticalOptions="FillAndExpand"/>
+        <controls:ArCaptureView  VerticalOptions="FillAndExpand"/>
     </views:MvxContentPage.Content>
+
+
 </views:MvxContentPage>
