@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                      x:TypeArguments="viewModels:CaptureViewModel"
+                      x:TypeArguments="viewModels:PlaceCharacterViewModel"
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                       xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
                       xmlns:controls="clr-namespace:RetroGamesGo.Core.Controls;assembly=RetroGamesGo.Core"
-                      x:Class="RetroGamesGo.Droid.Pages.CapturePage">
+                      x:Class="RetroGamesGo.Droid.Pages.PlaceCharacterPage">
     <views:MvxContentPage.Content>
-        <controls:ArCaptureView  VerticalOptions="FillAndExpand"/>
+        <controls:ArCharacterView  VerticalOptions="FillAndExpand" Character="{Binding Character}"/>
     </views:MvxContentPage.Content>
-
 
 </views:MvxContentPage>

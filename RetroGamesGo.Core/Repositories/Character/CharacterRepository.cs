@@ -14,9 +14,12 @@ namespace RetroGamesGo.Core.Repositories
         {
             database = db ?? Mvx.IoCProvider.Resolve<IDatabase<Character>>();
 
-            Task.Run(async () => 
+            Task.Run(async () =>
             {
+                await database.DeleteAll();
+
                 var character = await database.Select();
+              
                 if (character.Count == 0)
                 {
                     await this.CreateCharacters();

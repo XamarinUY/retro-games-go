@@ -34,6 +34,8 @@ namespace RetroGamesGo.iOS.Renderers
                     Delegate = new ArSessionDelegate()
                 },
             };
+            
+          
             this.View.AddSubview(this.sceneView);
         }
 

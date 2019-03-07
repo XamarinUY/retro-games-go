@@ -71,6 +71,8 @@
         private async Task OnCaptureCommand()
         {
             await this.NavigationService.Navigate<CaptureViewModel>();
+            //await this.NavigationService.Navigate<PlaceCharacterViewModel, Character>(this.Characters[0]);
+            
         }
 
         private async Task OnPlaySoundCommand(string parameter)
