@@ -15,7 +15,8 @@
                       xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                       ios:Page.UseSafeArea="true"
                       Title="Retro Games GO"
-                      BackgroundColor="{StaticResource BackgroundColor}">
+                      BackgroundColor="{StaticResource BackgroundColor}"
+                      x:Name="page">
     <!--<views:MvxContentPage.ToolbarItems>
         <ToolbarItem Name="Capture" Order="Primary" Icon="ic_capture.png" Priority="0" Command="{Binding CaptureCommand}" />
     </views:MvxContentPage.ToolbarItems>-->
@@ -63,7 +64,11 @@
                                                              Source="{Binding Silhouette}" Aspect="AspectFit" 
                                                              AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
                                         <Image IsVisible="{Binding Captured}" Source="{Binding MainImage}" Aspect="AspectFit" 
-                                                             AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
+                                                             AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:Reference page}, Path=ViewModel.PlaySoundCommand}}" CommandParameter="{Binding AssetSound}" />
+                                          </Image.GestureRecognizers>
+                                        </Image>
                                         
                                         <!--<lottie:AnimationView IsVisible="{Binding Captured}" Animation="{Binding Animation}" AutoPlay="true" Loop="true" 
                                             AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />-->

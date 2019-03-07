@@ -9,6 +9,7 @@
     using RetroGamesGo.Core.Repositories;
     using RetroGamesGo.Core.Models;
     using RetroGamesGo.Core.Helpers;
+    using Acr.UserDialogs;
 
 
     /// <summary>
@@ -46,6 +47,7 @@
             Mvx.IoCProvider.RegisterSingleton<IDatabase<Character>>(new Database<Character>(Mvx.IoCProvider.Resolve<IDatabaseConnection>()));
             Mvx.IoCProvider.RegisterSingleton<ICharacterRepository>(new CharacterRepository(Mvx.IoCProvider.Resolve<IDatabase<Character>>()));
             Mvx.IoCProvider.RegisterSingleton<IRequestProvider>(new RequestProvider());
+            Mvx.IoCProvider.RegisterSingleton<IUserDialogs>(() => UserDialogs.Instance);
         }
 
     }

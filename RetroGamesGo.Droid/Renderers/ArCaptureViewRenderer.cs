@@ -6,20 +6,20 @@ using RetroGamesGo.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(ArView), typeof(ArViewRenderer))]
+[assembly: ExportRenderer(typeof(ArCaptureView), typeof(ArCaptureViewRenderer))]
 namespace RetroGamesGo.Droid.Renderers
 {
     /// <summary>
     /// View renderer for creating an OpenGL Surface on Android
     /// for the AR Render
     /// </summary>
-    public class ArViewRenderer : ViewRenderer<ArView, GLSurfaceView>
+    public class ArCaptureViewRenderer : ViewRenderer<ArCaptureView, GLSurfaceView>
     {
         private bool disposed;
         private readonly Context context;
 
 
-        public ArViewRenderer(Context context) : base(context)
+        public ArCaptureViewRenderer(Context context) : base(context)
         {
             AutoPackage = false;
             this.context = context;
@@ -41,7 +41,7 @@ namespace RetroGamesGo.Droid.Renderers
         }
 
 
-        protected override async void OnElementChanged(ElementChangedEventArgs<ArView> e)
+        protected override async void OnElementChanged(ElementChangedEventArgs<ArCaptureView> e)
         {
             base.OnElementChanged(e);
 
@@ -56,7 +56,7 @@ namespace RetroGamesGo.Droid.Renderers
                 }
 
                 surfaceView.SetRenderer(new ImageRecognitionRenderer(this.context, surfaceView, 
-                    (s) => (Element as ArView).ImageCapturedCommand?.Execute(s)));
+                    (s) => (Element as ArCaptureView).ImageCapturedCommand?.Execute(s)));
                 surfaceView.RenderMode = Rendermode.Continuously;
             }
         }

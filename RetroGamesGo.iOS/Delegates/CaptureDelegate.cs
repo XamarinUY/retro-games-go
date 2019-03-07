@@ -13,7 +13,7 @@ using UIKit;
 namespace RetroGamesGo.iOS.Delegates
 {
     /// <summary>
-    /// Delete for AR Rendering
+    /// Delegate for AR Rendering
     /// </summary>
     public class CaptureDelegate : ARSCNViewDelegate
     {
