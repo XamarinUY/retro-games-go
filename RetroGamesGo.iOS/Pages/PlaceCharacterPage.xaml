@@ -6,12 +6,4 @@
              xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
              x:Class="RetroGamesGo.iOS.Pages.PlaceCharacterPage">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Mario" Order="Primary"  Text="Mario" Priority="0" />
-        <ToolbarItem Name="PacMan" Order="Secondary"  Text="PacMan" Priority="1" />
-        <ToolbarItem Name="Sonic" Order="Secondary"  Text="Sonic" Priority="1" />
-        <ToolbarItem Name="Space Invader" Order="Secondary"  Text="Space Invader" Priority="1" />
-        <ToolbarItem Name="Donkey Kong" Order="Secondary"  Text="Donkey Kong" Priority="1" />
-    </ContentPage.ToolbarItems>
-
 </views:MvxContentPage>

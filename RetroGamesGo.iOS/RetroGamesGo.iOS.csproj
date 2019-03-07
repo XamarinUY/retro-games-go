@@ -330,6 +330,9 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon_76.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\DonkeyKongSticker.png">
       <Visible>false</Visible>
     </ImageAsset>
