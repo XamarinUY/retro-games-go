@@ -6,7 +6,9 @@
                       xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
                       x:Class="RetroGamesGo.Core.Pages.ChallengeCompletedPage"
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
-                      xmlns:behaviors="clr-namespace:RetroGamesGo.Core.Behaviors;">
+                      xmlns:behaviors="clr-namespace:RetroGamesGo.Core.Behaviors;"
+                      xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                      ios:Page.UseSafeArea="true">
          <ScrollView>
             <StackLayout Spacing="0" VerticalOptions="FillAndExpand">
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
