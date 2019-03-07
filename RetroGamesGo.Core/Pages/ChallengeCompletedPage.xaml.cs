@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using MvvmCross.Forms.Views;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms.Xaml;
 
 namespace RetroGamesGo.Core.Pages
 {
