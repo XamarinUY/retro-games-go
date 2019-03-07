@@ -48,6 +48,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DonkeyKong", "DonkeyKong", 
 		Assets\DonkeyKong\Donkey Kong.mtl = Assets\DonkeyKong\Donkey Kong.mtl
 		Assets\DonkeyKong\Donkey Kong.obj = Assets\DonkeyKong\Donkey Kong.obj
 		Assets\DonkeyKong\DonkeyKongSticker.png = Assets\DonkeyKong\DonkeyKongSticker.png
+		Assets\DonkeyKong\DonkeyKong.wav = Assets\DonkeyKong\DonkeyKong.wav
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpaceInvader", "SpaceInvader", "{634ABFCB-DC2E-4885-88E7-8A3B65B36DF3}"

@@ -158,7 +158,7 @@ namespace RetroGamesGo.Core.Repositories
                 AssetSticker = "DonkeyKong/DonkeyKongSticker.png",
                 AssetModel = "DonkeyKong/Mario.obj", //TODO: change this
                 AssetTexture = "DonkeyKong/Mario.png", //TODO: change this
-                AssetSound = "mario_coin.mp3"
+                AssetSound = "DonkeyKong.wav"
             });
             await this.AddCharacter(new Character()
             {
