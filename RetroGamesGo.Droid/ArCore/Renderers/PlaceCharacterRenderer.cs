@@ -125,34 +125,34 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
         /// </summary>        
         protected override void RenderPlanes(Camera camera, Google.AR.Core.Frame frame)
         {
-            var projectionMatrix = new float[16];
-            camera.GetProjectionMatrix(projectionMatrix, 0, 0.1f, 100.0f);
-            var viewMatrix = new float[16];
-            camera.GetViewMatrix(viewMatrix, 0);
+            //var projectionMatrix = new float[16];
+            //camera.GetProjectionMatrix(projectionMatrix, 0, 0.1f, 100.0f);
+            //var viewMatrix = new float[16];
+            //camera.GetViewMatrix(viewMatrix, 0);
       
-            // Renders the point cloud
-            var pointCloud = frame.AcquirePointCloud();
-            pointCloudRenderer.Update(pointCloud);
-            pointCloudRenderer.Draw(camera.DisplayOrientedPose, viewMatrix, projectionMatrix);
-            pointCloud.Release();
+            //// Renders the point cloud
+            //var pointCloud = frame.AcquirePointCloud();
+            //pointCloudRenderer.Update(pointCloud);
+            //pointCloudRenderer.Draw(camera.DisplayOrientedPose, viewMatrix, projectionMatrix);
+            //pointCloud.Release();
 
-            // Check if we detected at least one plane. If so, hide the loading message.              
-            var planes = new List<Plane>();
-            foreach (var p in session.GetAllTrackables(Java.Lang.Class.FromType(typeof(Plane))))
-            {
-                var plane = (Plane)p;
-                planes.Add(plane);
-            }
+            //// Check if we detected at least one plane. If so, hide the loading message.              
+            //var planes = new List<Plane>();
+            //foreach (var p in session.GetAllTrackables(Java.Lang.Class.FromType(typeof(Plane))))
+            //{
+            //    var plane = (Plane)p;
+            //    planes.Add(plane);
+            //}
 
-            foreach (var plane in planes)
-            {
-                if (plane.GetType() == Plane.Type.HorizontalUpwardFacing
-                    && plane.TrackingState == TrackingState.Tracking)
-                {
-                    // Todo: show a message while its tracking for a plane to put the model into and hide when a plane is found                        
-                    break;
-                }
-            }
+            //foreach (var plane in planes)
+            //{
+            //    if (plane.GetType() == Plane.Type.HorizontalUpwardFacing
+            //        && plane.TrackingState == TrackingState.Tracking)
+            //    {
+            //        // Todo: show a message while its tracking for a plane to put the model into and hide when a plane is found                        
+            //        break;
+            //    }
+            //}
 
             // mPlaneRenderer.DrawPlanes(planes, camera.DisplayOrientedPose, projectionMatrix);
         }
@@ -163,38 +163,38 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
         /// </summary>        
         protected override void RenderAnchors(Camera camera, Google.AR.Core.Frame frame)
         {                        
-            var scaleFactor = 0.1f;
-            var lightIntensity = frame.LightEstimate.PixelIntensity;
-            var projectionMatrix = new float[16];
-            camera.GetProjectionMatrix(projectionMatrix, 0, 0.1f, 100.0f);
-            var viewMatrix = new float[16];
-            camera.GetViewMatrix(viewMatrix, 0);
+            //var scaleFactor = 0.1f;
+            //var lightIntensity = frame.LightEstimate.PixelIntensity;
+            //var projectionMatrix = new float[16];
+            //camera.GetProjectionMatrix(projectionMatrix, 0, 0.1f, 100.0f);
+            //var viewMatrix = new float[16];
+            //camera.GetViewMatrix(viewMatrix, 0);
 
-            foreach (var anchor in this.anchors)
-            {
+            //foreach (var anchor in this.anchors)
+            //{
 
-                if (anchor.TrackingState != TrackingState.Tracking)
-                {
-                    continue;
-                }
+            //    if (anchor.TrackingState != TrackingState.Tracking)
+            //    {
+            //        continue;
+            //    }
 
-                // Get the current combined pose of an Anchor and Plane in world space. The Anchor
-                // and Plane poses are updated during calls to session.update() as ARCore refines
-                // its estimate of the world.
-                anchor.Pose.ToMatrix(anchorMatrix, 0);
+            //    // Get the current combined pose of an Anchor and Plane in world space. The Anchor
+            //    // and Plane poses are updated during calls to session.update() as ARCore refines
+            //    // its estimate of the world.
+            //    anchor.Pose.ToMatrix(anchorMatrix, 0);
 
-                // Update and draw the model and its shadow.
-                foreach (var model in this.models)
-                {
-                    model.UpdateModelMatrix(anchorMatrix, scaleFactor);
-                    model.Draw(viewMatrix, projectionMatrix, lightIntensity);
-                }
-                //mVirtualObject.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
-                //mVirtualObjectShadow.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
-                //mVirtualObject.Draw(viewMatrix, projectionMatrix, lightIntensity);
-                //mVirtualObjectShadow.Draw(viewMatrix, projectionMatrix, lightIntensity);
+            //    // Update and draw the model and its shadow.
+            //    //foreach (var model in this.models)
+            //    //{
+            //    //    model.UpdateModelMatrix(anchorMatrix, scaleFactor);
+            //    //    model.Draw(viewMatrix, projectionMatrix, lightIntensity);
+            //    //}
+            //    //mVirtualObject.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
+            //    //mVirtualObjectShadow.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
+            //    //mVirtualObject.Draw(viewMatrix, projectionMatrix, lightIntensity);
+            //    //mVirtualObjectShadow.Draw(viewMatrix, projectionMatrix, lightIntensity);
 
-            }
+            //}
         }
 
     }

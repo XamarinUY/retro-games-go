@@ -10,11 +10,12 @@
         <controls:ArCharacterView  VerticalOptions="FillAndExpand" Character="{Binding Character}"/>
     </views:MvxContentPage.Content>
 
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem Name="Mario" Order="Secondary"  Text="Mario" Priority="0" />
-        <ToolbarItem Name="PacMan" Order="Secondary"  Text="PacMan" Priority="1" />
-        <ToolbarItem Name="Sonic" Order="Secondary"  Text="PacMan" Priority="1" />
-        <ToolbarItem Name="Space Invader" Order="Secondary"  Text="PacMan" Priority="1" />
-        <ToolbarItem Name="Donkey Kong" Order="Secondary"  Text="PacMan" Priority="1" />
-    </ContentPage.ToolbarItems>-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary"  Text="Mario" Priority="0" />
+        <ToolbarItem Order="Secondary"  Text="PacMan" Priority="1" />
+        <ToolbarItem Order="Secondary"  Text="Sonic" Priority="1" />
+        <ToolbarItem Order="Secondary"  Text="Space Invader" Priority="1" />
+        <ToolbarItem Order="Secondary"  Text="Donkey Kong" Priority="1" />
+    </ContentPage.ToolbarItems>
+
 </views:MvxContentPage>

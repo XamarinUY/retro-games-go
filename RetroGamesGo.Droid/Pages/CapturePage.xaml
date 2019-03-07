@@ -9,4 +9,6 @@
     <views:MvxContentPage.Content>
         <controls:ArCaptureView  VerticalOptions="FillAndExpand"/>
     </views:MvxContentPage.Content>
+
+
 </views:MvxContentPage>
