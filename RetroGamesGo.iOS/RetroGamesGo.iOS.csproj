@@ -105,7 +105,6 @@
     <BundleResource Include="Mario_F.json" />
     <BundleResource Include="Pacman_F.json" />
     <BundleResource Include="Resources\spaceInvader.png" />
-    <BundleResource Include="Resources\.DS_Store" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
     <BundleResource Include="Resources\donkeyKongSilhouette.png" />
     <BundleResource Include="Resources\pacManSilhouette.png" />

@@ -25,10 +25,8 @@
     </views:MvxContentPage.Resources>
     <views:MvxContentPage.Content>
         <StackLayout>
-            <FlexLayout Padding="12"  Direction="Row" JustifyContent="SpaceBetween">
-                <Button Image="ic_capture.png" Opacity="0"
-                        HeightRequest="48"
-                        WidthRequest="48"/>
+            <StackLayout Padding="10" HorizontalOptions="CenterAndExpand">
+               
                 <Label StyleClass="TitleWhiteLabel"
                        FlexLayout.AlignSelf="Center" 
                        VerticalTextAlignment="Center"
@@ -40,12 +38,8 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Button Image="ic_capture.png" FlexLayout.AlignSelf="End" 
-                        HeightRequest="48"
-                        WidthRequest="48"
-                        BackgroundColor="Transparent"
-                        Command="{Binding CaptureCommand}"/>
-            </FlexLayout>
+              
+            </StackLayout>
             <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true"
                                  SelectedIndex="{Binding CurrentIndex}"
                                  ItemsSource="{Binding Characters}">
@@ -88,6 +82,9 @@
                           SelectedIndicatorStyle="{StaticResource ActiveIndicator}"
                           UnselectedIndicatorStyle="{StaticResource InactiveIndicator}" />
             </cards:CoverFlowView>
+             <StackLayout Padding="30,60,30,20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Button Text="PLAY" StyleClass="PrimaryButton" VerticalOptions="EndAndExpand" Command="{Binding CaptureCommand}"/>
+            </StackLayout>
         </StackLayout>
     </views:MvxContentPage.Content>
 </views:MvxContentPage>
