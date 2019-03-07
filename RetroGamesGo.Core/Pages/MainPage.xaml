@@ -83,7 +83,7 @@
                           UnselectedIndicatorStyle="{StaticResource InactiveIndicator}" />
             </cards:CoverFlowView>
              <StackLayout Padding="30" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                <Button Text="PLAY" StyleClass="PrimaryButton" VerticalOptions="EndAndExpand" Command="{Binding CaptureCommand}"/>
+                <Button Text="CAPTURAR" StyleClass="PrimaryButton" VerticalOptions="EndAndExpand" Command="{Binding CaptureCommand}"/>
             </StackLayout>
         </StackLayout>
     </views:MvxContentPage.Content>
