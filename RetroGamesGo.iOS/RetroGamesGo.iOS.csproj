@@ -151,6 +151,9 @@
     <BundleResource Include="Resources\sonicSilhouette.png" />
     <BundleResource Include="Resources\spaceInvaderSilhouette.png" />
     <BundleResource Include="Resources\splash.png" />
+    <BundleResource Include="..\Assets\DonkeyKong\DonkeyKong.wav">
+      <Link>Resources\DonkeyKong.wav</Link>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross, Version=6.2.2.0, Culture=neutral, processorArchitecture=MSIL">
