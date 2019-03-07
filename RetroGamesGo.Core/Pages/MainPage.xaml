@@ -13,6 +13,8 @@
                       xmlns:customControls="clr-namespace:RetroGamesGo.Core.Controls;assembly=RetroGamesGo.Core"
                       xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+                      xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                      ios:Page.UseSafeArea="true"
                       Title="Retro Games GO"
                       BackgroundColor="{StaticResource BackgroundColor}">
     <!--<views:MvxContentPage.ToolbarItems>
@@ -25,10 +27,8 @@
     </views:MvxContentPage.Resources>
     <views:MvxContentPage.Content>
         <StackLayout>
-            <FlexLayout Padding="12"  Direction="Row" JustifyContent="SpaceBetween">
-                <Button Image="ic_capture.png" Opacity="0"
-                        HeightRequest="48"
-                        WidthRequest="48"/>
+            <StackLayout Padding="10" HorizontalOptions="CenterAndExpand">
+               
                 <Label StyleClass="TitleWhiteLabel"
                        FlexLayout.AlignSelf="Center" 
                        VerticalTextAlignment="Center"
@@ -40,12 +40,8 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Button Image="ic_capture.png" FlexLayout.AlignSelf="End" 
-                        HeightRequest="48"
-                        WidthRequest="48"
-                        BackgroundColor="Transparent"
-                        Command="{Binding CaptureCommand}"/>
-            </FlexLayout>
+              
+            </StackLayout>
             <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true"
                                  SelectedIndex="{Binding CurrentIndex}"
                                  ItemsSource="{Binding Characters}">
@@ -88,6 +84,9 @@
                           SelectedIndicatorStyle="{StaticResource ActiveIndicator}"
                           UnselectedIndicatorStyle="{StaticResource InactiveIndicator}" />
             </cards:CoverFlowView>
+             <StackLayout Padding="30" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Button Text="CAPTURAR" StyleClass="PrimaryButton" VerticalOptions="EndAndExpand" Command="{Binding CaptureCommand}"/>
+            </StackLayout>
         </StackLayout>
     </views:MvxContentPage.Content>
 </views:MvxContentPage>

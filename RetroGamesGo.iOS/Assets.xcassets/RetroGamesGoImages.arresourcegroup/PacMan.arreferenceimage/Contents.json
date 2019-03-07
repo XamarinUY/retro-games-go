@@ -1,15 +1,17 @@
 {
   "images": [
     {
-      "idiom": "universal",
-      "filename": "PacmanSticker.png"
+      "filename": "PacmanSticker.png",
+      "scale": "1x",
+      "idiom": "universal"
     }
   ],
-  "properties": {
-    "width": 0.15
-  },
   "info": {
     "version": 1,
     "author": "xcode"
+  },
+  "properties": {
+    "width": 15.0,
+    "unit": "centimeters"
   }
 }

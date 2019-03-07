@@ -10,7 +10,9 @@
                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core" 
                       xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                      xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms">
+                      xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+                      xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                      ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
