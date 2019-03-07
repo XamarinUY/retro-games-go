@@ -8,7 +8,8 @@
     using MvvmCross.Forms.Platforms.Android.Views;
     using Android.OS;
     using Core.ViewModels;
-    
+    using Lottie.Forms.Droid;
+
     /// <summary>
     /// Main activity 
     /// </summary>
@@ -35,7 +36,6 @@
 
             Instance = this;
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
-            //AnimationViewRenderer.Init();
             RequestCameraPermission();            
         }
 
@@ -47,6 +47,8 @@
         {
             base.InitializeForms(bundle);
             Xamarin.Forms.Forms.Init(this, bundle);
+
+            AnimationViewRenderer.Init();
         }
 
 
