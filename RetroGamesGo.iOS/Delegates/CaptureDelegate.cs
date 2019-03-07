@@ -18,6 +18,12 @@ namespace RetroGamesGo.iOS.Delegates
     public class CaptureDelegate : ARSCNViewDelegate
     {
         private ICharacterRepository characterRepository = Mvx.IoCProvider.Resolve<ICharacterRepository>();
+        private Action<string> imageCapturedAction;
+
+        public CaptureDelegate(Action<string> imageCapturedAction) : base()
+        {
+            this.imageCapturedAction = imageCapturedAction;
+        }
 
         public override async void DidAddNode(ISCNSceneRenderer renderer, SCNNode node, ARAnchor anchor)
         {
@@ -38,6 +44,8 @@ namespace RetroGamesGo.iOS.Delegates
                         UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(okAlertController, true, null);
                     });
                 }
+
+                imageCapturedAction?.Invoke(imageName);
             }
         }
 

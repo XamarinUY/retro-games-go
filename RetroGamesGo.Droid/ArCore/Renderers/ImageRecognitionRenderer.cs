@@ -20,12 +20,14 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
     {
         protected AugmentedImageDatabase imageDatabase;
         private List<Core.Models.Character> characters;
+        private Action<string> imageCapturedAction;
 
         /// <summary>
         /// Creates the AR Renderer
         /// </summary>        
-        public ImageRecognitionRenderer(Context context, GLSurfaceView surfaceView) : base(context, surfaceView)
-        {        
+        public ImageRecognitionRenderer(Context context, GLSurfaceView surfaceView, Action<string> imageCapturedAction) : base(context, surfaceView)
+        {
+            this.imageCapturedAction = imageCapturedAction;
         }
 
 
@@ -64,6 +66,7 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
             foreach (var image in updatedAugmentedImages)
             {
                 var imageName = ((AugmentedImage) image).Name;
+                imageCapturedAction?.Invoke(imageName);
                 var character = this.characters.FirstOrDefault(x => x.Name == imageName);
                 if (character!=null && !character.Captured)
                 {
