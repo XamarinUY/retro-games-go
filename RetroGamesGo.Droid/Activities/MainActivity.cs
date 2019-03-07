@@ -8,7 +8,8 @@
     using MvvmCross.Forms.Platforms.Android.Views;
     using Android.OS;
     using Core.ViewModels;
-    
+    using Acr.UserDialogs;
+
     /// <summary>
     /// Main activity 
     /// </summary>
@@ -36,7 +37,10 @@
             Instance = this;
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             //AnimationViewRenderer.Init();
-            RequestCameraPermission();            
+            RequestCameraPermission();
+
+            // Initialize Acr UserDialogs
+            UserDialogs.Init(this);
         }
 
 

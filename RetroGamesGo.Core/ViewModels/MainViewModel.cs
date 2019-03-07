@@ -10,6 +10,9 @@
     using Xamarin.Forms;
     using RetroGamesGo.Core.Repositories;
     using RetroGamesGo.Core.Models;
+    using System.Linq;
+    using Acr.UserDialogs;
+    using RetroGamesGo.Core.Helpers;
 
     /// <summary>
     /// Main view
@@ -25,9 +28,6 @@
 
         public IMvxAsyncCommand CaptureCommand => captureCommand ?? (captureCommand = new MvxAsyncCommand(OnCaptureCommand, () => this.IsEnabled));
 
-        // Properties
-        public Command GoToChallengeCompletedPageCommand => new Command(GoToChallengeCompletedPage);
-
         /// <summary>
         /// Gets by DI the required services
         /// </summary>
@@ -36,9 +36,18 @@
             this.characterRepository = Mvx.IoCProvider.Resolve<ICharacterRepository>();
         }
 
-        public override Task Initialize()
+        public override async Task Initialize()
         {
-            return LoadCharacters();
+            await LoadCharacters();
+            Characters.ToList().ForEach(c => c.Captured = true);
+            var allCaptured = Characters.All(c => c.Captured);
+
+            if(!Settings.FormCompleted && allCaptured)
+            {
+                var goToChallengeCompleted = await Mvx.IoCProvider.Resolve<IUserDialogs>().ConfirmAsync("Has desbloqueado todos los personajes de Retro Games GO! Completa el formulario para participar del sorteo :)", "Felicitaciones!", "Entendido");
+                if(goToChallengeCompleted)
+                    GoToChallengeCompletedPage();
+            }
         }
 
         private Task LoadCharacters()
@@ -47,6 +56,7 @@
             {
                 this.Characters = await this.characterRepository.GetAll();
                 await this.RaisePropertyChanged(() => this.Characters);
+
             });
         }
 

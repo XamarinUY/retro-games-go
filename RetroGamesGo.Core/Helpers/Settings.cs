@@ -18,6 +18,9 @@ namespace RetroGamesGo.Core.Helpers
         private const string IdOnboardingShown = "show_onboarding";
         private static readonly bool OnboardingShownDefault = false;
 
+        private const string IdFormCompleted = "form_completed";
+        private static readonly bool FormCompletedDefault = false;
+
         private const string IdUrlBase = "url_base";
         private static readonly string UrlBaseDefault = string.Empty;
         #endregion
@@ -31,6 +34,18 @@ namespace RetroGamesGo.Core.Helpers
             set
             {
                 AppSettings.AddOrUpdateValue(IdOnboardingShown, value);
+            }
+        }
+
+        public static bool FormCompleted
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(IdFormCompleted, FormCompletedDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(IdFormCompleted, value);
             }
         }
 
