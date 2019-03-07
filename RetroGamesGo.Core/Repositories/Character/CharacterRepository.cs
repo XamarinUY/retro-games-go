@@ -119,7 +119,7 @@ namespace RetroGamesGo.Core.Repositories
                 AssetSticker = "Mario/MarioSticker.png",
                 AssetModel = "Mario/Mario.obj",
                 AssetTexture = "Mario/Mario.png",
-
+                AssetSound = "mario_coin.mp3"
             });
             await this.AddCharacter(new Character()
             {
@@ -137,6 +137,7 @@ namespace RetroGamesGo.Core.Repositories
                 AssetSticker = "PacMan/PacmanSticker.png",
                 AssetModel = "PacMan/Mario.obj",
                 AssetTexture = "PacMan/Mario.png",
+                AssetSound = "mario_coin.mp3"
             });
             await this.AddCharacter(new Character()
             {
@@ -154,6 +155,7 @@ namespace RetroGamesGo.Core.Repositories
                 AssetSticker = "DonkeyKong/DonkeyKongSticker.png",
                 AssetModel = "DonkeyKong/Mario.obj", //TODO: change this
                 AssetTexture = "DonkeyKong/Mario.png", //TODO: change this
+                AssetSound = "mario_coin.mp3"
             });
             await this.AddCharacter(new Character()
             {
@@ -171,6 +173,7 @@ namespace RetroGamesGo.Core.Repositories
                 AssetSticker = "SpaceInvader/SpaceInvaderSticker.png",
                 AssetModel = "SpaceInvader/Space_Invader.obj", //TODO: change this
                 AssetTexture = "SpaceInvader/Space_Invader-Render01.jpg", //TODO: change this
+                AssetSound = "mario_coin.mp3"
             });
             await this.AddCharacter(new Character()
             {
@@ -188,6 +191,7 @@ namespace RetroGamesGo.Core.Repositories
                 AssetSticker = "Sonic/SonicSticker.png",
                 AssetModel = "Sonic/Mario.obj", //TODO: change this
                 AssetTexture = "Sonic/Mario.png", //TODO: change this
+                AssetSound = "mario_coin.mp3"
             });
         }
     }
