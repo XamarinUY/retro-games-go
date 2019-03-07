@@ -10,6 +10,7 @@
     using Xamarin.Forms;
     using RetroGamesGo.Core.Repositories;
     using RetroGamesGo.Core.Models;
+    using Plugin.SimpleAudioPlayer;
 
     /// <summary>
     /// Main view
@@ -24,6 +25,10 @@
         private IMvxAsyncCommand captureCommand;
 
         public IMvxAsyncCommand CaptureCommand => captureCommand ?? (captureCommand = new MvxAsyncCommand(OnCaptureCommand, () => this.IsEnabled));
+
+        private IMvxAsyncCommand<string> playSoundCommand;
+
+        public IMvxAsyncCommand<string> PlaySoundCommand => playSoundCommand ?? (playSoundCommand = new MvxAsyncCommand<string>(OnPlaySoundCommand, (parameter) => this.IsEnabled));
 
         // Properties
         public Command GoToChallengeCompletedPageCommand => new Command(GoToChallengeCompletedPage);
@@ -66,6 +71,14 @@
         private async Task OnCaptureCommand()
         {
             await this.NavigationService.Navigate<CaptureViewModel>();
+            //await this.NavigationService.Navigate<PlaceCharacterViewModel, Character>(this.Characters[0]);
+            
+        }
+
+        private async Task OnPlaySoundCommand(string parameter)
+        {
+            CrossSimpleAudioPlayer.Current.Load(parameter);
+            CrossSimpleAudioPlayer.Current.Play();
         }
 
         public override void ViewAppeared()

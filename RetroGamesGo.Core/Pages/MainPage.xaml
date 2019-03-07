@@ -15,7 +15,8 @@
                       xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                       ios:Page.UseSafeArea="true"
                       Title="Retro Games GO"
-                      BackgroundColor="{StaticResource BackgroundColor}">
+                      BackgroundColor="{StaticResource BackgroundColor}"
+                      x:Name="page">
     <views:MvxContentPage.Resources>
         <ResourceDictionary>
             <converters:BooleanNegationConverter x:Key="BooleanNegationConverter"/>
@@ -59,10 +60,17 @@
                                     <StackLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="FillAndExpand"
                                                  Padding="16">
                                         <Image IsVisible="{Binding Captured, Converter={StaticResource BooleanNegationConverter}}" 
-                                               Source="{Binding Silhouette}" Aspect="AspectFit"/>
-                                        <Image IsVisible="{Binding Captured}" 
-                                               Source="{Binding MainImage}" Aspect="AspectFit" />
-                                    </StackLayout>
+                                                             Source="{Binding Silhouette}" Aspect="AspectFit" 
+                                                />
+                                        <Image IsVisible="{Binding Captured}" Source="{Binding MainImage}" Aspect="AspectFit" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:Reference page}, Path=ViewModel.PlaySoundCommand}}" CommandParameter="{Binding AssetSound}" />
+                                          </Image.GestureRecognizers>
+                                        </Image>
+                                        
+                                        <!--<lottie:AnimationView IsVisible="{Binding Captured}" Animation="{Binding Animation}" AutoPlay="true" Loop="true" 
+                                            AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />-->
+                                    </AbsoluteLayout>
                                     <StackLayout Grid.Row="2" IsVisible="{Binding Captured}" Spacing="4" VerticalOptions="Center">
                                         <Label Text="{Binding Year}" StyleClass="TitleWhiteLabel" FontSize="Medium"/>
                                         <ScrollView>

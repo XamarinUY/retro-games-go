@@ -1,17 +1,15 @@
 {
   "images": [
     {
-      "filename": "SonicSticker.png",
-      "scale": "1x",
-      "idiom": "universal"
+      "idiom": "universal",
+      "filename": "SonicSticker.png"
     }
   ],
+  "properties": {
+    "width": 0.15
+  },
   "info": {
     "version": 1,
     "author": "xcode"
-  },
-  "properties": {
-    "width": 15.0,
-    "unit": "centimeters"
   }
 }
