@@ -17,7 +17,7 @@ namespace RetroGamesGo.Core.Repositories
         public Database(IDatabaseConnection databaseConn = null)
         {
             databaseConnection = databaseConn ?? Mvx.IoCProvider.Resolve<IDatabaseConnection>();
-            database = databaseConnection.GetConnection("retro_game_db");
+            database = databaseConnection.GetConnection("retro_game_go_db");
             InitDatabase();
         }
 

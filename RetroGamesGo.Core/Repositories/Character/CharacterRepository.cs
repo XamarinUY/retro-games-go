@@ -16,10 +16,7 @@ namespace RetroGamesGo.Core.Repositories
 
             Task.Run(async () =>
             {
-                await database.DeleteAll();
-
-                var character = await database.Select();
-              
+                var character = await database.Select();              
                 if (character.Count == 0)
                 {
                     await this.CreateCharacters();
