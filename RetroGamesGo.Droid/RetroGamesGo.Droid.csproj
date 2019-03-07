@@ -102,7 +102,6 @@
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidAsset Include="Assets\mario_coin.mp3" />
-    <AndroidAsset Include="Assets\street_yogafire.wav" />
     <AndroidAsset Include="Assets\pacman_waka_waka.mp3" />
     <AndroidAsset Include="Assets\PressStart2P.ttf" />
     <AndroidAsset Include="Assets\SpaceMono-Bold.ttf" />
