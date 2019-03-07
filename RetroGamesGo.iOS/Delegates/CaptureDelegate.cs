@@ -5,6 +5,8 @@ using System.Text;
 using ARKit;
 using CoreGraphics;
 using Foundation;
+using MvvmCross;
+using RetroGamesGo.Core.Repositories;
 using SceneKit;
 using UIKit;
 
@@ -15,18 +17,27 @@ namespace RetroGamesGo.iOS.Delegates
     /// </summary>
     public class CaptureDelegate : ARSCNViewDelegate
     {
-        public override void DidAddNode(ISCNSceneRenderer renderer, SCNNode node, ARAnchor anchor)
+        private ICharacterRepository characterRepository = Mvx.IoCProvider.Resolve<ICharacterRepository>();
+
+        public override async void DidAddNode(ISCNSceneRenderer renderer, SCNNode node, ARAnchor anchor)
         {
             if (anchor != null && anchor is ARImageAnchor)
             {
                 var imageAnchor = (ARImageAnchor)anchor;
-                //var imageSize = imageAnchor.ReferenceImage.PhysicalSize;
-                //var plane = new SCNPlane { Width = imageSize.Width, Height = imageSize.Height };
-                //plane.FirstMaterial.Diffuse.Contents = UIColor.Clear;
-
-                // Todo: show a message for the captured image
                 var imageName = imageAnchor.ReferenceImage.Name;
-            
+                var characters = await characterRepository.GetAll();
+                var character = characters.FirstOrDefault(x => x.AssetSticker.Contains(imageName));
+                if (character != null && !character.Captured)
+                {
+                    character.Captured = true;
+                    await characterRepository.UpdateCharacter(character);
+
+                    InvokeOnMainThread(() => {
+                        var okAlertController = UIAlertController.Create(string.Empty, $"Capturaste a {character.Name}", UIAlertControllerStyle.Alert);
+                        okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+                        UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(okAlertController, true, null);
+                    });
+                }
             }
         }
 
