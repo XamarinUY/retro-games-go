@@ -330,7 +330,34 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon_76.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\DonkeyKongSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\MarioSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\PacmanSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\SonicSticker.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\SpaceInvaderSticker.png">
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>

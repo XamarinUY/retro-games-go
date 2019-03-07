@@ -65,8 +65,8 @@
         /// <returns></returns>
         private async Task OnCaptureCommand()
         {
-            //await this.NavigationService.Navigate<CaptureViewModel>();
-            await this.NavigationService.Navigate<PlaceCharacterViewModel, Character>(this.Characters[0]);
+            await this.NavigationService.Navigate<CaptureViewModel>();
+            //await this.NavigationService.Navigate<PlaceCharacterViewModel, Character>(this.Characters[0]);
             
         }
 
