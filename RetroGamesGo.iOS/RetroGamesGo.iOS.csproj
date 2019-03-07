@@ -273,61 +273,66 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1201.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\401.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\402.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\581.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\801.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon_152.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon_167.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon_20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon_76.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\DonkeyKongSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\PacmanSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\SpaceInvaderSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\SonicSticker.png" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\ARImage.arreferenceimage\MarioSticker.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RetroGamesGo.Core\RetroGamesGo.Core.csproj">
@@ -347,14 +352,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\DonkeyKong.arreferenceimage\" />
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\" />
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\" />
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Sonic.arreferenceimage\" />
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\" />
-    <Folder Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
