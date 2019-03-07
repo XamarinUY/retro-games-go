@@ -127,7 +127,6 @@
     <Content Include="Entitlements.plist" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <None Include="packages.config" />
-    <Compile Include="Renderers\BorderLessEntryRenderer.cs" />
     <Compile Include="Repositories\SQLiteClient.cs" />
     <BundleResource Include="Resources\mario_coin.mp3" />
     <BundleResource Include="Resources\street_yogafire.wav" />
