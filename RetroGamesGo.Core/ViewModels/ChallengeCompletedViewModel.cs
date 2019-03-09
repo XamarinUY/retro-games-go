@@ -2,8 +2,11 @@
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Acr.UserDialogs;
+using MvvmCross;
 using MvvmCross.Logging;
 using MvvmCross.Navigation;
+using RetroGamesGo.Core.Helpers;
 using RetroGamesGo.Core.Models;
 using RetroGamesGo.Core.Services;
 using RetroGamesGo.Core.Utils;
@@ -84,10 +87,23 @@ namespace RetroGamesGo.Core.ViewModels
                 Country = Country.Value
             };
 
-            // Save the user
-            var result = await RequestProvider.PostAsync<User>(Constants.RequestProvider.PostUserEndpoint, User);
-
-            IsLoading = false;
+            try
+            {
+                // Save the user
+                var result = await RequestProvider.PostAsync<User>(Constants.RequestProvider.PostUserEndpoint, User);
+                Settings.FormCompleted = true;
+                await Mvx.IoCProvider.Resolve<IUserDialogs>().AlertAsync("Hemos registrado tus datos y ahora estas participando del sorteo","Mucha suerte","Entendido");
+                await NavigationService.Close(this);
+            }
+            catch(Exception e)
+            {
+                // TODO: improve exception handling
+                await Mvx.IoCProvider.Resolve<IUserDialogs>().ConfirmAsync(e.ToString(),"Ha ocurrido un error", "Entendido");
+            }
+            finally
+            {
+                IsLoading = false;
+            }
         }
 
         public bool Validate()

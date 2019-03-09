@@ -8,151 +8,109 @@
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
                       xmlns:behaviors="clr-namespace:RetroGamesGo.Core.Behaviors;"
                       xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-                      ios:Page.UseSafeArea="true">
+                      ios:Page.UseSafeArea="true"
+                      BackgroundColor="{StaticResource BackgroundColor}">
          <ScrollView>
             <StackLayout Spacing="0" VerticalOptions="FillAndExpand">
-                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
-                    <StackLayout BackgroundColor="Black" Padding="45,15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                        <Label Text="Complete sus datos así podrá participar del sorteo global" StyleClass="WhiteSimpleLabel"/>
-                        <Label Text="Mucha suerte" StyleClass="WhiteSimpleLabel"/>
-                    </StackLayout>
-                    <StackLayout Padding="15,8">
+                <StackLayout>
+                    <Label Text="TUS DATOS" StyleClass="TitleWhiteLabel" FontSize="28" Margin="20"/>
+                    <StackLayout Padding="15,8" VerticalOptions="CenterAndExpand">
                         
                         <!-- Name -->
-                        <Label Text="Nombre">
+                        <Label Text="NOMBRE" StyleClass="TitleWhiteLabel" HorizontalOptions="Start" FontSize="Small">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding Name.IsValid}" Value="False">
-                                    <Setter Property="TextColor" Value="Red" />
+                                    <Setter Property="TextColor" Value="#FF4A4A" />
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding Name.Value}" IsEnabled="{Binding IsNotLoading}">
+                        <Entry Text="{Binding Name.Value}" BackgroundColor="White" IsEnabled="{Binding IsNotLoading}" Margin="0,0,0,10">
                             <Entry.Behaviors>
                                 <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateNameCommand}" />
                             </Entry.Behaviors>
                         </Entry>
-                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
-                            <BoxView.Triggers>
-                                <DataTrigger TargetType="BoxView" Binding="{Binding Name.IsValid}" Value="False">
-                                    <Setter Property="Color" Value="Red" />
-                                </DataTrigger>
-                            </BoxView.Triggers>
-                        </BoxView>
                     
                          <!-- Lastname -->
-                        <Label Text="Apellido">
+                        <Label Text="APELLIDO" StyleClass="TitleWhiteLabel" HorizontalOptions="Start" FontSize="Micro">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding LastName.IsValid}" Value="False">
-                                    <Setter Property="TextColor" Value="Red" />
+                                    <Setter Property="TextColor" Value="#FF4A4A" />
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding LastName.Value}" IsEnabled="{Binding IsNotLoading}">
+                        <Entry Text="{Binding LastName.Value}" BackgroundColor="White" IsEnabled="{Binding IsNotLoading}" Margin="0,0,0,10">
                             <Entry.Behaviors>
                                 <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateLastNameCommand}" />
                             </Entry.Behaviors>
                         </Entry>
-                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
-                            <BoxView.Triggers>
-                                <DataTrigger TargetType="BoxView" Binding="{Binding LastName.IsValid}" Value="False">
-                                    <Setter Property="Color" Value="Red" />
-                                </DataTrigger>
-                            </BoxView.Triggers>
-                        </BoxView>
                     
                         <!-- Email -->
-                        <Label Text="Email">
+                        <Label Text="EMAIL" StyleClass="TitleWhiteLabel" HorizontalOptions="Start" FontSize="Micro">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding Email.IsValid}" Value="False">
-                                    <Setter Property="TextColor" Value="Red" />
+                                    <Setter Property="TextColor" Value="#FF4A4A" />
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding Email.Value}" IsEnabled="{Binding IsNotLoading}" Keyboard="Email">
+                        <Entry Text="{Binding Email.Value}" BackgroundColor="White" IsEnabled="{Binding IsNotLoading}" Keyboard="Email" Margin="0,0,0,10">
                             <Entry.Behaviors>
                                 <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateEmailCommand}" />
                             </Entry.Behaviors>
                         </Entry>
-                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
-                            <BoxView.Triggers>
-                                <DataTrigger TargetType="BoxView" Binding="{Binding Email.IsValid}" Value="False">
-                                    <Setter Property="Color" Value="Red" />
-                                </DataTrigger>
-                            </BoxView.Triggers>
-                        </BoxView>  
                     
                         <!-- PhoneNumber -->
-                        <Label Text="Teléfono">
+                        <Label Text="TELÉFONO" StyleClass="TitleWhiteLabel" HorizontalOptions="Start" FontSize="Micro">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding PhoneNumber.IsValid}" Value="False">
-                                    <Setter Property="TextColor" Value="Red" />
+                                    <Setter Property="TextColor" Value="#FF4A4A" />
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding PhoneNumber.Value}" IsEnabled="{Binding IsNotLoading}" Keyboard="Telephone">
+                        <Entry Text="{Binding PhoneNumber.Value}" BackgroundColor="White" IsEnabled="{Binding IsNotLoading}" Keyboard="Telephone" Margin="0,0,0,10">
                             <Entry.Behaviors>
                                 <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePhoneNumberCommand}" />
                             </Entry.Behaviors>
                         </Entry>
-                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
-                            <BoxView.Triggers>
-                                <DataTrigger TargetType="BoxView" Binding="{Binding PhoneNumber.IsValid}" Value="False">
-                                    <Setter Property="Color" Value="Red" />
-                                </DataTrigger>
-                            </BoxView.Triggers>
-                        </BoxView>  
                     
                         <!-- Document -->
-                        <Label Text="Documento">
+                        <Label Text="DOCUMENTO" StyleClass="TitleWhiteLabel" HorizontalOptions="Start" FontSize="Micro">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding Document.IsValid}" Value="False">
-                                    <Setter Property="TextColor" Value="Red" />
+                                    <Setter Property="TextColor" Value="#FF4A4A" />
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding Document.Value}" IsEnabled="{Binding IsNotLoading}">
+                        <Entry Text="{Binding Document.Value}" BackgroundColor="White" IsEnabled="{Binding IsNotLoading}" Margin="0,0,0,10">
                             <Entry.Behaviors>
                                 <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateDocumentCommand}" />
                             </Entry.Behaviors>
                         </Entry>
-                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
-                            <BoxView.Triggers>
-                                <DataTrigger TargetType="BoxView" Binding="{Binding Document.IsValid}" Value="False">
-                                    <Setter Property="Color" Value="Red" />
-                                </DataTrigger>
-                            </BoxView.Triggers>
-                        </BoxView> 
                     
                         <!-- Country -->
-                        <Label Text="País">
+                        <Label Text="PAÍS" StyleClass="TitleWhiteLabel" HorizontalOptions="Start" FontSize="Micro">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding Country.IsValid}" Value="False">
-                                    <Setter Property="TextColor" Value="Red" />
+                                    <Setter Property="TextColor" Value="#FF4A4A" />
                                 </DataTrigger>
                              </Label.Triggers>   
                         </Label>
-                        <Entry Text="{Binding Country.Value}" IsEnabled="{Binding IsNotLoading}">
+                        <Entry Text="{Binding Country.Value}" BackgroundColor="White" IsEnabled="{Binding IsNotLoading}" Margin="0,0,0,10">
                             <Entry.Behaviors>
                                 <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateCountryCommand}" />
                             </Entry.Behaviors>
                         </Entry>
-                        <BoxView Color="Gray" HeightRequest="1" Margin="0,0,0,10">
-                            <BoxView.Triggers>
-                                <DataTrigger TargetType="BoxView" Binding="{Binding Country.IsValid}" Value="False">
-                                    <Setter Property="Color" Value="Red" />
-                                </DataTrigger>
-                            </BoxView.Triggers>
-                        </BoxView> 
                         
                     </StackLayout>
                     
-                    <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" 
+                    <StackLayout Orientation="Horizontal" Padding="30" VerticalOptions="EndAndExpand">
+                        <Button Text="Participar"
+                                Command="{Binding RegisterUserCommand}" 
+                                StyleClass="PrimaryButton"
+                                IsEnabled="{Binding IsNotLoading}" HorizontalOptions="FillAndExpand"/>
+                     <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" 
                                        HorizontalOptions="CenterAndExpand" HeightRequest="30" 
-                                       VerticalOptions="CenterAndExpand" />
-                    <Button Text="Participar" TextColor="White" 
-                            Command="{Binding RegisterUserCommand}" BackgroundColor="Black" 
-                            Padding="10" Margin="15,10"
-                            IsEnabled="{Binding IsNotLoading}"/>
+                                       VerticalOptions="CenterAndExpand" Color="{StaticResource GoldColor}" />
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
