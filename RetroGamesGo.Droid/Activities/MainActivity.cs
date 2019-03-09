@@ -36,11 +36,9 @@
             base.OnCreate(bundle);
 
             Instance = this;
-            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
-            //AnimationViewRenderer.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);            
             RequestCameraPermission();
-
-            // Initialize Acr UserDialogs
+            
             UserDialogs.Init(this);
             RequestCameraPermission();            
         }
@@ -53,7 +51,6 @@
         {
             base.InitializeForms(bundle);
             Xamarin.Forms.Forms.Init(this, bundle);
-
             AnimationViewRenderer.Init();
         }
 
@@ -65,8 +62,7 @@
         {
             if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.Camera) != Permission.Granted)
             {
-                ActivityCompat.RequestPermissions(this, new[] { Manifest.Permission.Camera }, 42);
-                return;
+                ActivityCompat.RequestPermissions(this, new[] { Manifest.Permission.Camera }, 42);                
             }
         }
     }

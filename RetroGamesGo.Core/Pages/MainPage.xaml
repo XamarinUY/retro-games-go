@@ -64,7 +64,7 @@
                                         <Image IsVisible="{Binding Captured}" Source="{Binding MainImage}" 
                                                Aspect="AspectFit" >
                                             <Image.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding Source={x:Reference page}, Path=ViewModel.PlaySoundCommand}}" CommandParameter="{Binding AssetSound}" />
+                                                <TapGestureRecognizer Command="{Binding Source={x:Reference page}, Path=ViewModel.PlaySoundCommand}" CommandParameter="{Binding AssetSound}" />
                                           </Image.GestureRecognizers>
                                         </Image>
                                         

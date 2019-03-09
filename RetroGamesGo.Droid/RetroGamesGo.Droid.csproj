@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -92,8 +92,6 @@
     <AndroidAsset Include="..\Languages\Spanish\Texts.json">
       <Link>Assets\Languages\Texts.json</Link>
     </AndroidAsset>
-    <AndroidAsset Include="Assets\Luigi\luigi.obj" />
-    <AndroidAsset Include="Assets\Andy\andy.obj" />
     <AndroidAsset Include="Assets\Mario\Mario.obj" />
     <AndroidAsset Include="Assets\Mario\Mario2.obj" />
     <AndroidAsset Include="Assets\SpaceInvader\Space_Invader.obj" />
@@ -212,24 +210,7 @@
     <AndroidResource Include="Resources\layout\Toolbar.axml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Luigi\luigiD.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\Luigi\luigiN.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\Luigi\luigiS.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\Andy\andy.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidAsset Include="Assets\Mario\Mario.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="..\Assets\Mario\MarioSticker.png">
-      <Link>Assets\Mario\MarioSticker.png</Link>
-    </AndroidAsset>
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="..\Assets\PacMan\PacmanSticker.png">
@@ -265,9 +246,6 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\SpaceInvader\Space_Invader-Render01.jpg" />
     <AndroidAsset Include="Assets\SpaceInvader\Space_Invader-Render02.jpg" />
-    <AndroidAsset Include="Assets\DonkeyKong\DonkeyKongSticker.png" />
-    <AndroidAsset Include="Assets\SpaceInvader\SpaceInvaderSticker.png" />
-    <AndroidAsset Include="Assets\Sonic\SonicSticker.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\wcm_splash.png" />
@@ -448,6 +426,26 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\spaceInvaderSilhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Assets\Mario\MarioSticker.png">
+      <Link>Assets\Mario\MarioSticker.png</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Assets\DonkeyKong\DonkeyKongSticker.png">
+      <Link>Assets\DonkeyKong\DonkeyKongSticker.png</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Assets\Sonic\SonicSticker.png">
+      <Link>Assets\Sonic\SonicSticker.png</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Assets\SpaceInvader\SpaceInvaderSticker.png">
+      <Link>Assets\SpaceInvader\SpaceInvaderSticker.png</Link>
+    </AndroidAsset>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
