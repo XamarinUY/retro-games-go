@@ -81,6 +81,7 @@
         /// <returns></returns>
         private async Task OnCaptureCommand()
         {
+            await Mvx.IoCProvider.Resolve<IUserDialogs>().AlertAsync($"Utiliza la cámara para enfocar el sticker del personaje");
             await this.NavigationService.Navigate<CaptureViewModel>();
         }
 
