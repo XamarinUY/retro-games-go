@@ -18,8 +18,6 @@
     {
         public ICommand ImageCapturedCommand => new Command<string>(ImageCaptured, (s) => !IsBusy);
 
-        private object _lock = new object();
-
         private readonly ICharacterRepository characterRepository;
 
         /// <summary>
@@ -32,35 +30,20 @@
 
         private async void ImageCaptured(string imageName)
         {
-            lock(_lock) //HACK: Camera calls too many times too fast on this command, it seemed like the fastest way to fix that.
-            {
-                if (IsBusy)
-                    return;
-                else
-                    IsBusy = true;
-            }
+            var characters = await characterRepository.GetAll();
 
-            try
-            {
+            var character = characters.FirstOrDefault(x => x.AssetSticker.Contains(imageName) || x.Name == imageName); //HACK 
 
-                var characters = await characterRepository.GetAll();
-                var character = characters.FirstOrDefault(x => x.Name == imageName);
-                if (character != null && !character.Captured)
+            if (character != null && !character.Captured)
+            {
+                character.Captured = true;
+                await characterRepository.UpdateCharacter(character);
+
+                Xamarin.Forms.Device.BeginInvokeOnMainThread(async () =>
                 {
-                    character.Captured = true;
-                    await characterRepository.UpdateCharacter(character);
-
                     await Mvx.IoCProvider.Resolve<IUserDialogs>().AlertAsync($"Capturaste a {imageName}. Ahora puedes utilizar el botón 'Ver personaje' para ubicarlo en el espacio usando realidad aumentada", "Felicitaciones!", "Ok!");
                     await NavigationService.Close(this);
-                }
-
-            }
-            finally
-            { 
-                lock (_lock)
-                { 
-                    IsBusy = false;
-                }
+                });
             }
         }
 
