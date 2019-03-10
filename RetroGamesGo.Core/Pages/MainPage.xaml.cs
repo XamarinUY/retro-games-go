@@ -10,6 +10,7 @@
     /// Main UI
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[MvxContentPagePresentation(NoHistory = true)]
     //[MvxMasterDetailPagePresentation]
     public partial class MainPage
     {

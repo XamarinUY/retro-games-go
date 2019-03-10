@@ -22,13 +22,21 @@
 
         public OnboardingViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
         {
-
         }
 
-        public async override void ViewAppeared()
+        public async override void Prepare()
         {
-            await Load();
-            base.ViewAppeared();
+            if (Settings.OnboardingShown)
+            {
+                ShowLottie = false;
+                ShowOnboard = true;
+                await RaisePropertyChanged(() => ShowLottie);
+                await RaisePropertyChanged(() => ShowOnboard);
+            }
+            else
+            {
+                await Load();
+            }
         }
 
         public async Task Load()
@@ -38,17 +46,12 @@
             ShowOnboard = true;
             await RaisePropertyChanged(() => ShowLottie);
             await RaisePropertyChanged(() => ShowOnboard);
-        }
-
-        public override void Prepare()
-        {
-        }
+        }       
 
         public ICommand Play => this.play ?? (
                this.play = new MvxCommand(async () =>
                {
                    Settings.OnboardingShown = true;
-                   await NavigationService.Close(this);
                    await NavigationService.Navigate<MainViewModel>();
                }));
     }

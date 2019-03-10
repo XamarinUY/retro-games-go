@@ -12,6 +12,8 @@
     using System.Linq;
     using Acr.UserDialogs;
     using Helpers;
+    using System.Windows.Input;
+    using Xamarin.Forms;
 
     /// <summary>
     /// Main view
@@ -20,6 +22,7 @@
     {
         private readonly ICharacterRepository characterRepository;     
         private IMvxAsyncCommand captureCommand;
+        private IMvxAsyncCommand infoCommand;
         private IMvxAsyncCommand<string> playSoundCommand;
 
         public IList<Character> Characters { get; set; }
@@ -28,15 +31,16 @@
 
         public IMvxAsyncCommand<string> PlaySoundCommand => playSoundCommand ?? (playSoundCommand = new MvxAsyncCommand<string>(OnPlaySoundCommand, (parameter) => this.IsEnabled));
 
+        // Properties
+        public IMvxAsyncCommand InfoCommand => infoCommand =  new MvxAsyncCommand(() => NavigationService.Navigate<OnboardingViewModel>());
 
         /// <summary>
         /// Gets by DI the required services
-        /// </summary>
+        /// </summary>  
         public MainViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
         {
             this.characterRepository = Mvx.IoCProvider.Resolve<ICharacterRepository>();
         }
-
 
         /// <summary>
         /// Initializes this ViewModel data
@@ -109,7 +113,6 @@
             CrossSimpleAudioPlayer.Current.Load(parameter);
             CrossSimpleAudioPlayer.Current.Play();
         }
-
 
         /// <summary>
         /// Reloads the character

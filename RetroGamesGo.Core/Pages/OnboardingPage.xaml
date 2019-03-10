@@ -14,25 +14,33 @@
                       xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                       ios:Page.UseSafeArea="true">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-
-            <StackLayout IsVisible="{Binding ShowLottie}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                <Label Text="ARE YOU READY?" StyleClass="TitleWhiteLabel" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,20"/>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="Black" IsVisible="{Binding ShowLottie}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                  <Label Text="ARE YOU READY?" StyleClass="TitleWhiteLabel" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,190,0,0"/>
                   <lottie:AnimationView 
+                    VerticalOptions="FillAndExpand"
                     x:Name="AnimationView" 
                     Animation="breakoutgame.json" 
                     AutoPlay="{Binding ShowLottie}"
-                    VerticalOptions="FillAndExpand"
-                    HorizontalOptions="FillAndExpand" />
-            </StackLayout>
-            <StackLayout IsVisible="{Binding ShowOnboard}" Padding="30,60,30,20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                <StackLayout Spacing="15" Padding="10" VerticalOptions="CenterAndExpand">
-                    <Label Text="COMO JUGAR" StyleClass="TitleWhiteLabel" FontSize="28"/>
-                    <Label Text="CAPTURA TODOS LOS PERSONAJES Y PARTICIPÁ DE SORTEOS" StyleClass="GoldLabel" FontSize="Small"/>
-                    <Label Text="Lorem impsu Lorem impsu Lorem impsu Lorem impsu Lorem impsu Lorem impsu Lorem impsu" StyleClass="WhiteSpaceMonoLabel"/>
+                    HorizontalOptions="FillAndExpand"/>
+                    <StackLayout Orientation="Horizontal" Padding="0,20" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Label Text="App desarrollada por la comunidad XamarinUy" StyleClass="WhiteSpaceMonoLabel"/>
+<!--                        <Image Source="marioBross.png" VerticalOptions="FillAndExpand"/>-->
+                    </StackLayout>
                 </StackLayout>
-                <Button Text="PLAY" StyleClass="PrimaryButton" VerticalOptions="EndAndExpand" Command="{Binding Play}"/>
+                <StackLayout IsVisible="{Binding ShowOnboard}" Padding="30,60,30,20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Spacing="15" VerticalOptions="CenterAndExpand">
+                        <Label Text="COMO JUGAR" StyleClass="TitleWhiteLabel" FontSize="28"/>
+                        <Label Text="CAPTURA TODOS LOS PERSONAJES Y PARTICIPÁ DE SORTEOS" StyleClass="GoldLabel" FontSize="Small"/>
+                        <Label Text="* En todo el Campus Party encontrarás stickers con personajes de juegos retro." StyleClass="WhiteSpaceMonoLabel"/>
+                        <Label Text="* Cuando encuentres un sticker, haciendo click en el botón CAPTURAR desbloquearás el personaje para luego verlo en realidad aumentada." StyleClass="WhiteSpaceMonoLabel"/>
+                        <Label Text="* Capturando todos los personajes y completando el formulario podrás participar de sorteos." StyleClass="WhiteSpaceMonoLabel"/>
+                        <Label Text="BONUS: Una vez capturado un personaje, con realidad aumentada podrás posicionarlo donde quieras!" StyleClass="WhiteSpaceMonoLabel"/>
+                    </StackLayout>
+                    <Button Text="PLAY" StyleClass="PrimaryButton" Margin="0,10,0,60" VerticalOptions="EndAndExpand" Command="{Binding Play}"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </views:MvxContentPage>
