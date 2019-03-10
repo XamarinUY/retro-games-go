@@ -125,7 +125,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <SceneKitAsset Include="art.scnassets\Mario\Mario.png" />
     <Content Include="Entitlements.plist" />
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <None Include="packages.config" />
     <Compile Include="Repositories\SQLiteClient.cs" />
     <BundleResource Include="Resources\mario_coin.mp3" />
@@ -144,7 +143,6 @@
     <BundleResource Include="Mario_F.json" />
     <BundleResource Include="Pacman_F.json" />
     <BundleResource Include="Resources\spaceInvader.png" />
-    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
     <BundleResource Include="Resources\donkeyKongSilhouette.png" />
     <BundleResource Include="Resources\pacManSilhouette.png" />
     <BundleResource Include="Resources\sonicSilhouette.png" />
@@ -349,7 +347,7 @@
     <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\MarioSticker1.png">
+    <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\Mario.arreferenceimage\MarioSticker - copia.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\PacMan.arreferenceimage\Contents.json">
@@ -392,7 +390,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -31,15 +31,16 @@
         /// </summary>
         protected override void OnCreate(Bundle bundle)
         {
+        
             ToolbarResource = Droid.Resource.Layout.Toolbar;
             TabLayoutResource = Droid.Resource.Layout.Tabbar;
             base.OnCreate(bundle);
-
+            UserDialogs.Init(this);
             Instance = this;
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);            
             RequestCameraPermission();
             
-            UserDialogs.Init(this);
+          
             RequestCameraPermission();            
         }
 

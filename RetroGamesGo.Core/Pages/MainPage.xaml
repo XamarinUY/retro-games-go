@@ -68,7 +68,9 @@
                                           </Image.GestureRecognizers>
                                         </Image>
                                         
-                                        <!--<lottie:AnimationView IsVisible="{Binding Captured}" Animation="{Binding Animation}" AutoPlay="true" Loop="true" 
+                                        
+                                        <!-- Esto esta fallando en android (revisar)
+                                        <lottie:AnimationView IsVisible="{Binding Captured}" Animation="{Binding Animation}" AutoPlay="true" Loop="true" 
                                             AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />-->
                                     </StackLayout>
                                     <StackLayout Grid.Row="2" IsVisible="{Binding Captured}" Spacing="4" VerticalOptions="Center">
