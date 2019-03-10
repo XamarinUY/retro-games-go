@@ -1,4 +1,4 @@
-﻿namespace RetroGamesGo.Droid.Activities
+namespace RetroGamesGo.Droid.Activities
 {
     using Android;
     using Android.Support.V4.App;

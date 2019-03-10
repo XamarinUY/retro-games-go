@@ -1,4 +1,5 @@
-﻿using ARKit;
+﻿using System.Windows.Input;
+using ARKit;
 using RetroGamesGo.iOS.Delegates;
 using RetroGamesGo.iOS.Pages;
 using RetroGamesGo.iOS.Renderers;
@@ -17,7 +18,6 @@ namespace RetroGamesGo.iOS.Renderers
 
         public override bool ShouldAutorotate() => true;
 
-
         /// <summary>
         /// Initializes the ArKit scene
         /// </summary>
@@ -28,7 +28,7 @@ namespace RetroGamesGo.iOS.Renderers
             {
                 Frame = this.View.Frame,
                 UserInteractionEnabled = true,                                
-                Delegate = new CaptureDelegate(),
+                Delegate = new CaptureDelegate((s)=> (Element as CapturePage).ImageCapturedCommand?.Execute(s)),
                 Session =
                 {
                     Delegate = new ArSessionDelegate()

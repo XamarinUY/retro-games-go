@@ -18,6 +18,12 @@ namespace RetroGamesGo.iOS.Delegates
     public class CaptureDelegate : ARSCNViewDelegate
     {
         private ICharacterRepository characterRepository = Mvx.IoCProvider.Resolve<ICharacterRepository>();
+        private Action<string> imageCapturedAction;
+
+        public CaptureDelegate(Action<string> imageCapturedAction) : base()
+        {
+            this.imageCapturedAction = imageCapturedAction;
+        }
 
         public override async void DidAddNode(ISCNSceneRenderer renderer, SCNNode node, ARAnchor anchor)
         {
@@ -25,19 +31,23 @@ namespace RetroGamesGo.iOS.Delegates
             {
                 var imageAnchor = (ARImageAnchor)anchor;
                 var imageName = imageAnchor.ReferenceImage.Name;
-                var characters = await characterRepository.GetAll();
-                var character = characters.FirstOrDefault(x => x.AssetSticker.Contains(imageName));
-                if (character != null && !character.Captured)
-                {
-                    character.Captured = true;
-                    await characterRepository.UpdateCharacter(character);
+                imageCapturedAction?.Invoke(imageName);
 
-                    InvokeOnMainThread(() => {
-                        var okAlertController = UIAlertController.Create(string.Empty, $"Capturaste a {character.Name}", UIAlertControllerStyle.Alert);
-                        okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
-                        UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(okAlertController, true, null);
-                    });
-                }
+                //var characters = await characterRepository.GetAll();
+                //var character = characters.FirstOrDefault(x => x.AssetSticker.Contains(imageName));
+                //if (character != null && !character.Captured)
+                //{
+                //    character.Captured = true;
+                //    await characterRepository.UpdateCharacter(character);
+
+                //    InvokeOnMainThread(() => {
+                //        var okAlertController = UIAlertController.Create(string.Empty, $"Capturaste a {character.Name}", UIAlertControllerStyle.Alert);
+                //        okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+                //        UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(okAlertController, true, null);
+                //    });
+                //}
+
+                imageCapturedAction?.Invoke(imageName);
             }
         }
 

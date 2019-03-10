@@ -20,12 +20,14 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
     {
         protected AugmentedImageDatabase imageDatabase;
         private List<Core.Models.Character> characters;
+        private Action<string> imageCapturedAction;
 
         /// <summary>
         /// Creates the AR Renderer
         /// </summary>        
-        public ImageRecognitionRenderer(Context context, GLSurfaceView surfaceView) : base(context, surfaceView)
-        {        
+        public ImageRecognitionRenderer(Context context, GLSurfaceView surfaceView, Action<string> imageCapturedAction) : base(context, surfaceView)
+        {
+            this.imageCapturedAction = imageCapturedAction;
         }
 
 
@@ -64,18 +66,7 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
             foreach (var image in updatedAugmentedImages)
             {
                 var imageName = ((AugmentedImage) image).Name;
-                var character = this.characters.FirstOrDefault(x => x.Name == imageName);
-                if (character!=null && !character.Captured)
-                {
-                    character.Captured = true;
-                    var characterRepository = Mvx.IoCProvider.Resolve<ICharacterRepository>();
-                    characterRepository.UpdateCharacter(character);
-
-                    var view = MainActivity.Instance.FindViewById(Android.Resource.Id.Content);
-                    var snackBar = Snackbar.Make(view, $"Capturaste a {((AugmentedImage) image).Name}", Snackbar.LengthIndefinite);
-                    snackBar.SetDuration(5000);
-                    snackBar.Show();                    
-                }
+                imageCapturedAction?.Invoke(imageName);
             }
         }
     }

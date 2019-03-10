@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                       x:TypeArguments="viewModels:CaptureViewModel"
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -7,8 +7,6 @@
                       xmlns:controls="clr-namespace:RetroGamesGo.Core.Controls;assembly=RetroGamesGo.Core"
                       x:Class="RetroGamesGo.Droid.Pages.CapturePage">
     <views:MvxContentPage.Content>
-        <controls:ArCaptureView  VerticalOptions="FillAndExpand"/>
+        <controls:ArCaptureView  VerticalOptions="FillAndExpand" ImageCapturedCommand="{Binding ImageCapturedCommand}"/>
     </views:MvxContentPage.Content>
-
-
 </views:MvxContentPage>
