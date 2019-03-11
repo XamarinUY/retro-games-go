@@ -24,10 +24,8 @@
     </views:MvxContentPage.Resources>
     <views:MvxContentPage.Content>
         <StackLayout>
-            <StackLayout Padding="10" HorizontalOptions="CenterAndExpand">
-               
-                <Label StyleClass="TitleWhiteLabel"
-                       FlexLayout.AlignSelf="Center" 
+            <Grid Margin="10">
+                <Label Grid.Column="1" StyleClass="TitleWhiteLabel"
                        VerticalTextAlignment="Center"
                        HorizontalOptions="CenterAndExpand">
                     <Label.FormattedText>
@@ -37,8 +35,14 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-              
-            </StackLayout>
+                <Label Grid.Column="2" Text="?" HorizontalOptions="EndAndExpand" StyleClass="TitleWhiteLabel">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding InfoCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+            
+            
             <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true"
                                  SelectedIndex="{Binding CurrentIndex}"
                                  ItemsSource="{Binding Characters}">

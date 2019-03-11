@@ -10,6 +10,12 @@
             <Color x:Key="GoldColor">#f8b82f</Color>
             <Color x:Key="GrayColor">#999999</Color>
             
+            <!--Navigation--> 
+            <Style TargetType="NavigationPage">
+               <Setter Property="BarTextColor" Value="White" />
+               <Setter Property="BarBackgroundColor" Value="{StaticResource BackgroundColor}"/>
+            </Style>
+            
             <!--Fonts-->
             <OnPlatform x:TypeArguments="x:String" x:Key="Ka1Font">
                 <On Platform="Android" Value="ka1.ttf#ka1" />

@@ -39,7 +39,6 @@ namespace RetroGamesGo.Droid.Activities
             Instance = this;
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);            
             RequestCameraPermission();
-            
           
             RequestCameraPermission();            
         }
