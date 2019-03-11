@@ -2,8 +2,8 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
-    <SelectedDevice>HUAWEI EML-L29</SelectedDevice>
-    <DefaultDevice>android_accelerated_x86</DefaultDevice>
+    <SelectedDevice>Android_Accelerated_Nougat</SelectedDevice>
+    <DefaultDevice>Android_Accelerated_Nougat</DefaultDevice>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
   </PropertyGroup>
 </Project>
