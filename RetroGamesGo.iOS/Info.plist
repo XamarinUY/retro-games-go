@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>RetroGamesGo.iOS</string>
+	<string>Retro Games GO</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.xamarinyu.retrogamesgo</string>
 	<key>CFBundleVersion</key>
@@ -40,7 +40,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>CFBundleName</key>
-	<string>RetroGamesGo.iOS</string>
+	<string>Retro Games Go</string>
 	<key>CFBundleShortVersionString</key>
 	<string>0.1.0</string>
 	<key>UIAppFonts</key>

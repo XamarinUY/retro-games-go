@@ -91,12 +91,6 @@
     <BundleResource Include="Resources\donkeyKong.png" />
     <BundleResource Include="Resources\pacMan.png" />
     <BundleResource Include="Resources\sonic.png" />
-    <BundleResource Include="Resources\wcm_splash.png" />
-    <BundleResource Include="Resources\wcm_splash%402x.png" />
-    <BundleResource Include="Resources\wcm_splash%403x.png" />
-    <BundleResource Include="Resources\wcm_splash_large.png" />
-    <BundleResource Include="Resources\wcm_splash_large%402x.png" />
-    <BundleResource Include="Resources\wcm_splash_large%403x.png" />
     <BundleResource Include="Resources\donkeyKong%402x.png" />
     <BundleResource Include="Resources\donkeyKong%403x.png" />
     <BundleResource Include="Resources\donkeyKongSilhouette.png" />
@@ -371,6 +365,10 @@
     <ImageAsset Include="Assets.xcassets\RetroGamesGoImages.arresourcegroup\SpaceInvader.arreferenceimage\SpaceInvaderSticker1.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.imageset\wcm_splash_large.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.imageset\wcm_splash_large%402x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.imageset\wcm_splash_large%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RetroGamesGo.Core\RetroGamesGo.Core.csproj">
@@ -391,7 +389,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\LaunchImage.imageset\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
