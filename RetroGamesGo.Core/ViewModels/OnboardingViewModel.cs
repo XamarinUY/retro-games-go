@@ -12,7 +12,7 @@
     /// </summary>
     public class OnboardingViewModel : BaseViewModel
     {
-        private MvxCommand play;
+        private MvxAsyncCommand play;
 
         public bool ShowLottie { get; set; } = true;
 
@@ -47,8 +47,8 @@
             await RaisePropertyChanged(() => ShowOnboard);
         }       
 
-        public ICommand Play => this.play ?? (
-               this.play = new MvxCommand(async () =>
+        public IMvxAsyncCommand Play => this.play ?? (
+               this.play = new MvxAsyncCommand(async () =>
                {
                    if (!Settings.OnboardingShown)
                    {
@@ -57,7 +57,6 @@
                    }
                    else
                    {
-                       // Second time this view appears is show, just close the ViewMode
                        await NavigationService.Close(this);
                    }
                }));

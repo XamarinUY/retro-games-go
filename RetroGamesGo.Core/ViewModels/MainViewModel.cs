@@ -44,7 +44,7 @@
         private IMvxAsyncCommand<string> playSoundCommand;  
         public IMvxAsyncCommand<string> PlaySoundCommand => playSoundCommand ?? 
             (playSoundCommand = new MvxAsyncCommand<string>(OnPlaySoundCommand, (parameter) => this.IsEnabled));
-        public IMvxAsyncCommand InfoCommand => infoCommand =  new MvxAsyncCommand(() => NavigationService.Navigate<OnboardingViewModel>());
+        public IMvxAsyncCommand InfoCommand => infoCommand ?? (infoCommand =  new MvxAsyncCommand(() => NavigationService.Navigate<OnboardingViewModel>()));
 
         /// <summary>
         /// Gets by DI the required services
