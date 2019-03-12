@@ -6,6 +6,11 @@
                       xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
                       xmlns:controls="clr-namespace:RetroGamesGo.Core.Controls;assembly=RetroGamesGo.Core"
                       x:Class="RetroGamesGo.Droid.Pages.PlaceCharacterPage">
+
+    <views:MvxContentPage.ToolbarItems>
+        <ToolbarItem Text="Seleccione" Command="{Binding SelectCharacterCommand}"/>
+    </views:MvxContentPage.ToolbarItems>
+
     <views:MvxContentPage.Content>
         <controls:ArCharacterView  VerticalOptions="FillAndExpand" Character="{Binding Character}"/>
     </views:MvxContentPage.Content>

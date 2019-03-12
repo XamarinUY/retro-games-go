@@ -121,7 +121,7 @@ namespace RetroGamesGo.Core.Repositories
                 AssetTexture = "Mario/Mario.png",
                 AssetSound = "mario_coin.mp3"
             });
-            await this.AddCharacter(new Character()
+            await this.AddCharacter(new Character
             {
                 Id = Guid.NewGuid(),
                 Number = 2,
@@ -135,8 +135,8 @@ namespace RetroGamesGo.Core.Repositories
                 Url = "https://es.wikipedia.org/wiki/Pac-Man",
                 Captured = false,
                 AssetSticker = "PacMan/PacmanSticker.png",
-                AssetModel = "PacMan/Mario.obj",
-                AssetTexture = "PacMan/Mario.png",
+                AssetModel = "PacMan/Pacman.obj",
+                AssetTexture = "Mario/Mario.png", //TODO: change this
                 AssetSound = "mario_coin.mp3"
             });
             await this.AddCharacter(new Character()
@@ -153,8 +153,8 @@ namespace RetroGamesGo.Core.Repositories
                 Url = "https://es.wikipedia.org/wiki/Donkey_Kong_(videojuego)",
                 Captured = false,
                 AssetSticker = "DonkeyKong/DonkeyKongSticker.png",
-                AssetModel = "DonkeyKong/Mario.obj", //TODO: change this
-                AssetTexture = "DonkeyKong/Mario.png", //TODO: change this
+                AssetModel = "DonkeyKong/DonkeyKong.obj", //TODO: change this
+                AssetTexture = "DonkeyKong/DonkeyKong.png", //TODO: change this
                 AssetSound = "DonkeyKong.wav"
             });
             await this.AddCharacter(new Character()
@@ -172,7 +172,7 @@ namespace RetroGamesGo.Core.Repositories
                 Captured = false,
                 AssetSticker = "SpaceInvader/SpaceInvaderSticker.png",
                 AssetModel = "SpaceInvader/Space_Invader.obj", //TODO: change this
-                AssetTexture = "SpaceInvader/Space_Invader-Render01.jpg", //TODO: change this
+                AssetTexture = "Mario/Mario.png", //TODO: change this
                 AssetSound = "space.wav"
             });
             await this.AddCharacter(new Character()
@@ -189,8 +189,8 @@ namespace RetroGamesGo.Core.Repositories
                 Url = "https://es.wikipedia.org/wiki/Sonic_the_Hedgehog_(videojuego_de_1991)",
                 Captured = false,
                 AssetSticker = "Sonic/SonicSticker.png",
-                AssetModel = "Sonic/Mario.obj", //TODO: change this
-                AssetTexture = "Sonic/Mario.png", //TODO: change this
+                AssetModel = "Sonic/Sonic.obj", //TODO: change this
+                AssetTexture = "Sonic/Sonic.png", //TODO: change this
                 AssetSound = "sonic.wav"
             });
         }

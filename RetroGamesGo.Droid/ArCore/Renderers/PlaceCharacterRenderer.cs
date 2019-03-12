@@ -4,6 +4,9 @@ using Android.Content;
 using Android.Opengl;
 using Android.Views;
 using Google.AR.Core;
+using MvvmCross;
+using MvvmCross.Plugin.Messenger;
+using RetroGamesGo.Core.Messages;
 using RetroGamesGo.Core.Models;
 using RetroGamesGo.Droid.ArCore.Helpers;
 using EGLConfig = Javax.Microedition.Khronos.Egl.EGLConfig;
@@ -17,19 +20,21 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
     {
         private readonly GestureDetector gestureDetector;        
         private readonly PointCloudRenderer pointCloudRenderer = new PointCloudRenderer();
-        private readonly List<ObjModelRenderer> models = new List<ObjModelRenderer>();
-        private readonly List<Anchor> anchors = new List<Anchor>();
+        private readonly Dictionary<Anchor, ObjModelRenderer> anchors = new Dictionary<Anchor, ObjModelRenderer>();
         private readonly ConcurrentQueue<MotionEvent> queuedSingleTaps = new ConcurrentQueue<MotionEvent>();
         private readonly List<PlaneAttachmentHelper> touches = new List<PlaneAttachmentHelper>();
         private static readonly  float[] anchorMatrix = new float[16];
-        private Character character;
+        private readonly IMvxMessenger messengerService;
+        private Character selectedCharacter;
+        private MvxSubscriptionToken selectedCharacterMvxSubscriptionToken;
+
 
         /// <summary>
         /// Creates the AR Renderer
         /// </summary>        
         public PlaceCharacterRenderer(Context context, GLSurfaceView surfaceView, Character character) : base(context, surfaceView)
         {
-            this.character = character;
+            this.selectedCharacter = character;
             this.gestureDetector = new GestureDetector(this.context, new TapGestureDetectorHelper
             {
                 SingleTapUpHandler = (arg) =>
@@ -40,6 +45,13 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
                 DownHandler = (arg) => true
             });
             this.surfaceView.SetOnTouchListener(this);
+
+
+            this.messengerService = Mvx.IoCProvider.GetSingleton<IMvxMessenger>();
+            selectedCharacterMvxSubscriptionToken = this.messengerService.Subscribe<SelectedCharacterMessage>((e) =>
+            {
+                this.selectedCharacter = e.Character;
+            });
         }
 
 
@@ -65,35 +77,6 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
         }
 
 
-        //private void LoadModels()
-        //{
-        //    //var model = LoadModel("Luigi/luigi.obj", "Luigi/luigiD.jpg");
-        //    //var model = LoadModel("Andy/andy.obj", "Andy/andy.png");
-        //    var model = LoadModel("Mario/Mario2.obj", "Mario/Mario.png");
-        //    this.models.Add(model);
-        //}
-
-        protected override void LoadArAssets()
-        {
-            try
-            {
-                //var model = new ObjModelRenderer();
-                //model.CreateOnGlThread(this.context, modelName, textureName);
-                //model.SetMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
-
-                ////mVirtualObjectShadow.CreateOnGlThread(_context,
-                ////    "andy_shadow.obj", "andy_shadow.png");
-                ////mVirtualObjectShadow.SetBlendMode(ObjectRenderer.BlendMode.Shadow);
-                ////mVirtualObjectShadow.SetMaterialProperties(1.0f, 0.0f, 0.0f, 1.0f);
-                //return model;
-            }
-            catch (Java.IO.IOException ex)
-            {
-                //Log.Error(TAG, "Failed to read obj file");
-            }      
-        }
-
-
         /// <summary>
         /// Handle taps. Handling only one tap per frame, as taps are usually low frequency
         /// Adds and anchor when the tap is over a plane
@@ -108,12 +91,15 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
                 var trackable = hit.Trackable;                    
                 if (trackable is Plane plane && plane.IsPoseInPolygon(hit.HitPose))
                 {                        
-                    if (touches.Count >= 5)
-                    {
-                        this.anchors[0].Detach();
-                        this.anchors.RemoveAt(0);
-                    }                      
-                    this.anchors.Add(hit.CreateAnchor());                        
+                    if (touches.Count >= 10)
+                    {                
+                        break;
+                    }
+
+                    var model = new ObjModelRenderer();
+                    model.CreateOnGlThread(this.context, selectedCharacter.AssetModel, selectedCharacter.AssetTexture);
+                    model.SetMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
+                    this.anchors.Add(hit.CreateAnchor(), model);                        
                     break;
                 }
             }
@@ -162,39 +148,28 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
         /// Renders the model for each anchor
         /// </summary>        
         protected override void RenderAnchors(Camera camera, Google.AR.Core.Frame frame)
-        {                        
-            //var scaleFactor = 0.1f;
-            //var lightIntensity = frame.LightEstimate.PixelIntensity;
-            //var projectionMatrix = new float[16];
-            //camera.GetProjectionMatrix(projectionMatrix, 0, 0.1f, 100.0f);
-            //var viewMatrix = new float[16];
-            //camera.GetViewMatrix(viewMatrix, 0);
+        {
+            var scaleFactor = 0.1f;
+            var lightIntensity = frame.LightEstimate.PixelIntensity;
+            var projectionMatrix = new float[16];
+            camera.GetProjectionMatrix(projectionMatrix, 0, 0.1f, 100.0f);
+            var viewMatrix = new float[16];
+            camera.GetViewMatrix(viewMatrix, 0);
 
-            //foreach (var anchor in this.anchors)
-            //{
+            foreach (var anchor in this.anchors.Keys)
+            {
+                if (anchor.TrackingState != TrackingState.Tracking)
+                {
+                    continue;
+                }
 
-            //    if (anchor.TrackingState != TrackingState.Tracking)
-            //    {
-            //        continue;
-            //    }
-
-            //    // Get the current combined pose of an Anchor and Plane in world space. The Anchor
-            //    // and Plane poses are updated during calls to session.update() as ARCore refines
-            //    // its estimate of the world.
-            //    anchor.Pose.ToMatrix(anchorMatrix, 0);
-
-            //    // Update and draw the model and its shadow.
-            //    //foreach (var model in this.models)
-            //    //{
-            //    //    model.UpdateModelMatrix(anchorMatrix, scaleFactor);
-            //    //    model.Draw(viewMatrix, projectionMatrix, lightIntensity);
-            //    //}
-            //    //mVirtualObject.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
-            //    //mVirtualObjectShadow.UpdateModelMatrix(mAnchorMatrix, scaleFactor);
-            //    //mVirtualObject.Draw(viewMatrix, projectionMatrix, lightIntensity);
-            //    //mVirtualObjectShadow.Draw(viewMatrix, projectionMatrix, lightIntensity);
-
-            //}
+                // Get the current combined pose of an Anchor and Plane in world space. The Anchor
+                // and Plane poses are updated during calls to session.update() as ARCore refines
+                // its estimate of the world.
+                anchor.Pose.ToMatrix(anchorMatrix, 0);
+                this.anchors[anchor].UpdateModelMatrix(anchorMatrix, scaleFactor);
+                this.anchors[anchor].Draw(viewMatrix, projectionMatrix, lightIntensity);
+            }
         }
 
     }

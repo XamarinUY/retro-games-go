@@ -29,49 +29,45 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{2F0F4A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mario", "Mario", "{E130CFED-CB15-410F-90BA-05B919312410}"
 	ProjectSection(SolutionItems) = preProject
-		Assets\Mario\Mario.obj = Assets\Mario\Mario.obj
 		Assets\Mario\Mario.png = Assets\Mario\Mario.png
 		Assets\Mario\Mario2.mtl = Assets\Mario\Mario2.mtl
-		Assets\Mario\Mario2.obj = Assets\Mario\Mario2.obj
-		Assets\Mario\MarioSticker.png = Assets\Mario\MarioSticker.png
 		Assets\Mario\mario_coin.mp3 = Assets\Mario\mario_coin.mp3
+		Assets\Mario\MarioSticker.png = Assets\Mario\MarioSticker.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PacMan", "PacMan", "{BCCF97C3-A838-4DD1-BA39-409817155D96}"
 	ProjectSection(SolutionItems) = preProject
 		Assets\PacMan\pacman.mtl = Assets\PacMan\pacman.mtl
 		Assets\PacMan\pacman.obj = Assets\PacMan\pacman.obj
-		Assets\PacMan\PacmanSticker.png = Assets\PacMan\PacmanSticker.png
 		Assets\PacMan\pacman_waka_waka.mp3 = Assets\PacMan\pacman_waka_waka.mp3
+		Assets\PacMan\PacmanSticker.png = Assets\PacMan\PacmanSticker.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DonkeyKong", "DonkeyKong", "{95B47C06-E1B5-4739-8B1B-820D7B11C4CB}"
 	ProjectSection(SolutionItems) = preProject
-		Assets\DonkeyKong\Donkey Kong.mtl = Assets\DonkeyKong\Donkey Kong.mtl
-		Assets\DonkeyKong\Donkey Kong.obj = Assets\DonkeyKong\Donkey Kong.obj
-		Assets\DonkeyKong\DonkeyKongSticker.png = Assets\DonkeyKong\DonkeyKongSticker.png
+		Assets\DonkeyKong\DonkeyKong.mtl = Assets\DonkeyKong\DonkeyKong.mtl
+		Assets\DonkeyKong\DonkeyKong.obj = Assets\DonkeyKong\DonkeyKong.obj
+		Assets\DonkeyKong\DonkeyKong.png = Assets\DonkeyKong\DonkeyKong.png
 		Assets\DonkeyKong\DonkeyKong.wav = Assets\DonkeyKong\DonkeyKong.wav
+		Assets\DonkeyKong\DonkeyKong_1.png = Assets\DonkeyKong\DonkeyKong_1.png
+		Assets\DonkeyKong\DonkeyKongSticker.png = Assets\DonkeyKong\DonkeyKongSticker.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpaceInvader", "SpaceInvader", "{634ABFCB-DC2E-4885-88E7-8A3B65B36DF3}"
 	ProjectSection(SolutionItems) = preProject
+		Assets\SpaceInvader\space.wav = Assets\SpaceInvader\space.wav
 		Assets\SpaceInvader\Space_Invader-Render01.jpg = Assets\SpaceInvader\Space_Invader-Render01.jpg
 		Assets\SpaceInvader\Space_Invader-Render02.jpg = Assets\SpaceInvader\Space_Invader-Render02.jpg
 		Assets\SpaceInvader\Space_Invader.obj = Assets\SpaceInvader\Space_Invader.obj
 		Assets\SpaceInvader\spaceInvaderSticker.png = Assets\SpaceInvader\spaceInvaderSticker.png
-		Assets\SpaceInvader\space.wav = Assets\SpaceInvader\space.wav
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sonic", "Sonic", "{D6A76CE2-85B5-4AB6-A1B7-D0ED59D8FD3A}"
 	ProjectSection(SolutionItems) = preProject
-		Assets\Sonic\chr_classic_sonic_cloth_dif_HD.png = Assets\Sonic\chr_classic_sonic_cloth_dif_HD.png
-		Assets\Sonic\chr_classic_sonic_eye_dif_HD.png = Assets\Sonic\chr_classic_sonic_eye_dif_HD.png
-		Assets\Sonic\chr_classic_sonic_shoe_dif_HD.png = Assets\Sonic\chr_classic_sonic_shoe_dif_HD.png
-		Assets\Sonic\chr_classic_sonic_skin_dif_HD.png = Assets\Sonic\chr_classic_sonic_skin_dif_HD.png
-		Assets\Sonic\classic sonic.mtl = Assets\Sonic\classic sonic.mtl
-		Assets\Sonic\classic sonic.obj = Assets\Sonic\classic sonic.obj
-		Assets\Sonic\SonicSticker.png = Assets\Sonic\SonicSticker.png
+		Assets\Sonic\Sonic.obj = Assets\Sonic\Sonic.obj
+		Assets\Sonic\Sonic.png = Assets\Sonic\Sonic.png
 		Assets\Sonic\sonic.wav = Assets\Sonic\sonic.wav
+		Assets\Sonic\SonicSticker.png = Assets\Sonic\SonicSticker.png
 	EndProjectSection
 EndProject
 Global

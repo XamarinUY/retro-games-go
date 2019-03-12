@@ -6,4 +6,9 @@
              xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core"
              x:Class="RetroGamesGo.iOS.Pages.PlaceCharacterPage">
 
+    <views:MvxContentPage.ToolbarItems>
+        <ToolbarItem Text="Seleccione" Command="{Binding SelectCharacterCommand}"/>
+    </views:MvxContentPage.ToolbarItems>
+
+
 </views:MvxContentPage>
