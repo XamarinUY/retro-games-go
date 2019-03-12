@@ -44,7 +44,8 @@
             
             
             <cards:CoverFlowView PositionShiftValue="60" IsCyclical="true"
-                                 SelectedIndex="{Binding CurrentIndex}"
+                                 SelectedIndex="{Binding CurrentIndex}" 
+                                 SelectedItem="{Binding SelectedCharacter}"
                                  ItemsSource="{Binding Characters}">
                 <cards:CoverFlowView.ItemTemplate>
                     <DataTemplate>
@@ -93,7 +94,8 @@
                           UnselectedIndicatorStyle="{StaticResource InactiveIndicator}" />
             </cards:CoverFlowView>
              <StackLayout Padding="30" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                <Button Text="CAPTURAR" StyleClass="PrimaryButton" VerticalOptions="EndAndExpand" Command="{Binding CaptureCommand}"/>
+                <Button Text="{Binding PrimaryButtonText}" StyleClass="PrimaryButton" VerticalOptions="EndAndExpand" 
+                        Command="{Binding CaptureCommand}"/>
             </StackLayout>
         </StackLayout>
     </views:MvxContentPage.Content>

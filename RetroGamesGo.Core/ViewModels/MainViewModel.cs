@@ -20,26 +20,40 @@
     /// </summary>
     public class MainViewModel : BaseViewModel
     {
-        private readonly ICharacterRepository characterRepository;     
-        private IMvxAsyncCommand captureCommand;
-        private IMvxAsyncCommand infoCommand;
-        private IMvxAsyncCommand<string> playSoundCommand;
+        private readonly ICharacterRepository characterRepository;
+
+        public string PrimaryButtonText { get; set; }
+
+        private Character _selectedCharacter;
+        public Character SelectedCharacter
+        {
+            get => _selectedCharacter;
+            set
+            {
+                _selectedCharacter = value;
+                PrimaryButtonText = _selectedCharacter.Captured ? "VER PERSONAJE 3D" : "CAPTURAR";
+            }
+        }
 
         public IList<Character> Characters { get; set; }
 
-        public IMvxAsyncCommand CaptureCommand => captureCommand ?? (captureCommand = new MvxAsyncCommand(OnCaptureCommand, () => this.IsEnabled));
-
-        public IMvxAsyncCommand<string> PlaySoundCommand => playSoundCommand ?? (playSoundCommand = new MvxAsyncCommand<string>(OnPlaySoundCommand, (parameter) => this.IsEnabled));
-
-        // Properties
-        public IMvxAsyncCommand InfoCommand => infoCommand =  new MvxAsyncCommand(() => NavigationService.Navigate<OnboardingViewModel>());
+        private IMvxAsyncCommand captureCommand;
+        private IMvxAsyncCommand infoCommand;
+        public IMvxAsyncCommand CaptureCommand => captureCommand ?? 
+            (captureCommand = new MvxAsyncCommand(OnCaptureCommand, () => this.IsEnabled));
+        private IMvxAsyncCommand<string> playSoundCommand;  
+        public IMvxAsyncCommand<string> PlaySoundCommand => playSoundCommand ?? 
+            (playSoundCommand = new MvxAsyncCommand<string>(OnPlaySoundCommand, (parameter) => this.IsEnabled));
+        public IMvxAsyncCommand InfoCommand => infoCommand ?? (infoCommand =  new MvxAsyncCommand(() => NavigationService.Navigate<OnboardingViewModel>()));
 
         /// <summary>
         /// Gets by DI the required services
         /// </summary>  
-        public MainViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
+        public MainViewModel(IMvxLogProvider logProvider, 
+            IMvxNavigationService navigationService) : base(logProvider, navigationService)
         {
             this.characterRepository = Mvx.IoCProvider.Resolve<ICharacterRepository>();
+            PrimaryButtonText = "CAPTURAR";
         }
 
         /// <summary>
@@ -58,7 +72,8 @@
                 if (!Settings.FormCompleted && allCaptured)
                 {
                     var goToChallengeCompleted = await Mvx.IoCProvider.Resolve<IUserDialogs>().ConfirmAsync(
-                        "Has desbloqueado todos los personajes de Retro Games GO! Completa el formulario para participar del sorteo :)", "Felicitaciones!", "Entendido");
+                        "Has desbloqueado todos los personajes de Retro Games GO! Completa el formulario para participar del sorteo :)", 
+                        "Felicitaciones!", "Entendido");
                     if (goToChallengeCompleted)
                     {
                         GoToChallengeCompletedPage();
@@ -98,8 +113,15 @@
         /// <returns></returns>
         private async Task OnCaptureCommand()
         {
-            await Mvx.IoCProvider.Resolve<IUserDialogs>().AlertAsync($"Utiliza la cámara para enfocar el sticker del personaje");
-            await this.NavigationService.Navigate<CaptureViewModel>();
+            if (SelectedCharacter.Captured)
+            {
+                await this.NavigationService.Navigate<PlaceCharacterViewModel, Character>(SelectedCharacter);
+            }
+            else
+            {
+                await Mvx.IoCProvider.Resolve<IUserDialogs>().AlertAsync($"Utiliza la cámara para enfocar el sticker del personaje");
+                await this.NavigationService.Navigate<CaptureViewModel>();
+            }
         }
 
 
