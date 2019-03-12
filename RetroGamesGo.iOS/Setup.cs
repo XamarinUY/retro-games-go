@@ -6,7 +6,8 @@
     using MvvmCross.Logging;
     using MvvmCross.Plugin.Json;
     using Core;
-   
+    using RetroGamesGo.Core.Repositories;
+
     /// <summary>
     /// MvvMCross iOS Setup
     /// </summary>
@@ -25,8 +26,11 @@
         /// </summary>
         protected override void InitializeFirstChance()
         {
-            Mvx.IoCProvider.RegisterSingleton<IMvxJsonConverter>(new MvxJsonConverter());                    
+            Mvx.IoCProvider.RegisterSingleton<IMvxJsonConverter>(new MvxJsonConverter());
+            Mvx.IoCProvider.RegisterSingleton<IDatabaseConnection>(new SQLiteClient());
             base.InitializeFirstChance();
         }
     }
+
+
 }

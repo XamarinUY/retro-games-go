@@ -1,8 +1,7 @@
 ﻿namespace RetroGamesGo.Core.ViewModels
-{    
+{
     using MvvmCross.Logging;
     using MvvmCross.Navigation;
- 
 
     /// <summary>
     /// Navigation drawer (menu) logic
@@ -14,6 +13,7 @@
         /// </summary>
         public MenuViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
         {
-        }        
+
+        }
     }
 }

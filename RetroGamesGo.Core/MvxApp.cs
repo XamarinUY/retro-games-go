@@ -6,6 +6,10 @@
     using Services;
     using MvvmCross;
     using MvvmCross.Plugin.JsonLocalization;
+    using RetroGamesGo.Core.Repositories;
+    using RetroGamesGo.Core.Models;
+    using RetroGamesGo.Core.Helpers;
+    using Acr.UserDialogs;
 
 
     /// <summary>
@@ -21,9 +25,13 @@
             CreatableTypes()
                 .EndingWith("Service")
                 .AsInterfaces()
-                .RegisterAsLazySingleton();        
+                .RegisterAsLazySingleton();   
+                     
+            if(!Settings.OnboardingShown)
+                RegisterAppStart<OnboardingViewModel>();
+            else
+                RegisterAppStart<MainViewModel>();
 
-            RegisterAppStart<RootViewModel>();
             InitializeTextProvider();
         }
 
@@ -36,6 +44,10 @@
             var builder = new TextProviderBuilder();
             Mvx.IoCProvider.RegisterSingleton<IMvxTextProviderBuilder>(builder);
             Mvx.IoCProvider.RegisterSingleton(builder.TextProvider);
+            Mvx.IoCProvider.RegisterSingleton<IDatabase<Character>>(new Database<Character>(Mvx.IoCProvider.Resolve<IDatabaseConnection>()));
+            Mvx.IoCProvider.RegisterSingleton<ICharacterRepository>(new CharacterRepository(Mvx.IoCProvider.Resolve<IDatabase<Character>>()));
+            Mvx.IoCProvider.RegisterSingleton<IRequestProvider>(new RequestProvider());
+            Mvx.IoCProvider.RegisterSingleton<IUserDialogs>(() => UserDialogs.Instance);
         }
 
     }

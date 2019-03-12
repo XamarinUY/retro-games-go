@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetroGamesGo.Core", "RetroGamesGo.Core\RetroGamesGo.Core.csproj", "{C4448C65-7C27-4172-987F-AF602A203BD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGamesGo.iOS", "RetroGamesGo.iOS\RetroGamesGo.iOS.csproj", "{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Languages", "Languages", "{5BDB3103-2BEC-4FC0-A17E-9C654E4F27FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Spanish", "Spanish", "{2F47FA2B-CC6D-409C-931C-537F145C235C}"
@@ -15,6 +13,62 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Spanish", "Spanish", "{2F47
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGamesGo.Droid", "RetroGamesGo.Droid\RetroGamesGo.Droid.csproj", "{CC57AF56-36C1-4128-B5F8-D8F5E5B6A993}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LIbs", "LIbs", "{5D40B056-5A28-4D9F-99E5-AFA60DD70FEF}"
+	ProjectSection(SolutionItems) = preProject
+		Libs\JavaGL.dll = Libs\JavaGL.dll
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetroGamesGo.Models", "RetroGamesGo.Models\RetroGamesGo.Models.csproj", "{7EFD4972-76D6-490A-B603-8738F0A4A5AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetroGamesGo.Service", "RetroGamesGo.Service\RetroGamesGo.Service.csproj", "{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroGamesGo.iOS", "RetroGamesGo.iOS\RetroGamesGo.iOS.csproj", "{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{2F0F4A69-6E19-44BB-8A47-F5124FCC0797}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mario", "Mario", "{E130CFED-CB15-410F-90BA-05B919312410}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\Mario\Mario.png = Assets\Mario\Mario.png
+		Assets\Mario\Mario2.mtl = Assets\Mario\Mario2.mtl
+		Assets\Mario\mario_coin.mp3 = Assets\Mario\mario_coin.mp3
+		Assets\Mario\MarioSticker.png = Assets\Mario\MarioSticker.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PacMan", "PacMan", "{BCCF97C3-A838-4DD1-BA39-409817155D96}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\PacMan\pacman.mtl = Assets\PacMan\pacman.mtl
+		Assets\PacMan\pacman.obj = Assets\PacMan\pacman.obj
+		Assets\PacMan\pacman_waka_waka.mp3 = Assets\PacMan\pacman_waka_waka.mp3
+		Assets\PacMan\PacmanSticker.png = Assets\PacMan\PacmanSticker.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DonkeyKong", "DonkeyKong", "{95B47C06-E1B5-4739-8B1B-820D7B11C4CB}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\DonkeyKong\DonkeyKong.mtl = Assets\DonkeyKong\DonkeyKong.mtl
+		Assets\DonkeyKong\DonkeyKong.obj = Assets\DonkeyKong\DonkeyKong.obj
+		Assets\DonkeyKong\DonkeyKong.png = Assets\DonkeyKong\DonkeyKong.png
+		Assets\DonkeyKong\DonkeyKong.wav = Assets\DonkeyKong\DonkeyKong.wav
+		Assets\DonkeyKong\DonkeyKong_1.png = Assets\DonkeyKong\DonkeyKong_1.png
+		Assets\DonkeyKong\DonkeyKongSticker.png = Assets\DonkeyKong\DonkeyKongSticker.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpaceInvader", "SpaceInvader", "{634ABFCB-DC2E-4885-88E7-8A3B65B36DF3}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\SpaceInvader\space.wav = Assets\SpaceInvader\space.wav
+		Assets\SpaceInvader\Space_Invader-Render01.jpg = Assets\SpaceInvader\Space_Invader-Render01.jpg
+		Assets\SpaceInvader\Space_Invader-Render02.jpg = Assets\SpaceInvader\Space_Invader-Render02.jpg
+		Assets\SpaceInvader\Space_Invader.obj = Assets\SpaceInvader\Space_Invader.obj
+		Assets\SpaceInvader\spaceInvaderSticker.png = Assets\SpaceInvader\spaceInvaderSticker.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sonic", "Sonic", "{D6A76CE2-85B5-4AB6-A1B7-D0ED59D8FD3A}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\Sonic\Sonic.obj = Assets\Sonic\Sonic.obj
+		Assets\Sonic\Sonic.png = Assets\Sonic\Sonic.png
+		Assets\Sonic\sonic.wav = Assets\Sonic\sonic.wav
+		Assets\Sonic\SonicSticker.png = Assets\Sonic\SonicSticker.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,16 +92,6 @@ Global
 		{C4448C65-7C27-4172-987F-AF602A203BD2}.Release|iPhone.Build.0 = Release|Any CPU
 		{C4448C65-7C27-4172-987F-AF602A203BD2}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{C4448C65-7C27-4172-987F-AF602A203BD2}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|Any CPU.ActiveCfg = Debug|iPhone
-		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|iPhone.Build.0 = Debug|iPhone
-		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Release|Any CPU.ActiveCfg = Release|iPhone
-		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Release|iPhone.ActiveCfg = Release|iPhone
-		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Release|iPhone.Build.0 = Release|iPhone
-		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{CC57AF56-36C1-4128-B5F8-D8F5E5B6A993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CC57AF56-36C1-4128-B5F8-D8F5E5B6A993}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC57AF56-36C1-4128-B5F8-D8F5E5B6A993}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -66,12 +110,52 @@ Global
 		{CC57AF56-36C1-4128-B5F8-D8F5E5B6A993}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{CC57AF56-36C1-4128-B5F8-D8F5E5B6A993}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{CC57AF56-36C1-4128-B5F8-D8F5E5B6A993}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Release|iPhone.Build.0 = Release|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{7EFD4972-76D6-490A-B603-8738F0A4A5AF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Release|iPhone.Build.0 = Release|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{77783DC3-1BD6-495F-92FC-BE7CE5C0DC5C}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|Any CPU.Build.0 = Debug|iPhone
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|iPhone.Build.0 = Debug|iPhone
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Release|iPhone.ActiveCfg = Release|iPhone
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Release|iPhone.Build.0 = Release|iPhone
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2F47FA2B-CC6D-409C-931C-537F145C235C} = {5BDB3103-2BEC-4FC0-A17E-9C654E4F27FA}
+		{E130CFED-CB15-410F-90BA-05B919312410} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
+		{BCCF97C3-A838-4DD1-BA39-409817155D96} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
+		{95B47C06-E1B5-4739-8B1B-820D7B11C4CB} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
+		{634ABFCB-DC2E-4885-88E7-8A3B65B36DF3} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
+		{D6A76CE2-85B5-4AB6-A1B7-D0ED59D8FD3A} = {2F0F4A69-6E19-44BB-8A47-F5124FCC0797}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {14F4397D-31D6-4C83-80EC-1C065F8D602E}
