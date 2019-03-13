@@ -138,6 +138,7 @@ namespace RetroGamesGo.iOS.Renderers
         /// </summary>        
         private void PlaceModel(SCNVector3 pos)
         {
+            if (this.selectedCharacter == null) return;
             var asset = $"art.scnassets/{this.selectedCharacter.AssetModel}";
             var texture = $"art.scnassets/{this.selectedCharacter.AssetTexture}";
             var model = CreateModelFromFile(asset, texture, this.selectedCharacter.Name, pos);
@@ -163,7 +164,7 @@ namespace RetroGamesGo.iOS.Renderers
                 {
                     Position = vector,
                     Geometry = geometry,
-                    Scale = new SCNVector3(0.5f, 0.5f, 0.5f)
+                    Scale = new SCNVector3(0.1f, 0.1f, 0.1f)
                 };
                 modelNode.Geometry.Materials = new[] {mat};                               
                 return modelNode;

@@ -85,9 +85,6 @@
     <BundleResource Include="..\Languages\Spanish\Texts.json">
       <Link>Languages\Texts.json</Link>
     </BundleResource>
-    <SceneKitAsset Include="art.scnassets\Mario\Mario.obj" />
-    <SceneKitAsset Include="art.scnassets\Mario\Mario2.mtl" />
-    <SceneKitAsset Include="art.scnassets\Mario\Mario2.obj" />
     <BundleResource Include="Resources\donkeyKong.png" />
     <BundleResource Include="Resources\pacMan.png" />
     <BundleResource Include="Resources\sonic.png" />
@@ -115,9 +112,21 @@
     <BundleResource Include="Resources\spaceInvaderSilhouette.png" />
     <BundleResource Include="Resources\spaceInvaderSilhouette%402x.png" />
     <BundleResource Include="Resources\spaceInvaderSilhouette%403x.png" />
+    <SceneKitAsset Include="art.scnassets\DonkeyKong\DonkeyKong.mtl" />
+    <SceneKitAsset Include="art.scnassets\DonkeyKong\DonkeyKong.obj" />
+    <SceneKitAsset Include="art.scnassets\Sonic\Sonic.obj" />
+    <SceneKitAsset Include="art.scnassets\Mario\Mario.obj" />
+    <SceneKitAsset Include="art.scnassets\Mario\Mario2.mtl" />
+    <SceneKitAsset Include="art.scnassets\SpaceInvader\Space_Invader.obj" />
+    <SceneKitAsset Include="art.scnassets\PacMan\pacman.mtl" />
+    <SceneKitAsset Include="art.scnassets\PacMan\pacman.obj" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <SceneKitAsset Include="art.scnassets\DonkeyKong\DonkeyKong.png" />
+    <SceneKitAsset Include="art.scnassets\Sonic\Sonic.png" />
     <SceneKitAsset Include="art.scnassets\Mario\Mario.png" />
+    <SceneKitAsset Include="art.scnassets\SpaceInvader\Space_Invader-Render01.jpg" />
+    <SceneKitAsset Include="art.scnassets\SpaceInvader\Space_Invader-Render02.jpg" />
     <Content Include="Entitlements.plist" />
     <None Include="packages.config" />
     <Compile Include="Repositories\SQLiteClient.cs" />

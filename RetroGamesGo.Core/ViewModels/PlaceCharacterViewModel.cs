@@ -12,6 +12,7 @@
     using Repositories;
     using MvvmCross.Plugin.Messenger;
     using Messages;
+    using System.Threading.Tasks;
 
 
     /// <summary>
@@ -76,6 +77,11 @@
                     })).ToArray()                    
                 });                 
             });        
+        }
+
+        public override Task Initialize()
+        {
+            return Task.Run(() => { SelectCharacter(); });
         }
     }
 }
