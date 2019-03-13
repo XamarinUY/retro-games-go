@@ -23,8 +23,9 @@
         </ResourceDictionary>
     </views:MvxContentPage.Resources>
     <views:MvxContentPage.Content>
-        <StackLayout>
-            <Grid Margin="10">
+        <StackLayout Padding="15">
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions><RowDefinition Height="Auto"/></Grid.RowDefinitions>
                 <Label Grid.Column="1" StyleClass="TitleWhiteLabel"
                        VerticalTextAlignment="Center"
                        HorizontalOptions="CenterAndExpand">
@@ -49,9 +50,9 @@
                                  ItemsSource="{Binding Characters}">
                 <cards:CoverFlowView.ItemTemplate>
                     <DataTemplate>
-                        <ContentView Padding="36,0,36,36">
+                        <ContentView Padding="36,10,36,36">
                             <Frame HasShadow="false" CornerRadius="5" Padding="16" BackgroundColor="{StaticResource CardBackgroundColor}">
-                                <Grid VerticalOptions="FillAndExpand">
+                                <Grid VerticalOptions="StartAndExpand">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="1*" />
                                         <RowDefinition Height="2*" />
@@ -93,7 +94,7 @@
                           SelectedIndicatorStyle="{StaticResource ActiveIndicator}"
                           UnselectedIndicatorStyle="{StaticResource InactiveIndicator}" />
             </cards:CoverFlowView>
-             <StackLayout Padding="30" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+             <StackLayout Padding="30,20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <Button Text="{Binding PrimaryButtonText}" StyleClass="PrimaryButton" VerticalOptions="EndAndExpand" 
                         Command="{Binding CaptureCommand}"/>
             </StackLayout>

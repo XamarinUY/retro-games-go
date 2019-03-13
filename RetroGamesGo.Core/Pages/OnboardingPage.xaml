@@ -25,7 +25,7 @@
                     AutoPlay="{Binding ShowLottie}"
                     HorizontalOptions="FillAndExpand"/>
                     <StackLayout Orientation="Horizontal" Padding="0,20" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
-                        <Label Text="App desarrollada por la comunidad XamarinUy" StyleClass="WhiteSpaceMonoLabel"/>
+                        <Label Text="App desarrollada por la comunidad XamarinUY" StyleClass="WhiteSpaceMonoLabel"/>
 <!--                        <Image Source="marioBross.png" VerticalOptions="FillAndExpand"/>-->
                     </StackLayout>
                 </StackLayout>
