@@ -5,9 +5,9 @@
 	<key>CFBundleDisplayName</key>
 	<string>Retro Games GO</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamarinyu.retrogamesgo</string>
+	<string>com.xamarinuy.retrogamesgo</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -40,9 +40,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>CFBundleName</key>
-	<string>Retro Games Go</string>
+	<string>Retro Games GO</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1.0</string>
+	<string>1.0.0</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ka1.ttf</string>
