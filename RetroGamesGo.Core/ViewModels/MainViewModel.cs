@@ -115,6 +115,8 @@
         {
             if (SelectedCharacter.Captured)
             {
+                await Mvx.IoCProvider.Resolve<IUserDialogs>().AlertAsync(
+                    $"Utiliza la cámara para enfocar una superficie plana. Cuando veas la superficie, has tap en la pantalla para ubicar el personaje");
                 await this.NavigationService.Navigate<PlaceCharacterViewModel, Character>(SelectedCharacter);
             }
             else

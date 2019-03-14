@@ -127,6 +127,7 @@
     <SceneKitAsset Include="art.scnassets\Mario\Mario.png" />
     <SceneKitAsset Include="art.scnassets\SpaceInvader\Space_Invader-Render01.jpg" />
     <SceneKitAsset Include="art.scnassets\SpaceInvader\Space_Invader-Render02.jpg" />
+    <SceneKitAsset Include="art.scnassets\PlaneGrid\grid.png" />
     <Content Include="Entitlements.plist" />
     <None Include="packages.config" />
     <Compile Include="Repositories\SQLiteClient.cs" />
