@@ -121,28 +121,10 @@ namespace RetroGamesGo.Core.Repositories
                 AssetTexture = "Mario/Mario.png",
                 AssetSound = "mario_coin.mp3"
             });
-            await this.AddCharacter(new Character
-            {
-                Id = Guid.NewGuid(),
-                Number = 2,
-                Name = "Pac-Man",
-                Description = "Desde que Pac-Man fue lanzado el 21 de mayo de 1980, fue un éxito. Se convirtió en un fenómeno mundial en la industria de los videojuegos, llegó a tener el récord Guiness del videojuego de arcade más exitoso de todos los tiempos con un total de 293 822 máquinas vendidas desde 1981 hasta 1987.",
-                Year = 1980,
-                FunFact = "fun",
-                Animation = "Pacman_F.json",
-                MainImage = "pacMan.png",
-                Silhouette = "pacManSilhouette.png",
-                Url = "https://es.wikipedia.org/wiki/Pac-Man",
-                Captured = false,
-                AssetSticker = "PacMan/PacmanSticker.png",
-                AssetModel = "PacMan/Pacman.obj",
-                AssetTexture = "Mario/Mario.png", //TODO: change this
-                AssetSound = "mario_coin.mp3"
-            });
             await this.AddCharacter(new Character()
             {
                 Id = Guid.NewGuid(),
-                Number = 3,
+                Number = 2,
                 Name = "Donkey Kong",
                 Description = "Es un juego de máquina recreativa creado por Nintendo en el año 1981. Es un primitivo juego del género plataformas que se centra en controlar al personaje sobre una serie de plataformas mientras evita obstáculos",
                 Year = 1981,
@@ -160,7 +142,7 @@ namespace RetroGamesGo.Core.Repositories
             await this.AddCharacter(new Character()
             {
                 Id = Guid.NewGuid(),
-                Number = 4,
+                Number = 3,
                 Name = "Space Invader",
                 Description = "Es un videojuego de arcade diseñado por Toshihiro Nishikado y lanzado al mercado en 1978. Su objetivo es eliminar oleadas de alienígenas con un cañón láser y obtener la mayor cantidad de puntos posible",
                 Year = 1978,
@@ -178,7 +160,7 @@ namespace RetroGamesGo.Core.Repositories
             await this.AddCharacter(new Character()
             {
                 Id = Guid.NewGuid(),
-                Number = 5,
+                Number = 4,
                 Name = "Sonic",
                 Description = " Este videojuego de plataformas fue, durante mucho tiempo, considerado el buque insignia de Sega, el ejemplo a seguir para sus futuros juegos. Incluso llegó a dar nombre a uno de sus equipos de desarrollo",
                 Year = 1991,

@@ -4,7 +4,11 @@ using System.Resources;
 using ARKit;
 using CoreGraphics;
 using Foundation;
+using MvvmCross;
+using MvvmCross.Plugin.Messenger;
 using OpenTK;
+using RetroGamesGo.Core.Messages;
+using RetroGamesGo.Core.Models;
 using RetroGamesGo.iOS.Delegates;
 using RetroGamesGo.iOS.Pages;
 using RetroGamesGo.iOS.Renderers;
@@ -22,9 +26,13 @@ namespace RetroGamesGo.iOS.Renderers
     public class PlaceCharacterPageRenderer : PageRenderer, IARSCNViewDelegate
     {
         private ARSCNView sceneView;
+        private Character selectedCharacter;
+        private MvxSubscriptionToken selectedCharacterMvxSubscriptionToken;
+        private IMvxMessenger messengerService;
+
 
         public override bool ShouldAutorotate() => true;
-
+   
 
         /// <summary>
         /// Initializes the ArKit scene
@@ -43,8 +51,11 @@ namespace RetroGamesGo.iOS.Renderers
                 },
             };                        
             this.View.AddSubview(this.sceneView);
-
-           // var context = ((Page) this.Element).BindingContext;
+            this.messengerService = Mvx.IoCProvider.GetSingleton<IMvxMessenger>();
+            selectedCharacterMvxSubscriptionToken = this.messengerService.Subscribe<SelectedCharacterMessage>((e) =>
+            {
+                this.selectedCharacter = e.Character;
+            });       
         }
 
 
@@ -126,8 +137,11 @@ namespace RetroGamesGo.iOS.Renderers
         /// Places the model
         /// </summary>        
         private void PlaceModel(SCNVector3 pos)
-        {            
-            var model = CreateModelFromFile("art.scnassets/Mario/Mario2.obj", "Mario", pos);
+        {
+            if (this.selectedCharacter == null) return;
+            var asset = $"art.scnassets/{this.selectedCharacter.AssetModel}";
+            var texture = $"art.scnassets/{this.selectedCharacter.AssetTexture}";
+            var model = CreateModelFromFile(asset, texture, this.selectedCharacter.Name, pos);
             if (model == null) return;            
             this.sceneView.Scene.RootNode.AddChildNode(model);            
         }
@@ -136,21 +150,21 @@ namespace RetroGamesGo.iOS.Renderers
         /// <summary>
         /// Loads the model from file
         /// </summary>     
-        private SCNNode CreateModelFromFile(string filePath, string nodeName, SCNVector3 vector)
+        private SCNNode CreateModelFromFile(string modelName, string textureName, string nodeName, SCNVector3 vector)
         {
             try
             {
                 var mat = new SCNMaterial();
-                mat.Diffuse.Contents = UIImage.FromFile("art.scnassets/Mario/Mario.png");
+                mat.Diffuse.Contents = UIImage.FromFile(textureName);
                 mat.LocksAmbientWithDiffuse = true;
                
-                var scene = SCNScene.FromFile(filePath);
+                var scene = SCNScene.FromFile(modelName);
                 var geometry = scene.RootNode.ChildNodes[0].Geometry;
                 var modelNode = new SCNNode
                 {
                     Position = vector,
                     Geometry = geometry,
-                    Scale = new SCNVector3(0.5f, 0.5f, 0.5f)
+                    Scale = new SCNVector3(0.1f, 0.1f, 0.1f)
                 };
                 modelNode.Geometry.Materials = new[] {mat};                               
                 return modelNode;
