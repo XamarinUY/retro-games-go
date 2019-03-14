@@ -90,7 +90,7 @@ namespace RetroGamesGo.Core.ViewModels
         public override Task Initialize()
         {
             return Task.Run(async () => {
-                this.characters = await characterRepository.GetAll();
+                this.characters = (await characterRepository.GetAll()).Where(x=>x.Captured).ToList();
                 SelectCharacter(); 
             });
         }

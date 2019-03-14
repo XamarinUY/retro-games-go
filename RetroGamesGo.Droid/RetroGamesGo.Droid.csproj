@@ -94,7 +94,6 @@
     <AndroidAsset Include="..\Languages\Spanish\Texts.json">
       <Link>Assets\Languages\Texts.json</Link>
     </AndroidAsset>
-    <AndroidAsset Include="Assets\SpaceInvader\Space_Invader.obj" />
     <AndroidAsset Include="..\Assets\PacMan\pacman.obj">
       <Link>Assets\PacMan\pacman.obj</Link>
     </AndroidAsset>
@@ -109,6 +108,9 @@
     </AndroidAsset>
     <AndroidAsset Include="..\Assets\Mario\Mario.obj">
       <Link>Assets\Mario\Mario.obj</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\SpaceInvader\SpaceInvaders.obj">
+      <Link>Assets\SpaceInvader\SpaceInvaders.obj</Link>
     </AndroidAsset>
     <None Include="breakoutgame.json" />
     <None Include="Resources\AboutResources.txt" />
@@ -262,10 +264,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_capture.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\SpaceInvader\Space_Invader-Render01.jpg" />
-    <AndroidAsset Include="Assets\SpaceInvader\Space_Invader-Render02.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\wcm_splash.png" />
@@ -489,6 +487,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Assets\SpaceInvader\SpaceInvaders.png">
+      <Link>Assets\SpaceInvader\SpaceInvaders.png</Link>
+    </AndroidAsset>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

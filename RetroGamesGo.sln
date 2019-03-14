@@ -59,6 +59,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpaceInvader", "SpaceInvade
 		Assets\SpaceInvader\Space_Invader-Render01.jpg = Assets\SpaceInvader\Space_Invader-Render01.jpg
 		Assets\SpaceInvader\Space_Invader-Render02.jpg = Assets\SpaceInvader\Space_Invader-Render02.jpg
 		Assets\SpaceInvader\Space_Invader.obj = Assets\SpaceInvader\Space_Invader.obj
+		Assets\SpaceInvader\SpaceInvaders.obj = Assets\SpaceInvader\SpaceInvaders.obj
+		Assets\SpaceInvader\SpaceInvaders.png = Assets\SpaceInvader\SpaceInvaders.png
 		Assets\SpaceInvader\spaceInvaderSticker.png = Assets\SpaceInvader\spaceInvaderSticker.png
 	EndProjectSection
 EndProject

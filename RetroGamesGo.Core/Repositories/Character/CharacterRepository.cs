@@ -153,8 +153,8 @@ namespace RetroGamesGo.Core.Repositories
                 Url = "https://es.wikipedia.org/wiki/Space_Invaders",
                 Captured = false,
                 AssetSticker = "SpaceInvader/SpaceInvaderSticker.png",
-                AssetModel = "SpaceInvader/Space_Invader.obj", //TODO: change this
-                AssetTexture = "Mario/Mario.png", //TODO: change this
+                AssetModel = "SpaceInvader/SpaceInvaders.obj", //TODO: change this
+                AssetTexture = "SpaceInvader/SpaceInvaders.png", //TODO: change this
                 AssetSound = "space.wav"
             });
             await this.AddCharacter(new Character()
