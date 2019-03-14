@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Resources;
+using System.Threading.Tasks;
 using ARKit;
 using CoreGraphics;
 using Foundation;
@@ -9,6 +10,7 @@ using MvvmCross.Plugin.Messenger;
 using OpenTK;
 using RetroGamesGo.Core.Messages;
 using RetroGamesGo.Core.Models;
+using RetroGamesGo.Core.Repositories;
 using RetroGamesGo.iOS.Delegates;
 using RetroGamesGo.iOS.Pages;
 using RetroGamesGo.iOS.Renderers;
@@ -55,7 +57,25 @@ namespace RetroGamesGo.iOS.Renderers
             selectedCharacterMvxSubscriptionToken = this.messengerService.Subscribe<SelectedCharacterMessage>((e) =>
             {
                 this.selectedCharacter = e.Character;
-            });       
+            });
+
+
+            // Selects by default the first character
+            Task.Run(async () =>
+            {
+                try
+                {
+                    var characters = await Mvx.IoCProvider.GetSingleton<ICharacterRepository>()?.GetAll();
+                    if (characters.Any())
+                    {
+                        this.selectedCharacter = characters.FirstOrDefault(x => x.Captured);
+                    }
+                }
+                catch
+                {
+                    // Ignored
+                }
+            });
         }
 
 

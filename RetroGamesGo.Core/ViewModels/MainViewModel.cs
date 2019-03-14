@@ -56,31 +56,6 @@
             PrimaryButtonText = "CAPTURAR";
         }
 
-        /// <summary>
-        /// Initializes this ViewModel data
-        /// </summary>
-        /// <returns></returns>
-        public override Task Initialize()
-        {
-            return Task.Run(async () =>
-            {
-                await LoadCharacters();
-
-                // TODO: remove this line -> Characters.ToList().ForEach(c => c.Captured = true);
-                var allCaptured = Characters.All(c => c.Captured);
-
-                if (!Settings.FormCompleted && allCaptured)
-                {
-                    var goToChallengeCompleted = await Mvx.IoCProvider.Resolve<IUserDialogs>().ConfirmAsync(
-                        "Has desbloqueado todos los personajes de Retro Games GO! Completa el formulario para participar del sorteo :)", 
-                        "Felicitaciones!", "Entendido");
-                    if (goToChallengeCompleted)
-                    {
-                        GoToChallengeCompletedPage();
-                    }
-                }
-            });           
-        }
 
 
         /// <summary>
@@ -115,6 +90,8 @@
         {
             if (SelectedCharacter.Captured)
             {
+                await Mvx.IoCProvider.Resolve<IUserDialogs>().AlertAsync(
+                    $"Utiliza la cámara para enfocar una superficie plana. Cuando veas la superficie, has tap en la pantalla para ubicar el personaje");
                 await this.NavigationService.Navigate<PlaceCharacterViewModel, Character>(SelectedCharacter);
             }
             else
@@ -139,10 +116,24 @@
         /// <summary>
         /// Reloads the character
         /// </summary>
-        public override void ViewAppeared()
+        public override async void ViewAppeared()
         {
             base.ViewAppeared();
-            LoadCharacters();
+
+            await LoadCharacters();
+
+            var allCaptured = Characters.All(c => c.Captured);
+
+            if (!Settings.FormCompleted && allCaptured)
+            {
+                var goToChallengeCompleted = await Mvx.IoCProvider.Resolve<IUserDialogs>().ConfirmAsync(
+                    "Has desbloqueado todos los personajes de Retro Games GO! Completa el formulario para participar del sorteo :)",
+                    "Felicitaciones!", "Entendido");
+                if (goToChallengeCompleted)
+                {
+                    GoToChallengeCompletedPage();
+                }
+            }
         }
     }
 }

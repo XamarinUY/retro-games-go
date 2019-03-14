@@ -132,6 +132,7 @@
     <SceneKitAsset Include="art.scnassets\Mario\Mario.png" />
     <SceneKitAsset Include="art.scnassets\SpaceInvader\Space_Invader-Render01.jpg" />
     <SceneKitAsset Include="art.scnassets\SpaceInvader\Space_Invader-Render02.jpg" />
+    <SceneKitAsset Include="art.scnassets\PlaneGrid\grid.png" />
     <Content Include="Entitlements.plist" />
     <None Include="packages.config" />
     <Compile Include="Repositories\SQLiteClient.cs" />
@@ -158,6 +159,12 @@
     <BundleResource Include="Resources\splash.png" />
     <BundleResource Include="..\Assets\DonkeyKong\DonkeyKong.wav">
       <Link>Resources\DonkeyKong.wav</Link>
+    </BundleResource>
+    <BundleResource Include="..\Assets\SpaceInvader\space.wav">
+      <Link>Resources\space.wav</Link>
+    </BundleResource>
+    <BundleResource Include="..\Assets\Sonic\sonic.wav">
+      <Link>Resources\sonic.wav</Link>
     </BundleResource>
   </ItemGroup>
   <ItemGroup>

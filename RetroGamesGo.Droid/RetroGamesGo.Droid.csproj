@@ -74,6 +74,7 @@
     <Compile Include="ArCore\Renderers\BackgroundRenderer.cs" />
     <Compile Include="ArCore\Renderers\ImageRecognitionRenderer.cs" />
     <Compile Include="ArCore\Renderers\ObjModelRenderer.cs" />
+    <Compile Include="ArCore\Renderers\PlaneRenderer.cs" />
     <Compile Include="ArCore\Renderers\PointCloudRenderer.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Pages\PlaceCharacterPage.xaml.cs">
@@ -130,6 +131,14 @@
     <AndroidAsset Include="Assets\breakoutgame.json" />
     <AndroidAsset Include="..\Assets\DonkeyKong\DonkeyKong.wav">
       <Link>Assets\DonkeyKong.wav</Link>
+    </AndroidAsset>
+    <AndroidResource Include="Resources\raw\plane_fragment.shader" />
+    <AndroidResource Include="Resources\raw\plane_vertex.shader" />
+    <AndroidAsset Include="..\Assets\SpaceInvader\space.wav">
+      <Link>Assets\space.wav</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Sonic\sonic.wav">
+      <Link>Assets\sonic.wav</Link>
     </AndroidAsset>
   </ItemGroup>
   <ItemGroup>
@@ -477,6 +486,9 @@
     <AndroidAsset Include="..\Assets\Mario\Mario.png">
       <Link>Assets\Mario\Mario.png</Link>
     </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\grid.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
