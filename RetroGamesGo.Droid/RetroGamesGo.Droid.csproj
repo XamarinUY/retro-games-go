@@ -74,6 +74,7 @@
     <Compile Include="ArCore\Renderers\BackgroundRenderer.cs" />
     <Compile Include="ArCore\Renderers\ImageRecognitionRenderer.cs" />
     <Compile Include="ArCore\Renderers\ObjModelRenderer.cs" />
+    <Compile Include="ArCore\Renderers\PlaneRenderer.cs" />
     <Compile Include="ArCore\Renderers\PointCloudRenderer.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Pages\PlaceCharacterPage.xaml.cs">
@@ -131,6 +132,8 @@
     <AndroidAsset Include="..\Assets\DonkeyKong\DonkeyKong.wav">
       <Link>Assets\DonkeyKong.wav</Link>
     </AndroidAsset>
+    <AndroidResource Include="Resources\raw\plane_fragment.shader" />
+    <AndroidResource Include="Resources\raw\plane_vertex.shader" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml" />
@@ -477,6 +480,9 @@
     <AndroidAsset Include="..\Assets\Mario\Mario.png">
       <Link>Assets\Mario\Mario.png</Link>
     </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\grid.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

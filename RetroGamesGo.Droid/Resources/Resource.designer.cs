@@ -12465,13 +12465,19 @@ namespace RetroGamesGo.Droid
 			public const int passthrough_fragment = 2131296259;
 			
 			// aapt resource value: 0x7f090004
-			public const int point_cloud_vertex = 2131296260;
+			public const int plane_fragment = 2131296260;
 			
 			// aapt resource value: 0x7f090005
-			public const int screenquad_fragment_oes = 2131296261;
+			public const int plane_vertex = 2131296261;
 			
 			// aapt resource value: 0x7f090006
-			public const int screenquad_vertex = 2131296262;
+			public const int point_cloud_vertex = 2131296262;
+			
+			// aapt resource value: 0x7f090007
+			public const int screenquad_fragment_oes = 2131296263;
+			
+			// aapt resource value: 0x7f090008
+			public const int screenquad_vertex = 2131296264;
 			
 			static Raw()
 			{
