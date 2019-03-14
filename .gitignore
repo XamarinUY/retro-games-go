@@ -14,3 +14,7 @@
 RetroGamesGo\.Models/obj/
 
 RetroGamesGo\.Models/bin/
+/RetroGameDraw.Core/bin
+/RetroGameDraw.Core/obj
+/RetroGameDraw.UWP/bin/x86
+/RetroGameDraw.UWP/obj

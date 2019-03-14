@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MvvmCross" Version="6.2.3" />
+    <PackageReference Include="MvvmCross.Plugin.Json" Version="6.2.3" />
+    <PackageReference Include="MvvmCross.Plugin.JsonLocalization" Version="6.2.3" />
+    <PackageReference Include="MvvmCross.Plugin.Messenger" Version="6.2.3" />
+    <PackageReference Include="MvvmCross.Plugin.ResourceLoader" Version="6.2.3" />
+    <PackageReference Include="MvvmCross.Plugin.Visibility" Version="6.2.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RetroGamesGo.Models\RetroGamesGo.Models.csproj" />
+  </ItemGroup>
+
+</Project>

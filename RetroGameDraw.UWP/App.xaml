@@ -1,0 +1,14 @@
+﻿<local:MvxApp
+    x:Class="RetroGameDraw.UWP.App"
+    xmlns:mvx="using:MvvmCross.Platforms.Uap.Views"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RetroGameDraw.UWP"
+    RequestedTheme="Dark">
+    <Application.Resources>
+        <x:String x:Key="WelcomeText">Hello World!</x:String>
+        <Color x:Key="SystemAccentColor">#107C10</Color>
+        <FontFamily x:Key="ButtonFont">Fonts/PressStart2P.ttf#PressStart2P</FontFamily>
+        <FontFamily x:Key="TextFont">Fonts/ka1.ttf#ka1</FontFamily>
+    </Application.Resources>
+</local:MvxApp>
