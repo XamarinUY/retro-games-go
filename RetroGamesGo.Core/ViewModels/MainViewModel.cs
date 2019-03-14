@@ -71,16 +71,25 @@
 
                 if (!Settings.FormCompleted && allCaptured)
                 {
-                    var goToChallengeCompleted = await Mvx.IoCProvider.Resolve<IUserDialogs>().ConfirmAsync(
-                        "Has desbloqueado todos los personajes de Retro Games GO! Completa el formulario para participar del sorteo :)", 
-                        "Felicitaciones!", "Entendido");
-                    if (goToChallengeCompleted)
+                    try
                     {
-                        GoToChallengeCompletedPage();
+                        var goToChallengeCompleted = await Mvx.IoCProvider.Resolve<IUserDialogs>().ConfirmAsync(
+                            "Has desbloqueado todos los personajes de Retro Games GO! Completa el formulario para participar del sorteo :)",
+                            "Felicitaciones!", "Entendido");
+                        if (goToChallengeCompleted)
+                        {
+                            GoToChallengeCompletedPage();
+                        }
+                    }
+                    catch
+                    {
+                        // Prevents a crash during initialization
                     }
                 }
+                
             });           
         }
+
 
 
         /// <summary>
