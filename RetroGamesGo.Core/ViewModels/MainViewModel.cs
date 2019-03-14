@@ -56,40 +56,6 @@
             PrimaryButtonText = "CAPTURAR";
         }
 
-        /// <summary>
-        /// Initializes this ViewModel data
-        /// </summary>
-        /// <returns></returns>
-        public override Task Initialize()
-        {
-            return Task.Run(async () =>
-            {
-                await LoadCharacters();
-
-                // TODO: remove this line -> Characters.ToList().ForEach(c => c.Captured = true);
-                var allCaptured = Characters.All(c => c.Captured);
-
-                if (!Settings.FormCompleted && allCaptured)
-                {
-                    try
-                    {
-                        var goToChallengeCompleted = await Mvx.IoCProvider.Resolve<IUserDialogs>().ConfirmAsync(
-                            "Has desbloqueado todos los personajes de Retro Games GO! Completa el formulario para participar del sorteo :)",
-                            "Felicitaciones!", "Entendido");
-                        if (goToChallengeCompleted)
-                        {
-                            GoToChallengeCompletedPage();
-                        }
-                    }
-                    catch
-                    {
-                        // Prevents a crash during initialization
-                    }
-                }
-                
-            });           
-        }
-
 
 
         /// <summary>
@@ -150,10 +116,24 @@
         /// <summary>
         /// Reloads the character
         /// </summary>
-        public override void ViewAppeared()
+        public override async void ViewAppeared()
         {
             base.ViewAppeared();
-            LoadCharacters();
+
+            await LoadCharacters();
+
+            var allCaptured = Characters.All(c => c.Captured);
+
+            if (!Settings.FormCompleted && allCaptured)
+            {
+                var goToChallengeCompleted = await Mvx.IoCProvider.Resolve<IUserDialogs>().ConfirmAsync(
+                    "Has desbloqueado todos los personajes de Retro Games GO! Completa el formulario para participar del sorteo :)",
+                    "Felicitaciones!", "Entendido");
+                if (goToChallengeCompleted)
+                {
+                    GoToChallengeCompletedPage();
+                }
+            }
         }
     }
 }

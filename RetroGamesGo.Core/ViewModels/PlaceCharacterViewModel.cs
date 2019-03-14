@@ -1,4 +1,4 @@
-﻿namespace RetroGamesGo.Core.ViewModels
+namespace RetroGamesGo.Core.ViewModels
 {
     using MvvmCross.Logging;
     using MvvmCross.Navigation;
@@ -13,6 +13,7 @@
     using MvvmCross.Plugin.Messenger;
     using Messages;
     using System.Threading.Tasks;
+    using System;
 
 
     /// <summary>
@@ -56,7 +57,6 @@
         public override async void Prepare(Character parameter)
         {
             this.Character = parameter;
-            this.characters = await characterRepository.GetAll();     
         }
 
 
@@ -64,20 +64,35 @@
         /// Select character function
         /// </summary>
         private void SelectCharacter()
-        {            
-            InvokeOnMainThread(async ()=>          
-            {                
-                var userDialog = Mvx.IoCProvider.Resolve<IUserDialogs>();
-                userDialog.ActionSheet(new ActionSheetConfig
+        {
+            InvokeOnMainThread(async () =>
+            {
+                try
                 {
-                    Title = "Seleccione el personaje",                                        
-                    Options = this.characters.Select(x=> new ActionSheetOption(x.Name, () =>
+                    var userDialog = Mvx.IoCProvider.Resolve<IUserDialogs>();
+                    userDialog.ActionSheet(new ActionSheetConfig
                     {
-                        this.messengerService.Publish(new SelectedCharacterMessage(x, this));
-                    })).ToArray()                    
-                });                 
-            });        
+                        Title = "Seleccione el personaje",
+                        Options = this.characters.Select(x => new ActionSheetOption(x.Name, () =>
+                         {
+                             this.messengerService.Publish(new SelectedCharacterMessage(x, this));
+                         })).ToArray()
+                    });
+                }
+
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            });       
         }
 
+        public override Task Initialize()
+        {
+            return Task.Run(async () => {
+                this.characters = await characterRepository.GetAll();
+                SelectCharacter(); 
+            });
+        }
     }
 }

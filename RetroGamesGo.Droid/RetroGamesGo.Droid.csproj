@@ -134,6 +134,12 @@
     </AndroidAsset>
     <AndroidResource Include="Resources\raw\plane_fragment.shader" />
     <AndroidResource Include="Resources\raw\plane_vertex.shader" />
+    <AndroidAsset Include="..\Assets\SpaceInvader\space.wav">
+      <Link>Assets\space.wav</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Sonic\sonic.wav">
+      <Link>Assets\sonic.wav</Link>
+    </AndroidAsset>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml" />
