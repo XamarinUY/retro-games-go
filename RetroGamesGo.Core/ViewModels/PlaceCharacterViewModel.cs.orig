@@ -1,4 +1,4 @@
-namespace RetroGamesGo.Core.ViewModels
+﻿namespace RetroGamesGo.Core.ViewModels
 {
     using MvvmCross.Logging;
     using MvvmCross.Navigation;
@@ -87,6 +87,7 @@ namespace RetroGamesGo.Core.ViewModels
             });       
         }
 
+<<<<<<< HEAD
         public override Task Initialize()
         {
             return Task.Run(async () => {
@@ -94,5 +95,7 @@ namespace RetroGamesGo.Core.ViewModels
                 SelectCharacter(); 
             });
         }
+=======
+>>>>>>> 1b58bec79956c34035e267228ab6053889cf6120
     }
 }

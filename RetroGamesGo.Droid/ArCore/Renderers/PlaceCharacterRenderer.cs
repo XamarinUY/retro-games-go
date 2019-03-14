@@ -1,5 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Android.Content;
 using Android.Opengl;
 using Android.Views;
@@ -8,6 +10,7 @@ using MvvmCross;
 using MvvmCross.Plugin.Messenger;
 using RetroGamesGo.Core.Messages;
 using RetroGamesGo.Core.Models;
+using RetroGamesGo.Core.Repositories;
 using RetroGamesGo.Droid.ArCore.Helpers;
 using EGLConfig = Javax.Microedition.Khronos.Egl.EGLConfig;
 
@@ -27,7 +30,7 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
         private readonly IMvxMessenger messengerService;
         private Character selectedCharacter;
         private MvxSubscriptionToken selectedCharacterMvxSubscriptionToken;
-
+        private readonly PlaneRenderer planeRenderer = new PlaneRenderer();
 
         /// <summary>
         /// Creates the AR Renderer
@@ -51,6 +54,23 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
             selectedCharacterMvxSubscriptionToken = this.messengerService.Subscribe<SelectedCharacterMessage>((e) =>
             {
                 this.selectedCharacter = e.Character;
+            });
+
+            // Selects by default the first character
+            Task.Run(async () =>
+            {
+                try
+                {
+                    var characters = await Mvx.IoCProvider.GetSingleton<ICharacterRepository>()?.GetAll();
+                    if (characters.Any())
+                    {
+                        this.selectedCharacter = characters.FirstOrDefault(x=>x.Captured);
+                    }
+                }
+                catch
+                {
+                    // Ignored
+                }
             });
         }
 
@@ -96,6 +116,7 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
                         break;
                     }
 
+                    if (this.selectedCharacter == null) break;
                     var model = new ObjModelRenderer();
                     model.CreateOnGlThread(this.context, selectedCharacter.AssetModel, selectedCharacter.AssetTexture);
                     model.SetMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
@@ -107,40 +128,44 @@ namespace RetroGamesGo.Droid.ArCore.Renderers
 
 
         /// <summary>
+        /// Loads the plane
+        /// </summary>
+        protected override void LoadArAssets()
+        {
+            try
+            {
+                this.planeRenderer.CreateOnGlThread(this.context, "grid.png");
+            }
+            catch 
+            {
+                
+            }
+        }
+
+     
+
+        /// <summary>
         /// Renders the point cloud and the detected planes
         /// </summary>        
         protected override void RenderPlanes(Camera camera, Google.AR.Core.Frame frame)
         {
-            //var projectionMatrix = new float[16];
-            //camera.GetProjectionMatrix(projectionMatrix, 0, 0.1f, 100.0f);
-            //var viewMatrix = new float[16];
-            //camera.GetViewMatrix(viewMatrix, 0);
-      
-            //// Renders the point cloud
-            //var pointCloud = frame.AcquirePointCloud();
-            //pointCloudRenderer.Update(pointCloud);
-            //pointCloudRenderer.Draw(camera.DisplayOrientedPose, viewMatrix, projectionMatrix);
-            //pointCloud.Release();
+            var projectionMatrix = new float[16];
+            camera.GetProjectionMatrix(projectionMatrix, 0, 0.1f, 100.0f);
+            var viewMatrix = new float[16];
+            camera.GetViewMatrix(viewMatrix, 0);
 
-            //// Check if we detected at least one plane. If so, hide the loading message.              
-            //var planes = new List<Plane>();
-            //foreach (var p in session.GetAllTrackables(Java.Lang.Class.FromType(typeof(Plane))))
-            //{
-            //    var plane = (Plane)p;
-            //    planes.Add(plane);
-            //}
-
-            //foreach (var plane in planes)
-            //{
-            //    if (plane.GetType() == Plane.Type.HorizontalUpwardFacing
-            //        && plane.TrackingState == TrackingState.Tracking)
-            //    {
-            //        // Todo: show a message while its tracking for a plane to put the model into and hide when a plane is found                        
-            //        break;
-            //    }
-            //}
-
-            // mPlaneRenderer.DrawPlanes(planes, camera.DisplayOrientedPose, projectionMatrix);
+          
+            // Check if we detected at least one plane. If so, hide the loading message.              
+            var planes = new List<Plane>();
+            foreach (var p in session.GetAllTrackables(Java.Lang.Class.FromType(typeof(Plane))))
+            {
+                var plane = (Plane)p;
+                planes.Add(plane);
+            }
+            if (planes.Any())
+            {
+                planeRenderer.DrawPlanes(planes, camera.DisplayOrientedPose, projectionMatrix);
+            }
         }
 
 

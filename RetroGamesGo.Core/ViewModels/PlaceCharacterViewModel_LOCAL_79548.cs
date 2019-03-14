@@ -1,4 +1,4 @@
-namespace RetroGamesGo.Core.ViewModels
+﻿namespace RetroGamesGo.Core.ViewModels
 {
     using MvvmCross.Logging;
     using MvvmCross.Navigation;
