@@ -79,9 +79,5 @@
             });        
         }
 
-        public override Task Initialize()
-        {
-            return Task.Run(() => { SelectCharacter(); });
-        }
     }
 }

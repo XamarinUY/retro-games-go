@@ -45,8 +45,6 @@
             GLES20.GlBufferData(GLES20.GlArrayBuffer, mVboSize, null, GLES20.GlDynamicDraw);
             GLES20.GlBindBuffer(GLES20.GlArrayBuffer, 0);
 
-            //ShaderHelper.CheckGLError(TAG, "buffer alloc");
-
             var vertexShader = ShaderHelper.Load(TAG, context,
                 GLES20.GlVertexShader, Resource.Raw.point_cloud_vertex);
             var passthroughShader = ShaderHelper.Load(TAG, context,
@@ -58,15 +56,13 @@
             GLES20.GlLinkProgram(mProgramName);
             GLES20.GlUseProgram(mProgramName);
 
-           // ShaderHelper.CheckGLError(TAG, "program");
-
+   
             mPositionAttribute = GLES20.GlGetAttribLocation(mProgramName, "a_Position");
             mColorUniform = GLES20.GlGetUniformLocation(mProgramName, "u_Color");
             mModelViewProjectionUniform = GLES20.GlGetUniformLocation(
                 mProgramName, "u_ModelViewProjection");
             mPointSizeUniform = GLES20.GlGetUniformLocation(mProgramName, "u_PointSize");
-
-           // ShaderHelper.CheckGLError(TAG, "program  params");
+           
         }
 
 
@@ -80,9 +76,7 @@
             {
                 return;
             }
-
-            //ShaderHelper.CheckGLError(TAG, "before update");
-
+         
             GLES20.GlBindBuffer(GLES20.GlArrayBuffer, mVbo);
             mLastPointCloud = cloud;
 
@@ -99,8 +93,7 @@
             GLES20.GlBufferSubData(GLES20.GlArrayBuffer, 0, mNumPoints * BYTES_PER_POINT,
                 mLastPointCloud.Points);
             GLES20.GlBindBuffer(GLES20.GlArrayBuffer, 0);
-
-            //ShaderHelper.CheckGLError(TAG, "after update");
+            
         }
 
 
@@ -120,9 +113,7 @@
             var modelView = new float[16];
             var modelViewProjection = new float[16];
             Matrix.MultiplyMM(modelView, 0, cameraView, 0, modelMatrix, 0);
-            Matrix.MultiplyMM(modelViewProjection, 0, cameraPerspective, 0, modelView, 0);
-
-           // ShaderHelper.CheckGLError(TAG, "Before draw");
+            Matrix.MultiplyMM(modelViewProjection, 0, cameraPerspective, 0, modelView, 0);           
 
             GLES20.GlUseProgram(mProgramName);
             GLES20.GlEnableVertexAttribArray(mPositionAttribute);
@@ -135,9 +126,7 @@
 
             GLES20.GlDrawArrays(GLES20.GlPoints, 0, mNumPoints);
             GLES20.GlDisableVertexAttribArray(mPositionAttribute);
-            GLES20.GlBindBuffer(GLES20.GlArrayBuffer, 0);
-
-            //ShaderHelper.CheckGLError(TAG, "Draw");
+            GLES20.GlBindBuffer(GLES20.GlArrayBuffer, 0);         
         }
     }
 }
