@@ -12,6 +12,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace RetroGamesGo.Service.Functions
 {
@@ -91,7 +92,7 @@ namespace RetroGamesGo.Service.Functions
         /// <param name="logger"></param>
         /// <returns></returns>
         [FunctionName("GetWinnerUser")]
-        public static async Task<IActionResult> GetLocationsASync(
+        public static async Task<IActionResult> GetWinnerUser(
            [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "v1/user/winner")] HttpRequest req,
            CancellationToken token,
            ILogger logger)
@@ -127,7 +128,52 @@ namespace RetroGamesGo.Service.Functions
             }
             catch (Exception ex)
             {
-                logger.LogError(ex.Message, ex, "Locations.GetLocationsAsync");
+                logger.LogError(ex.Message, ex, "Users.GetWinnerUserAsync");
+                return HttpHelper.BadRequestResult(ex.Message);
+            }
+        }
+        #endregion
+
+
+        #region --- GetUsers ---
+        /// <summary>
+        /// Get users from storage 
+        /// </summary>
+        /// <param name="req"></param>
+        /// <param name="token"></param>
+        /// <param name="logger"></param>
+        /// <returns></returns>
+        [FunctionName("GetUsers")]
+        public static async Task<IActionResult> GetUsers(
+           [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "v1/users")] HttpRequest req,
+           CancellationToken token,
+           ILogger logger)
+        {
+            try
+            {
+                var storageHelper = new StorageHelper(ConfigurationHelper.Configuration);
+                var users = await storageHelper.GetItemsAsync<UserEntity>("Users");
+                //var usersSet = users.Where(x => !x.Winner).Select(g => g).ToList();
+
+                var result = users.Select(x => new User
+                {
+                    Email = x.Email,
+                    Document = x.Document,
+                    Name = x.Name,
+                    CellPhone = x.CellPhone,
+                    Country = x.Country,
+                }).ToList();
+                
+                return new OkObjectResult(new ServiceResponse<List<User>>
+                {
+                    Success = true,
+                    Data = result,
+                    Errors = null
+                });
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message, ex, "Uesrs.GetUsersAsync");
                 return HttpHelper.BadRequestResult(ex.Message);
             }
         }
