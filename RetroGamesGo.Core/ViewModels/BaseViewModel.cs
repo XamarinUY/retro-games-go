@@ -13,18 +13,13 @@
     /// <summary>
     /// Base class for all our ViewModels
     /// </summary>
-    public abstract class BaseViewModel : MvxNavigationViewModel
+    public abstract class BaseViewModel : MvxNavigationViewModel //, INotifyPropertyChanged
     {
+        //public event PropertyChangedEventHandler PropertyChanged;
         private bool isBusy;
         private readonly IMvxTextProviderBuilder textProviderBuilder;
 
-
-        /// <summary>
-        /// Page title 
-        /// </summary>
-        public string Title { get; set; }
-
-
+        
         /// <summary>
         /// Get's if the viewModel is busy doing something
         /// </summary>
@@ -77,7 +72,7 @@
 
         protected BaseViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
         {
-            this.isBusy = false;
+            this.IsBusy = false;
             this.textProviderBuilder = Mvx.IoCProvider.GetSingleton<IMvxTextProviderBuilder>();
         }
 

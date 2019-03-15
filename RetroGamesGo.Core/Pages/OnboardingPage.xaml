@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:MvxContentPage x:TypeArguments="viewModels:OnboardingViewModel" 
+                      xmlns="http://xamarin.com/schemas/2014/forms" 
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                      x:Class="RetroGamesGo.Core.Pages.OnboardingPage" 
+                      xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView" 
+                      NavigationPage.HasNavigationBar="false" 
+                      BackgroundColor="{StaticResource BackgroundColor}"
+                      xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+                      xmlns:viewModels="clr-namespace:RetroGamesGo.Core.ViewModels;assembly=RetroGamesGo.Core" 
+                      xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                      xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+                      xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                      ios:Page.UseSafeArea="true">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="Black" IsVisible="{Binding ShowLottie}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                  <Label Text="ARE YOU READY?" StyleClass="TitleWhiteLabel" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,190,0,0"/>
+                  <lottie:AnimationView 
+                    VerticalOptions="FillAndExpand"
+                    x:Name="AnimationView" 
+                    Animation="breakoutgame.json" 
+                    AutoPlay="{Binding ShowLottie}"
+                    HorizontalOptions="FillAndExpand"/>
+                    <StackLayout Orientation="Horizontal" Padding="0,20" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Label Text="App desarrollada por la comunidad XamarinUY" StyleClass="WhiteSpaceMonoLabel"/>
+<!--                        <Image Source="marioBross.png" VerticalOptions="FillAndExpand"/>-->
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout IsVisible="{Binding ShowOnboard}" Padding="30,60,30,20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Spacing="15" VerticalOptions="CenterAndExpand">
+                        <Label Text="COMO JUGAR" StyleClass="TitleWhiteLabel" FontSize="28"/>
+                        <Label Text="CAPTURA TODOS LOS PERSONAJES Y PARTICIPÁ DE SORTEOS" StyleClass="GoldLabel" FontSize="Small"/>
+                        <Label Text="* En todo el Campus Party encontrarás stickers con personajes de juegos retro." StyleClass="WhiteSpaceMonoLabel"/>
+                        <Label Text="* Cuando encuentres un sticker, haciendo click en el botón CAPTURAR desbloquearás el personaje para luego verlo en realidad aumentada." StyleClass="WhiteSpaceMonoLabel"/>
+                        <Label Text="* Capturando todos los personajes y completando el formulario podrás participar de sorteos." StyleClass="WhiteSpaceMonoLabel"/>
+                        <Label Text="BONUS: Una vez capturado un personaje, con realidad aumentada podrás posicionarlo donde quieras!" StyleClass="WhiteSpaceMonoLabel"/>
+                    </StackLayout>
+                    <Button Text="PLAY" StyleClass="PrimaryButton" Margin="0,10,0,60" VerticalOptions="EndAndExpand" Command="{Binding Play}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</views:MvxContentPage>

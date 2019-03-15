@@ -5,7 +5,80 @@
     <Application.Resources>
         <ResourceDictionary>
             
-
+            <Color x:Key="BackgroundColor">#121619</Color>
+            <Color x:Key="CardBackgroundColor">#191e23</Color>
+            <Color x:Key="GoldColor">#f8b82f</Color>
+            <Color x:Key="GrayColor">#999999</Color>
+            
+            <!--Navigation--> 
+            <Style TargetType="NavigationPage">
+               <Setter Property="BarTextColor" Value="White" />
+               <Setter Property="BarBackgroundColor" Value="{StaticResource BackgroundColor}"/>
+            </Style>
+            
+            <!--Fonts-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="Ka1Font">
+                <On Platform="Android" Value="ka1.ttf#ka1" />
+                <On Platform="iOS" Value="ka1" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="PressStart2PFont">
+                <On Platform="Android" Value="PressStart2P.ttf#PressStart2P" />
+                <On Platform="iOS" Value="PressStart2P" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="SpaceMonoFont">
+                <On Platform="Android" Value="SpaceMono-Bold.ttf#SpaceMono" />
+                <On Platform="iOS" Value="SpaceMono-Bold" />
+            </OnPlatform>
+            
+            
+            <!--Labels-->
+            <Style Class="WhiteSimpleLabel" TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            <Style Class="TitleWhiteLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="{StaticResource PressStart2PFont}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style Class="GoldLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="{StaticResource GoldColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontFamily" Value="{StaticResource PressStart2PFont}" />
+            </Style>
+            <Style Class="WhiteSpaceMonoLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontFamily" Value="{StaticResource SpaceMonoFont}" />
+            </Style>
+            
+            <!--Buttons-->
+            <Style Class="PrimaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource GoldColor}" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BorderRadius" Value="6" />
+                <Setter Property="FontFamily" Value="{StaticResource PressStart2PFont}"/>
+                <Setter Property="HeightRequest" Value="40" />
+            </Style>
+            <!--Frames-->
+            <Style x:Key="ActiveIndicator" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource GoldColor}" />
+                <Setter Property="CornerRadius" Value="0" />
+            </Style>
+            <Style x:Key="InactiveIndicator" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="OutlineColor" Value="{StaticResource GrayColor}" />
+            </Style>
+            
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

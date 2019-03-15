@@ -3,6 +3,8 @@
 
     using Xamarin.Forms.Xaml;
     using MvvmCross.Forms.Presenters.Attributes;
+    using Xamarin.Forms;
+    using RetroGamesGo.Core.Utils;
 
     /// <summary>
     /// Main UI
