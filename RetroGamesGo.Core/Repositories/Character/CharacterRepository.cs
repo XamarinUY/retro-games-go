@@ -154,7 +154,7 @@ namespace RetroGamesGo.Core.Repositories
                 Captured = false,
                 AssetSticker = "SpaceInvader/SpaceInvaderSticker.png",
                 AssetModel = "SpaceInvader/Space_Invader.obj", //TODO: change this
-                AssetTexture = "Mario/Mario.png", //TODO: change this
+                AssetTexture = "SpaceInvader/Space_Invader.png", //TODO: change this
                 AssetSound = "space.wav"
             });
             await this.AddCharacter(new Character()
