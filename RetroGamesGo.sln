@@ -30,14 +30,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mario", "Mario", "{E130CFED-CB15-410F-90BA-05B919312410}"
 	ProjectSection(SolutionItems) = preProject
 		Assets\Mario\Mario.png = Assets\Mario\Mario.png
-		Assets\Mario\Mario2.mtl = Assets\Mario\Mario2.mtl
 		Assets\Mario\mario_coin.mp3 = Assets\Mario\mario_coin.mp3
 		Assets\Mario\MarioSticker.png = Assets\Mario\MarioSticker.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PacMan", "PacMan", "{BCCF97C3-A838-4DD1-BA39-409817155D96}"
 	ProjectSection(SolutionItems) = preProject
-		Assets\PacMan\pacman.mtl = Assets\PacMan\pacman.mtl
 		Assets\PacMan\pacman.obj = Assets\PacMan\pacman.obj
 		Assets\PacMan\pacman_waka_waka.mp3 = Assets\PacMan\pacman_waka_waka.mp3
 		Assets\PacMan\PacmanSticker.png = Assets\PacMan\PacmanSticker.png
@@ -45,7 +43,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PacMan", "PacMan", "{BCCF97
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DonkeyKong", "DonkeyKong", "{95B47C06-E1B5-4739-8B1B-820D7B11C4CB}"
 	ProjectSection(SolutionItems) = preProject
-		Assets\DonkeyKong\DonkeyKong.mtl = Assets\DonkeyKong\DonkeyKong.mtl
 		Assets\DonkeyKong\DonkeyKong.obj = Assets\DonkeyKong\DonkeyKong.obj
 		Assets\DonkeyKong\DonkeyKong.png = Assets\DonkeyKong\DonkeyKong.png
 		Assets\DonkeyKong\DonkeyKong.wav = Assets\DonkeyKong\DonkeyKong.wav
